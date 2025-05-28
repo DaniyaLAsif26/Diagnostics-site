@@ -1,2 +1,2 @@
-A Diagnostic center website
-part od a freelance project
+A Diagnostic center website,
+part of a freelance project
