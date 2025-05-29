@@ -1,5 +1,5 @@
 .options-bar {
-    height: 3.8rem;
+    height: 4.5rem;
     width: 100%;
     display: flex;
     justify-content: space-evenly;
@@ -11,9 +11,9 @@
 a {
     text-decoration: none;
     color: black;
-    height: 3.7rem;
+    height: 100%;
     padding: 0.5rem;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     display: flex;
     justify-content: center;
     align-items: center;

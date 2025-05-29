@@ -48,7 +48,7 @@ export default function Navbar() {
                 <AccessTimeIcon style={{ color: '#21356d', fontSize: 30 }} />
                 <div className="timr-info ">
                     <span>Mon - Sun</span>
-                    <div className=""><b>8:00am - 11:00am</b></div>
+                    <div className=""><b>8:00am - 11:00pm</b></div>
                 </div>
             </div>
             <div className="nav-right">
