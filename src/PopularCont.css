@@ -1,0 +1,31 @@
+.popular-cont{
+border-top: 10px solid #21356d;
+border-bottom: 10px solid #21356d;
+    width: 100%;
+    text-align: center;
+    padding: 0rem 2rem;
+}
+
+.popular-items{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 2.5rem;
+    
+}
+
+h2{
+    font-size: 2rem;
+    padding: 1.5rem 0rem;
+}
+
+.more{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 5rem;
+    margin: 0rem 0.5rem;
+    cursor: pointer;
+}
