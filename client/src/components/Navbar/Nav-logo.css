@@ -1,0 +1,28 @@
+.nav-logo {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    margin-left: 1rem;
+}
+
+.nav-logo img {
+    padding: 0rem 1rem;
+    height: 5.5rem;
+    border-right: 4px solid #21356d;
+}
+
+.logo-name {
+    margin-left: 1rem;
+    color: #21356d;
+    font-size: 1.4rem;
+    line-height: 1.2;
+    font-weight: bold;
+} 
+
+
+
+
+
+
+
+

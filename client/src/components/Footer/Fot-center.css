@@ -1,0 +1,17 @@
+.footer-center ul{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    list-style: none;
+    gap: 1rem;
+    font-weight: 600;
+    padding: 0rem 1rem;
+}
+
+.footer-center a{
+    font-size: 1.20rem;
+    text-decoration: none;
+    color : black
+}
+

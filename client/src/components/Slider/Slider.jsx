@@ -1,8 +1,7 @@
 import { useState, useEffect } from 'react';
+import './Slider.css'; 
 
-import './Slider.css'; // Make sure this file exists
-
-const Slider = ({ images,offer }) => {
+const Slider = ({ images}) => {
     const [current, setCurrent] = useState(0);
 
     // Auto slide every 3 seconds
@@ -22,7 +21,6 @@ const Slider = ({ images,offer }) => {
     };
 
     return (
-        <div className="images">
             <div className="slider">
                 {images.map((img, idx) => (
                     <div key={idx} className={idx === current ? 'slide active' : 'slide'}>
@@ -34,10 +32,6 @@ const Slider = ({ images,offer }) => {
                 <button className="nav prev" onClick={goToPrev}>&#10094;</button>
                 <button className="nav next" onClick={goToNext}>&#10095;</button>
             </div>
-            <div className="offer-img">
-                <img src={offer} alt="" />
-            </div>
-        </div>
     );
 };
 

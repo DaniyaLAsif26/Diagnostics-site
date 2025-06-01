@@ -1,0 +1,29 @@
+.options-bar ul {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 2.6rem;
+    align-items: center;
+    background-color: pink;
+    list-style: none;
+}
+
+.options-bar {
+    height: 4rem;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: row;
+    background-color: pink;
+}
+
+.options-bar a {
+    text-decoration: none;
+    color: black;
+    height: 100%;
+    padding: 0.5rem;     
+    font-size: 1.2rem;;
+    font-weight: 600;
+}

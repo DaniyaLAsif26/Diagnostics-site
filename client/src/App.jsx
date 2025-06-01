@@ -1,22 +1,22 @@
 // import { useState } from 'react'
 import './App.css'
-import Navbar from './components/Navbar.jsx'
-import Slider from './components/Slider.jsx'
-import OptionsBar from './components/Options-bar.jsx'
-import PopularCont from './components/Popular-cont.jsx'
-import image1 from './assets/image1.jpg';
-import image2 from './assets/image2.png';
-import offer from './assets/offer.jpg';
+import Navbar from './components/Navbar/Navbar.jsx'
+import OptionsBar from './components/options/Options-bar.jsx'
+import SliderCont from './components/Slider/Slider-cont.jsx'
+import PopularCont from './components/Popular-packs/Popular-cont.jsx'
+import Footer from './components/Footer/Footer-cont.jsx'
+import Copyright from './components/Footer/Copyright.jsx'
 
 function App() {
-  const images = [image1, image2];
 
   return (
     <>
       <Navbar />
       <OptionsBar />
-      <Slider images={images} offer={offer}/>
+      <SliderCont />
       <PopularCont />
+      <Footer />
+      <Copyright />
     </>
   );
 }

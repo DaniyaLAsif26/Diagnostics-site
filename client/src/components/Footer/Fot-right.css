@@ -1,0 +1,12 @@
+.intro{
+    padding: 0rem 1rem;
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+.socials{
+    padding: 0rem 1rem;
+    display: flex;
+    gap: 1rem;
+    margin: 3rem 0rem;
+}
