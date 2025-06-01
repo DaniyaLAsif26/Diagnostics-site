@@ -1,4 +1,4 @@
-import logo from './assets/1.png';
+import logo from '../assets/1.png';
 import './Navbar.css';
 import Button from '@mui/material/Button';
 import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
