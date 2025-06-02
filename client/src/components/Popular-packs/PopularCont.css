@@ -1,9 +1,7 @@
 .popular-cont{
-border-top: 10px solid #21356d;
-border-bottom: 10px solid #21356d;
     width: 100%;
     text-align: center;
-    padding: 0rem 2rem;
+    padding: 1rem 2rem;
 }
 
 .popular-items{
@@ -15,9 +13,11 @@ border-bottom: 10px solid #21356d;
     
 }
 
-h2{
+.popular-cont h2{
     font-size: 2rem;
     padding: 1.5rem 0rem;
+    text-align: start;
+    margin: 0rem 2.6rem;
 }
 
 .more{

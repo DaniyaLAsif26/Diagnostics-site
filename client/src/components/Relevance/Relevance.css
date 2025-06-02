@@ -1,0 +1,15 @@
+.Blood img{
+    height: 117px;
+    width: 117px;
+    border-radius: 50%;
+}
+
+.relevance{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 3rem;
+    align-items: center;
+    margin: 2rem 5rem;
+    flex-wrap: wrap;
+}

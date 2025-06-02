@@ -1,6 +1,6 @@
 footer {
     background-color: white;
-    padding: 5rem 12rem 2rem 12rem;
+    padding: 5rem 12rem 6rem 12rem;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
 }
@@ -9,7 +9,6 @@ footer h2 {
   position: relative; /* This is necessary */
   margin-bottom: 3rem;
   padding: 1.5rem 0rem;
-  /* border-bottom: 4px solid black; */
 }
 
 footer h2::after {

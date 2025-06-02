@@ -13,10 +13,10 @@ export default function FotRight() {
                 To be the most trusted diagnostic center by delivering accurate, timely, and affordable healthcare diagnostics through advanced technology, compassionate care, and a commitment to improving every life we touch.
             </div>
             <div className="socials">
-                <InstagramIcon className="social-icon" style={{ fontSize: "2.6rem", color: "blue" }} />
-                <FacebookIcon className="social-icon" style={{ fontSize: "2.6rem", color: "blue" }} />
-                <WhatsAppIcon className="social-icon" style={{ fontSize: "2.6rem", color: "blue" }} />
-                <YouTubeIcon className="social-icon" style={{ fontSize: "2.6rem", color: "blue" }} />
+                <InstagramIcon className="social-icon" style={{ fontSize: "2.6rem", color: " black" }} />
+                <FacebookIcon className="social-icon" style={{ fontSize: "2.6rem", color: " black" }} />
+                <WhatsAppIcon className="social-icon" style={{ fontSize: "2.6rem", color: " black" }} />
+                <YouTubeIcon className="social-icon" style={{ fontSize: "2.6rem", color: " black" }} />
             </div>
         </div>
     )
