@@ -1,5 +1,13 @@
 {
+  "scripts": {
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "server": "npm --prefix server start",
+    "client": "npm --prefix client run dev"
+  },
   "dependencies": {
     "react-router-dom": "^7.6.1"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
   }
 }
