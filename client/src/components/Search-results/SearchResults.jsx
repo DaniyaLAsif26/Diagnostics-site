@@ -13,7 +13,7 @@ export default function SearchResults() {
     useEffect(() => {
         const fetchResults = async () => {
             try {
-                const res = await fetch(`http://localhost:5000/api/tests/search?query=${query}`);
+                const res = await fetch(`http://localhost:5000/api/tests/search/tests?query=${query}`);
                 const data = await res.json();
                 setResults(data);
                 console.log(data)

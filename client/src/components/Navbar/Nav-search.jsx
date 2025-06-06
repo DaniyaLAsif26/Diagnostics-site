@@ -15,7 +15,7 @@ export default function NavSearch() {
     let handleSubmit = (e) => {
         e.preventDefault();
         if (search.trim()) {
-            navigate(`/search?q=${search}`);
+            navigate(`/search/tests?q=${search}`);
         }
     }
 

@@ -3,7 +3,7 @@ import Test from '../models/Test.js';  // adjust path as needed
 
 const router = express.Router();
 
-router.get('/search', async (req, res) => {
+router.get('/search/tests', async (req, res) => {
   const query = req.query.query || req.query.q;
 
   if (!query || query.trim().length < 3) {
