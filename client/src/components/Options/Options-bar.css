@@ -5,8 +5,19 @@
     justify-content: center;
     gap: 2.6rem;
     align-items: center;
-    background-color: pink;
     list-style: none;
+}
+
+.options-bar li{
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    color: black;
+    font-size: 1.2rem;;
+    font-weight: 600;
+    cursor: pointer;
 }
 
 .options-bar {
@@ -17,13 +28,5 @@
     align-items: center;
     flex-direction: row;
     background-color: pink;
-}
-
-.options-bar a {
-    text-decoration: none;
-    color: black;
-    height: 100%;
-    padding: 0.5rem;     
-    font-size: 1.2rem;;
-    font-weight: 600;
+    box-sizing: border-box;
 }
