@@ -1,9 +1,9 @@
 import express from 'express';
-import Test from '../models/Test.js';  // adjust path as needed
+import Test from '../models/Test.js';
 
 const router = express.Router();
 
-router.get('/search/tests', async (req, res) => {
+router.get('/tests', async (req, res) => {
   const query = req.query.query || req.query.q;
 
   if (!query || query.trim().length < 3) {
@@ -29,5 +29,19 @@ router.get('/search/tests', async (req, res) => {
     res.status(500).json({ message: "Search failed", error: err.message });
   }
 });
+
+
+router.get('/all-tests', async (req, res) => {
+  try {
+    const allTests = await Test.find();
+    res.json(allTests);
+
+  }
+  catch (err) {
+    console.error("Error fetching all tests:", err);
+    res.status(500).json({ message: "Failed to retrieve tests", error: err.message });
+  }
+
+})
 
 export default router;
