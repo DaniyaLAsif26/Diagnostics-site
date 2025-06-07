@@ -1,9 +1,30 @@
-.kart {
+.kart-cont {
+    height: 100%;
+    width: 5.5rem;
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 2px solid black;
-    border-Radius: 60%;
-    padding: 4px;
     cursor: pointer;
+    position: relative;
+}
+
+.cart {
+    height: 40%;
+    background-color: red;
+    padding: 0.5rem;
+    border-radius: 50%;
+    font-weight: bold;
+    position: absolute;
+    right: 0;
+    top: 3px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+.cart-icon {
+    padding: 4px;
+    border: 2px solid black;
+    border-Radius: 40%;
 }
