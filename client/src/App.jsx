@@ -8,6 +8,7 @@ import Copyright from './components/Footer/Copyright.jsx';
 import AppRoutes from './routes/AppRoutes.jsx';
 import OptionsBar from './components/options/Options-bar.jsx';
 
+
 function App() {
   return (
     <>
