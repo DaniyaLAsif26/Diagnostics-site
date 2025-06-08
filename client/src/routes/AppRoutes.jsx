@@ -4,6 +4,7 @@ import Search from '../pages/Search.jsx';
 import NotFound from '../pages/NotFound.jsx';
 import AllTests from '../pages/AllTests.jsx'
 import AboutUs from '../pages/AboutUs.jsx';
+import GalleryPage from '../pages/Gallery.jsx';
 
 
 
@@ -17,6 +18,7 @@ function AppRoutes() {
       <Route path="/search/tests" element={<Search />} />
       <Route path="/search/all-tests" element={<AllTests />} />
       <Route path="/about-us" element={<AboutUs />} />
+      <Route path="/gallery" element={<GalleryPage />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
   );

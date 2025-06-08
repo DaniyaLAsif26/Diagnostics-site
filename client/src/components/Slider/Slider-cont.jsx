@@ -1,5 +1,5 @@
 import image1 from '../../assets/image1.jpg';
-import image2 from '../../assets/image2.png';
+import image2 from '../../assets/image2.avif';
 import offer from '../../assets/offer.jpg';
 
 import Slider from './Slider.jsx';

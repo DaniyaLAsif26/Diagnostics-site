@@ -10,7 +10,7 @@ const options = [
     { id: uuidv4(), name: 'Home Sample Collection' ,path : ''  },
     { id: uuidv4(), name: 'Download Reports' ,path : ''  },
     { id: uuidv4(), name: 'About Us' ,path : '/about-us'  },
-    { id: uuidv4(), name: 'Gallery' ,path : ''  },
+    { id: uuidv4(), name: 'Gallery' ,path : '/gallery'  },
 ];
 
 export default function OptionsBar() {
