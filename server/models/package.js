@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 
 const packSchema = new Schema({
   name: String,
-  relevance: String,
+  relevance: Array,
   price: Number,
   popular: Boolean,
   tests: Array  
@@ -11,4 +11,4 @@ const packSchema = new Schema({
 
 const Package = mongoose.model("Package", packSchema);
 
-export {Package };
+export default Package ;

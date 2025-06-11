@@ -10,4 +10,4 @@ const testSchema = new Schema({
 
 const Test = mongoose.model("Test", testSchema);
 
-export {Test} ;
+export default Test ;
