@@ -1,13 +1,14 @@
 import mongoose from "mongoose";
-import initData from "./data.js";
-import Test from "../models/Test.js";
+import { sampleTest, samplePack } from "./data.js";
+import { Test } from "../models/test.js";
+import { Package } from "../models/package.js";
 
 const MONGO_URL = "mongodb://127.0.0.1:27017/vision-center";
 
 main()
     .then(() => {
         console.log("connected to DB");
-        initDB(); // move this here to ensure DB is connected
+        initDB();
     })
     .catch((err) => {
         console.log(err);
@@ -17,9 +18,17 @@ async function main() {
     await mongoose.connect(MONGO_URL);
 }
 
+
 const initDB = async () => {
-    await Test.deleteMany({});
-    let modifiedData = initData.map((obj) => obj); // or add owner if needed
-    await Test.insertMany(modifiedData);
-    console.log("data was initialized");
-};
+    try {
+        await Test.deleteMany({});
+        await Package.deleteMany({});
+
+        await Test.insertMany(sampleTest);
+        await Package.insertMany(samplePack);
+
+        console.log("✅ Test and Package data was initialized");
+    } catch (err) {
+        console.error("❌ Error initializing data:", err);
+    }
+}
