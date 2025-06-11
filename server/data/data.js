@@ -186,4 +186,253 @@ const sampleTest = [
   }
 ];
 
-export default sampleTest;
+const samplePack = [
+  {
+    "name": "Surgical Profile (Minor)",
+    "relevance": "Surgical",
+    "price": 1850,
+    "popular": true,
+    "tests": [
+      "Complete Blood Picture",
+      "Erythrocyte Sedimentation Rate",
+      "Bleeding Time Clotting Time",
+      "Blood Grouping and RH Typing",
+      "Complete Urine Examination",
+      "Random Blood Sugar",
+      "Blood Urea",
+      "Serum Creatinine",
+      "Thyroid Stimulating Hormone (TSH)",
+      "HIV I & II",
+      "HBsAg",
+      "HCV",
+      "VDRL",
+      "ECG",
+      "Chest X-Ray (PA View)"
+    ]
+  },
+  {
+    "name": "Complete Cardiac Profile",
+    "relevance": "Heart",
+    "price": 3300,
+    "popular": true,
+    "tests": [
+      "CBP",
+      "Urine Examination (CUE)",
+      "Random Blood Sugar",
+      "Blood Urea",
+      "Serum Creatinine",
+      "Lipid Profile",
+      "SGOT",
+      "Electrolytes",
+      "LDH",
+      "TSH",
+      "CPK",
+      "CPKMB",
+      "CRP",
+      "Chest X-Ray",
+      "ECG",
+      "2D Echo"
+    ]
+  },
+  {
+    "name": "Fever Profile",
+    "relevance": "Infection",
+    "price": 1000,
+    "tests": [
+      "Complete Haemogram",
+      "ESR",
+      "Urine Examination",
+      "Widal Test",
+      "Blood Test for Parasite & P.V.",
+      "CRP"
+    ]
+  },
+  {
+    "name": "Diabetic Package",
+    "relevance": "Diabetes",
+    "price": 1400,
+    "popular": true,
+    "tests": [
+      "Complete Blood Picture",
+      "Complete Urine Examination",
+      "Fasting Blood Sugar",
+      "Post Lunch Blood Sugar",
+      "HbA1c",
+      "Lipid Profile",
+      "Serum Creatinine"
+    ]
+  },
+  {
+    "name": "Antenatal Profile",
+    "relevance": "Pregnancy",
+    "price": 1800,
+    "tests": [
+      "Complete Blood Picture",
+      "BT CT",
+      "Urine Examination",
+      "Blood Grouping and RH Typing",
+      "Random Blood Sugar",
+      "TSH",
+      "HIV I & II",
+      "HBsAg",
+      "HCV",
+      "VDRL"
+    ]
+  },
+  {
+    "name": "Well Women Check-up",
+    "relevance": "Women",
+    "price": 1800,
+    "tests": [
+      "Complete Haemogram",
+      "ESR",
+      "Urine Examination",
+      "Stool Routine",
+      "RBS",
+      "Serum Creatinine",
+      "TSH",
+      "Chest X-Ray",
+      "Ultrasound Abdomen & Pelvis",
+      "Pap Smear"
+    ]
+  },
+  {
+    "name": "Well Baby Checkup",
+    "relevance": "Pediatrics",
+    "price": 800,
+    "tests": [
+      "Haemogram",
+      "Blood Grouping and RH Typing",
+      "Urine Examination",
+      "RBS",
+      "Serum Creatinine",
+      "TSH",
+      "CRP"
+    ]
+  },
+  {
+    "name": "Child Growth & Development Profile",
+    "relevance": "Pediatrics",
+    "price": 1200,
+    "tests": [
+      "Haemogram",
+      "Blood Grouping and RH Typing",
+      "Urine Examination",
+      "RBS",
+      "Serum Creatinine",
+      "Vitamin D3",
+      "Thyroid Profile"
+    ]
+  },
+  {
+    "name": "Liver Checkup",
+    "relevance": "Liver",
+    "price": 999,
+    "popular": true,
+    "tests": [
+      "Ultrasound Abdomen",
+      "Liver Function Test",
+      "HBsAg",
+      "HCV"
+    ]
+  },
+  {
+    "name": "Executive Health Checkup",
+    "relevance": "General",
+    "price": 3500,
+    "popular": true,
+    "tests": [
+      "Haemogram",
+      "ESR",
+      "Stool Routine",
+      "Fasting Blood Sugar",
+      "Post Lunch Blood Sugar",
+      "Urine Examination",
+      "Serum Creatinine",
+      "Serum Electrolytes",
+      "LFT",
+      "Lipid Profile",
+      "TSH",
+      "Ultrasound Abdomen & Pelvis",
+      "HBsAg",
+      "HCV",
+      "Chest X-Ray",
+      "ECG",
+      "PSA for Male"
+    ]
+  },
+  {
+    "name": "Master Health Checkup",
+    "relevance": "General",
+    "price": 2900,
+    "popular": true,
+    "tests": [
+      "Haemogram",
+      "ESR",
+      "Urine Examination",
+      "Stool Routine",
+      "Fasting Blood Sugar",
+      "Post Lunch Blood Sugar",
+      "Serum Creatinine",
+      "Uric Acid",
+      "Lipid Profile",
+      "LFT",
+      "HbA1c",
+      "TSH",
+      "Chest X-Ray",
+      "Ultrasound Abdomen & Pelvis",
+      "PSA (Male)",
+      "Pap Smear (Women)"
+    ]
+  },
+  {
+    "name": "Health Checkup for Senior Citizens",
+    "relevance": "Senior Citizens",
+    "price": 3500,
+    "tests": [
+      "Haemogram",
+      "ESR",
+      "Stool for Occult Blood",
+      "Urine Examination",
+      "Fasting Blood Sugar",
+      "Post Lunch Blood Sugar",
+      "Serum Creatinine",
+      "Serum Calcium",
+      "Lipid Profile",
+      "LFT",
+      "Electrolytes",
+      "TSH",
+      "X-Ray Chest",
+      "PSA for Male",
+      "Pap Smear for Female",
+      "Ultrasound Abdomen & Pelvis"
+    ]
+  },
+  {
+    "name": "Medical Profile (Major)",
+    "relevance": "General",
+    "price": 3300,
+    "tests": [
+      "Complete Blood Picture",
+      "ESR",
+      "BT CT",
+      "Blood Grouping and RH Typing",
+      "Urine Examination",
+      "Fasting Blood Sugar",
+      "Post Lunch Blood Sugar",
+      "Serum Creatinine",
+      "TSH",
+      "PTINR",
+      "APTT",
+      "HIV I & II",
+      "HBsAg",
+      "HCV",
+      "VDRL",
+      "ECG",
+      "X-Ray Chest PA View"
+    ]
+  }
+]
+
+
+export { sampleTest, samplePack };
