@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 import { sampleTest, samplePack } from "./data.js";
-import { Test } from "../models/test.js";
-import { Package } from "../models/package.js";
+import Test from "../models/test.js";
+import Package from "../models/package.js";
 
 const MONGO_URL = "mongodb://127.0.0.1:27017/vision-center";
 
