@@ -188,11 +188,11 @@ const sampleTest = [
 
 const samplePack = [
   {
-    "name": "Surgical Profile (Minor)",
-    "relevance": "Surgical",
-    "price": 1850,
-    "popular": true,
-    "tests": [
+    name: "Surgical Profile (Minor)",
+    relevance: ["blood", "kidney", "thyroid", "infection", "lungs"],
+    price: 1850,
+    popular: true,
+    tests: [
       "Complete Blood Picture",
       "Erythrocyte Sedimentation Rate",
       "Bleeding Time Clotting Time",
@@ -211,11 +211,11 @@ const samplePack = [
     ]
   },
   {
-    "name": "Complete Cardiac Profile",
-    "relevance": "Heart",
-    "price": 3300,
-    "popular": true,
-    "tests": [
+    name: "Complete Cardiac Profile",
+    relevance: ["heart", "blood", "kidney", "thyroid", "lungs"],
+    price: 3300,
+    popular: true,
+    tests: [
       "CBP",
       "Urine Examination (CUE)",
       "Random Blood Sugar",
@@ -235,10 +235,10 @@ const samplePack = [
     ]
   },
   {
-    "name": "Fever Profile",
-    "relevance": "Infection",
-    "price": 1000,
-    "tests": [
+    name: "Fever Profile",
+    relevance: ["infection", "blood"],
+    price: 1000,
+    tests: [
       "Complete Haemogram",
       "ESR",
       "Urine Examination",
@@ -248,11 +248,11 @@ const samplePack = [
     ]
   },
   {
-    "name": "Diabetic Package",
-    "relevance": "Diabetes",
-    "price": 1400,
-    "popular": true,
-    "tests": [
+    name: "Diabetic Package",
+    relevance: ["diabetes", "kidney", "blood"],
+    price: 1400,
+    popular: true,
+    tests: [
       "Complete Blood Picture",
       "Complete Urine Examination",
       "Fasting Blood Sugar",
@@ -263,10 +263,10 @@ const samplePack = [
     ]
   },
   {
-    "name": "Antenatal Profile",
-    "relevance": "Pregnancy",
-    "price": 1800,
-    "tests": [
+    name: "Antenatal Profile",
+    relevance: ["blood", "diabetes", "thyroid", "infection"],
+    price: 1800,
+    tests: [
       "Complete Blood Picture",
       "BT CT",
       "Urine Examination",
@@ -280,10 +280,10 @@ const samplePack = [
     ]
   },
   {
-    "name": "Well Women Check-up",
-    "relevance": "Women",
-    "price": 1800,
-    "tests": [
+    name: "Well Women Check-up",
+    relevance: ["thyroid", "blood", "liver", "stomach", "lungs"],
+    price: 1800,
+    tests: [
       "Complete Haemogram",
       "ESR",
       "Urine Examination",
@@ -297,10 +297,10 @@ const samplePack = [
     ]
   },
   {
-    "name": "Well Baby Checkup",
-    "relevance": "Pediatrics",
-    "price": 800,
-    "tests": [
+    name: "Well Baby Checkup",
+    relevance: ["thyroid", "infection", "blood", "kidney"],
+    price: 800,
+    tests: [
       "Haemogram",
       "Blood Grouping and RH Typing",
       "Urine Examination",
@@ -311,10 +311,10 @@ const samplePack = [
     ]
   },
   {
-    "name": "Child Growth & Development Profile",
-    "relevance": "Pediatrics",
-    "price": 1200,
-    "tests": [
+    name: "Child Growth & Development Profile",
+    relevance: ["thyroid", "kidney", "blood"],
+    price: 1200,
+    tests: [
       "Haemogram",
       "Blood Grouping and RH Typing",
       "Urine Examination",
@@ -325,11 +325,11 @@ const samplePack = [
     ]
   },
   {
-    "name": "Liver Checkup",
-    "relevance": "Liver",
-    "price": 999,
-    "popular": true,
-    "tests": [
+    name: "Liver Checkup",
+    relevance: ["liver", "infection"],
+    price: 999,
+    popular: true,
+    tests: [
       "Ultrasound Abdomen",
       "Liver Function Test",
       "HBsAg",
@@ -337,11 +337,11 @@ const samplePack = [
     ]
   },
   {
-    "name": "Executive Health Checkup",
-    "relevance": "General",
-    "price": 3500,
-    "popular": true,
-    "tests": [
+    name: "Executive Health Checkup",
+    relevance: ["blood", "diabetes", "thyroid", "liver", "lungs", "kidney", "stomach"],
+    price: 3500,
+    popular: true,
+    tests: [
       "Haemogram",
       "ESR",
       "Stool Routine",
@@ -362,11 +362,11 @@ const samplePack = [
     ]
   },
   {
-    "name": "Master Health Checkup",
-    "relevance": "General",
-    "price": 2900,
-    "popular": true,
-    "tests": [
+    name: "Master Health Checkup",
+    relevance: ["blood", "diabetes", "thyroid", "liver", "lungs", "stomach"],
+    price: 2900,
+    popular: true,
+    tests: [
       "Haemogram",
       "ESR",
       "Urine Examination",
@@ -386,10 +386,10 @@ const samplePack = [
     ]
   },
   {
-    "name": "Health Checkup for Senior Citizens",
-    "relevance": "Senior Citizens",
-    "price": 3500,
-    "tests": [
+    name: "Health Checkup for Senior Citizens",
+    relevance: ["blood", "diabetes", "thyroid", "kidney", "liver", "lungs", "stomach"],
+    price: 3500,
+    tests: [
       "Haemogram",
       "ESR",
       "Stool for Occult Blood",
@@ -409,10 +409,10 @@ const samplePack = [
     ]
   },
   {
-    "name": "Medical Profile (Major)",
-    "relevance": "General",
-    "price": 3300,
-    "tests": [
+    name: "Medical Profile (Major)",
+    relevance: ["blood", "diabetes", "thyroid", "infection", "lungs"],
+    price: 3300,
+    tests: [
       "Complete Blood Picture",
       "ESR",
       "BT CT",
@@ -432,7 +432,7 @@ const samplePack = [
       "X-Ray Chest PA View"
     ]
   }
-]
+];
 
 
 export { sampleTest, samplePack };
