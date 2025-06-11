@@ -5,8 +5,6 @@ import testRoutes from "./routes/searchTests.js";
 import packageRoutes from "./routes/searchPackages.js";
 import searchRoutes from './routes/searchResults.js';
 
-
-
 const app = express();
 const PORT = 5000;
 
@@ -24,7 +22,7 @@ app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
 
-// At the end of your Express app setup:
+
 app.use("/api", (req, res) => {
   res.status(404).json({ message: "API route not found" });
 });
