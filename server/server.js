@@ -4,6 +4,7 @@ import cors from "cors";
 import testRoutes from "./routes/searchTests.js";
 import packageRoutes from "./routes/searchPackages.js";
 import searchRoutes from './routes/searchResults.js';
+import homePopularRoutes from './routes/homePopular.js';
 
 const app = express();
 const PORT = 5000;
@@ -17,6 +18,7 @@ mongoose.connect(MONGO_URL).then(() => console.log("MongoDB connected"));
 app.use("/api", testRoutes);
 app.use("/api", packageRoutes);
 app.use('/api/search', searchRoutes);
+app.use('/api/home', homePopularRoutes);
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
