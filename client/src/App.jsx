@@ -8,10 +8,13 @@ import Copyright from './components/Footer/Copyright.jsx';
 import AppRoutes from './routes/AppRoutes.jsx';
 import OptionsBar from './components/options/Options-bar.jsx';
 
+import ScrollToTop from './components/Scroll-top/Scroll-to-top.jsx';
+
 
 function App() {
   return (
     <>
+      <ScrollToTop />
       <Navbar />
       <OptionsBar />
       <AppRoutes />
