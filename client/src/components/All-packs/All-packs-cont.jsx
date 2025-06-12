@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import Popular from "../Popular-packs/Popular.jsx";
 import '../Popular-packs/PopularCont.css';
 import '../Search-results/SearchResults.css';
-import './All-packs.css';
 import RelevanceCont from "../Relevance/Relevance-cont.jsx";
 
 
