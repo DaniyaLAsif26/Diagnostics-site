@@ -5,6 +5,7 @@ import NotFound from '../pages/NotFound.jsx';
 import AllTests from '../pages/AllTests.jsx'
 import AboutUs from '../pages/AboutUs.jsx';
 import GalleryPage from '../pages/Gallery.jsx';
+import AllPacks from '../pages/AllPacks.jsx';
 
 
 
@@ -15,8 +16,9 @@ function AppRoutes() {
       <Route path="/" element={<Home />} />
       <Route path="/home" element={<Home />} />
       <Route path="/index" element={<Home />} />
-      <Route path="/search/tests" element={<Search />} />
-      <Route path="/search/all-tests" element={<AllTests />} />
+      <Route path="/search" element={<Search />} />
+      <Route path="/all-tests" element={<AllTests />} />
+      <Route path="/all-packages" element={<AllPacks />} />
       <Route path="/about-us" element={<AboutUs />} />
       <Route path="/gallery" element={<GalleryPage />} />
       <Route path="*" element={<NotFound />} />
