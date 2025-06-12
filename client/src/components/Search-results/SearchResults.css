@@ -8,7 +8,7 @@
 }
 
 .search-heading h1 {
-    padding: 2rem 0rem;
+    padding: 2rem 1rem;
     text-align: start;
     font-size: 2.25rem;
 }
@@ -18,7 +18,19 @@
     height: 100%;
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
+    row-gap: 2.6rem;
     justify-content: center;
     justify-items: center; 
 }
 
+.search-packages .popular{
+    height: 16rem;
+}
+
+.test-heading{
+    margin: 1rem 0rem;
+}
+
+.tests-result{
+    margin-bottom: 5rem;
+}
