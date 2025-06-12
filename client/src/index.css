@@ -60,3 +60,16 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+.popular-pack .popular{
+    height: 16rem;
+}
+
+.all-packs .popular{
+    height: 16rem;
+
+}
+
+.link {
+  text-decoration: none;
+}
