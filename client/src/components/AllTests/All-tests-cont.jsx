@@ -10,7 +10,7 @@ export default function AllTestsCont() {
     useEffect(() => {
         const fetchAllTests = async () => {
             try {
-                const res = await fetch("http://localhost:5000/api/search/all-tests");
+                const res = await fetch("http://localhost:5000/api/all-tests");
                 if (!res.ok) {
                     throw new Error(`HTTP error! status: ${res.status}`);
                 }
