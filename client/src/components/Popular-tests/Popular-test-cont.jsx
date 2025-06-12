@@ -11,7 +11,6 @@ export default function PopularTestCont() {
                 <Popular name="Specific Gravity Test" description={"Measures concentration of urine."} price={150} />
                 <Popular name="Specific Gravity Test" description={"Measures concentration of urine."} price={150} />
                 <Popular name="Specific Gravity Test" description={"Measures concentration of urine."} price={150} />
-                <Popular name="Specific Gravity Test" description={"Measures concentration of urine."} price={150} />
                 <div className="more">
                     <div className="more-text">See more </div>
                     <ReadMoreIcon className="more-icon" style={{ fontSize: '3rem' }} />
