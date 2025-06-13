@@ -1,11 +1,15 @@
 import { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 import Popular from "../Popular-packs/Popular.jsx";
-import '../Popular-packs/PopularCont.css';
-import '../Search-results/SearchResults.css';
+import "../Popular-packs/PopularCont.css";
+import "../Search-results/SearchResults.css";
 import RelevanceCont from "../Relevance/Relevance-cont.jsx";
 
 export default function AllTestsCont() {
     const [tests, setTests] = useState([]);
+    const [selectedRelevance, setSelectedRelevance] = useState("");
+    const [filteredTests, setFilteredTests] = useState([]);
+    const location = useLocation();
 
     useEffect(() => {
         const fetchAllTests = async () => {
@@ -16,6 +20,7 @@ export default function AllTestsCont() {
                 }
                 const data = await res.json();
                 setTests(data);
+                setFilteredTests(data); 
             } catch (error) {
                 console.error("Error fetching all tests:", error);
             }
@@ -24,20 +29,40 @@ export default function AllTestsCont() {
         fetchAllTests();
     }, []);
 
+    useEffect(() => {
+        setSelectedRelevance("");
+        setFilteredTests(tests);
+    }, [location.key, tests]);
+
+    const handleRelevanceClick = (relevance) => {
+        if (relevance === selectedRelevance) {
+           
+            setSelectedRelevance("");
+            setFilteredTests(tests);
+        } else {
+            setSelectedRelevance(relevance);
+            const filtered = tests.filter((test) => test.relevance === relevance);
+            setFilteredTests(filtered);
+        }
+    };
+
     return (
-        <div className="all-tests ">
+        <div className="all-tests">
             <div className="relevance">
-                <RelevanceCont />
+                <RelevanceCont
+                    onRelevanceClick={handleRelevanceClick}
+                    selected={selectedRelevance}
+                />
             </div>
 
             <div className="search-tests-cont">
-                {tests.length > 0 ? (
+                {filteredTests.length > 0 ? (
                     <>
                         <div className="search-heading">
-                            <h1>All Tests Services</h1>
+                            <h1>{selectedRelevance ? `'${selectedRelevance}' Tests` : "All Test Services"}</h1>
                         </div>
                         <div className="search-tests">
-                            {tests.map((test) => (
+                            {filteredTests.map((test) => (
                                 <Popular
                                     key={test._id || test.name}
                                     name={test.name}
@@ -47,8 +72,9 @@ export default function AllTestsCont() {
                         </div>
                     </>
                 ) : (
-                    <p>Loading or no tests available.</p>
-
+                    <div className="no-tests">
+                        <h2>No tests available for the selected relevance.</h2>
+                    </div>
                 )}
             </div>
         </div>
