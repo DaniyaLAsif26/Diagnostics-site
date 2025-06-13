@@ -12,15 +12,15 @@ import stomach from '../../assets/stomach.webp'
 import thyroid from '../../assets/thyroid.webp'
 
 const relevances = [
-    { img: blood, name: 'Blood' },
-    { img: diabetes, name: 'Diabetes' },
-    { img: heart, name: 'Heart' },
-    { img: infection, name: 'Infection' },
+    { img: blood, name: 'blood' },
+    { img: diabetes, name: 'diabetes' },
+    { img: heart, name: 'heart' },
+    { img: infection, name: 'infection' },
     { img: kidney, name: 'kidney' },
-    { img: liver, name: 'Liver' },
-    { img: lungs, name: 'Lungs' },
-    { img: stomach, name: 'Stomach' },
-    { img: thyroid, name: 'Thyroid' },
+    { img: liver, name: 'liver' },
+    { img: lungs, name: 'lungs' },
+    { img: stomach, name: 'stomach' },
+    { img: thyroid, name: 'thyroid' },
 ];
 
 export default function RelevanceCont({ onRelevanceClick, selected }) {
