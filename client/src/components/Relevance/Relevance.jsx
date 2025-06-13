@@ -1,18 +1,25 @@
 import './Relevance.css';
 
-export default function Relevance({relevance}) {
+export default function Relevance({ relevance, onClick, selected }) {
 
     return (
         <div className="relevance">
             {
                 relevance.map((link) => (
-                    <div className={link.name} style={{display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', cursor: 'pointer',gap:'10px'
-                    }}>
-                        <img src={link.img} alt="" className='relevance-img' />
-                        <div style={{fontSize:'1.26rem' , fontWeight:500}}>{link.name} </div>
+                    <div className='relevance-link'
+                        onClick={() => onClick(link.name)}
+                        style={{
+                            
+
+                        }}>
+                        <img src={link.img} alt="" className='relevance-img' style={{
+                            border: selected === link.name ? '2px solid blue' : 'none',
+                            borderRadius: '50%'
+                        }} />
+                        <div style={{ fontSize: '1.26rem', fontWeight: 500 }}>{link.name} </div>
                     </div>
                 ))
             }
-        </div>
+        </div >
     )
 }
