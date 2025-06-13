@@ -1,58 +1,81 @@
 import { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 import Popular from "../Popular-packs/Popular.jsx";
-import '../Popular-packs/PopularCont.css';
-import '../Search-results/SearchResults.css';
 import RelevanceCont from "../Relevance/Relevance-cont.jsx";
-
+import "../Popular-packs/PopularCont.css";
+import "../Search-results/SearchResults.css";
 
 export default function AllPacksCont() {
-    const [tests, setTests] = useState([]);
+  const [packs, setPacks] = useState([]);
+  const [selectedRelevance, setSelectedRelevance] = useState("");
+  const [filteredPacks, setFilteredPacks] = useState([]);
+  const location = useLocation();
 
-    useEffect(() => {
-        const fetchAllTests = async () => {
-            try {
-                const res = await fetch("http://localhost:5000/api/all-packages");
-                if (!res.ok) {
-                    throw new Error(`HTTP error! status: ${res.status}`);
-                }
-                const data = await res.json();
-                setTests(data);
-            } catch (error) {
-                console.error("Error fetching all tests:", error);
-            }
-        };
+  useEffect(() => {
+    const fetchAllPacks = async () => {
+      try {
+        const res = await fetch("http://localhost:5000/api/all-packages");
+        if (!res.ok) {
+          throw new Error(`HTTP error! status: ${res.status}`);
+        }
+        const data = await res.json();
+        setPacks(data);
+        setFilteredPacks(data); 
+      } catch (error) {
+        console.error("Error fetching all packs:", error);
+      }
+    };
 
-        fetchAllTests();
-    }, []);
+    fetchAllPacks();
+  }, []);
 
-    return (
-        <div className="all-tests all-packs">
-            <div className="relevance">
-                <RelevanceCont />
-            </div>
+  useEffect(() => {
+    setSelectedRelevance("");
+    setFilteredPacks(packs);
+  }, [location.key, packs]);
 
-            <div className="search-tests-cont">
-                {tests.length > 0 ? (
-                    <>
-                        <div className="search-heading">
-                            <h1>All Package Services</h1>
-                        </div>
-                        <div className="search-tests">
-                            {tests.map((test) => (
-                                <Popular
-                                    key={test._id || test.name}
-                                    name={test.name}
-                                    price={test.price}
-                                    tests={test.tests}
-                                />
-                            ))}
-                        </div>
-                    </>
-                ) : (
-                    <p>Loading or no tests available.</p>
-
-                )}
-            </div>
-        </div>
+  const handleRelevanceClick = (relevance) => {
+    if (relevance === selectedRelevance) {
+      setSelectedRelevance("");
+      setFilteredPacks(packs); 
+    } 
+    else {
+    setSelectedRelevance(relevance);
+    const filtered = packs.filter(
+      (pack) => Array.isArray(pack.relevance) && pack.relevance.includes(relevance)
     );
+    setFilteredPacks(filtered);
+  }
+  };
+
+  return (
+    <div className="all-tests all-packs">
+      <div className="relevance">
+        <RelevanceCont 
+        selected={selectedRelevance} 
+        onRelevanceClick={handleRelevanceClick} 
+        />
+      </div>
+
+      <div className="search-tests-cont">
+
+        {filteredPacks.length > 0 ? (
+          <>
+            <div className="search-heading">
+              <h1>{selectedRelevance ? `'${selectedRelevance}' Packs` : "All Health Packages"}</h1>
+            </div>
+            <div className="search-tests">
+              {filteredPacks.map((pack) => (
+                <Popular key={pack._id || pack.name} name={pack.name} price={pack.price} tests={pack.tests} />
+              ))}
+            </div>
+          </>
+        ) : (
+          <div className="no-tests">
+            <h2>No Health Packages available for the selected relevance.</h2>
+          </div>
+        )}
+      </div>
+    </div>
+  );
 }
