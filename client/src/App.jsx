@@ -10,6 +10,8 @@ import OptionsBar from './components/options/Options-bar.jsx';
 
 import ScrollToTop from './components/Scroll-top/Scroll-to-top.jsx';
 
+import BackToTop from "./components/Back-to-top/BackToTop";
+
 
 function App() {
   return (
@@ -20,6 +22,7 @@ function App() {
       <AppRoutes />
       <Footer />
       <Copyright />
+      <BackToTop />
     </>
   );
 }
