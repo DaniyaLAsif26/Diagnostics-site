@@ -2,7 +2,6 @@
     padding: 1.5rem 0rem 2rem;
     background-color: #21356d;
     color: white;
-    /* background-color: black; */
 }
 
 .choose-us-cont h2 {
@@ -17,6 +16,6 @@
   position: absolute;
   bottom: 0;
   left: 45%;
-  width: 10%; /* Adjust width as needed */
+  width: 10%; 
   border-bottom: 7px solid white;
 }

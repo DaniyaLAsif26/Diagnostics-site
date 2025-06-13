@@ -1,9 +1,9 @@
-ul li:hover {
+.options-bar ul li:hover {
     background-color: #21356de7;
     color: white;
     border-bottom: 6px solid white;
 }
 
-ul li {
+.options-bar ul li {
   transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, border-bottom 0.3s ease-in-out;
 }

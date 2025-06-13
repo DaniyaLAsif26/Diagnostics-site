@@ -39,3 +39,8 @@
     font-size: 1.2rem;
     text-align: center;
 }
+.choose-item img:hover {
+    transform: scale(1.1);
+    transition: 0.2s;
+    border: 0.4rem solid white;
+}
