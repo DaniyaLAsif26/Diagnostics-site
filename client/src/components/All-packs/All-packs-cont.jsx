@@ -66,7 +66,11 @@ export default function AllPacksCont() {
             </div>
             <div className="search-tests">
               {filteredPacks.map((pack) => (
-                <Popular key={pack._id || pack.name} name={pack.name} price={pack.price} tests={pack.tests} />
+                <Popular 
+                key={pack._id || pack.name} 
+                name={pack.name} 
+                price={pack.price} 
+                tests={pack.tests} />
               ))}
             </div>
           </>

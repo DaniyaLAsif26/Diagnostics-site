@@ -20,7 +20,7 @@ export default function AllTestsCont() {
                 }
                 const data = await res.json();
                 setTests(data);
-                setFilteredTests(data); 
+                setFilteredTests(data);
             } catch (error) {
                 console.error("Error fetching all tests:", error);
             }
@@ -36,12 +36,15 @@ export default function AllTestsCont() {
 
     const handleRelevanceClick = (relevance) => {
         if (relevance === selectedRelevance) {
-           
+
             setSelectedRelevance("");
             setFilteredTests(tests);
         } else {
             setSelectedRelevance(relevance);
-            const filtered = tests.filter((test) => test.relevance === relevance);
+            const filtered = tests.filter(
+                (test) => test.relevance.toLowerCase() === relevance.toLowerCase()
+            );
+            console.log(filtered);
             setFilteredTests(filtered);
         }
     };
