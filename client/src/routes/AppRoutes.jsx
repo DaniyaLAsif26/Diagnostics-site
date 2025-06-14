@@ -6,9 +6,7 @@ import AllTests from '../pages/AllTests.jsx'
 import AboutUs from '../pages/AboutUs.jsx';
 import GalleryPage from '../pages/Gallery.jsx';
 import AllPacks from '../pages/AllPacks.jsx';
-
-
-
+import HomeRelevancePage from '../pages/HomeRelevancePage.jsx';
 
 function AppRoutes() {
   return (
@@ -19,6 +17,7 @@ function AppRoutes() {
       <Route path="/search" element={<Search />} />
       <Route path="/all-tests" element={<AllTests />} />
       <Route path="/all-packages" element={<AllPacks />} />
+      <Route path="/relevance/:relevance" element={<HomeRelevancePage />} />
       <Route path="/about-us" element={<AboutUs />} />
       <Route path="/gallery" element={<GalleryPage />} />
       <Route path="*" element={<NotFound />} />
