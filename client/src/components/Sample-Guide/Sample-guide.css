@@ -1,0 +1,33 @@
+.sample-guide {
+    text-align: center;
+    width: 100%;
+    padding: 3rem 0rem 0rem;
+    background-color: rgb(232, 255, 255);
+}
+
+.sample-guide h1 {
+    margin-bottom: 2.6rem;
+}
+
+.guide-cont {
+    display: flex;
+    flex-direction: row;
+    gap: 5rem;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: auto;
+    width: 80rem;
+    padding-bottom: 5rem;
+}
+
+.box {
+    font-size: 1.26rem;
+    font-weight: 500;
+    width: 150px;
+    height: 150px;
+}
+
+.done img{
+    height: 94px;
+    border-radius: 50%;
+}
