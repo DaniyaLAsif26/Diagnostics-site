@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 import { useEffect, useState } from 'react';
 
-export default function PopularPackCont() {
+export default function PopularPackCont({onPackClick}) {
     const [popularPacks, setPopularPacks] = useState([]);
 
     useEffect(() => {
@@ -31,7 +31,9 @@ export default function PopularPackCont() {
                         key={pack._id}
                         name={pack.name}
                         price={pack.price}
-                        tests={pack.tests} />
+                        tests={pack.tests}
+                        onClick ={onPackClick}
+                         />
                 ))}
 
                 <Link to="/all-packages" className="link">
