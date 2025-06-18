@@ -1,0 +1,85 @@
+.view-nav {
+    font-size: 1.26rem;
+    font-weight: 500;
+    margin: 1rem 2rem;
+}
+
+.view-nav a,
+.current-package {
+    padding: 0rem 1.1rem;
+    text-decoration: underline;
+}
+
+.view-pack-cont {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    gap: 2.6rem;
+    margin: 2.6rem 0rem;
+}
+
+.view-pack {
+    border: 0.1px solid black;
+    padding: 1rem 2rem;
+    width: 80%;
+    position: relative;
+}
+
+.view-pack button {
+    position: absolute;
+    bottom: 1rem;
+    right: 2rem;
+    height: 2.66rem;
+}
+
+.view-pack h2 {
+    font-size: 2rem;
+    margin: 1rem 0rem;
+}
+
+.view-pack-parameter {
+    font-size: 1.3rem;
+    color: green;
+    text-decoration: underline;
+    font-weight: 500;
+}
+
+.view-pack-price {
+    font-size: 1.8rem;
+    margin: 1.26rem 0rem 0.5rem;
+}
+
+.view-pack-tests {
+    border: 1px solid black;
+    width: 80%;
+}
+
+.check-icon {
+    color: green;
+}
+
+.view-pack-tests ul li {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    font-size: 1.3rem;
+    gap: 1rem;
+    padding: 0.3rem 0rem;
+    font-weight: 500;
+    color: green;
+}
+
+.view-pack-tests {
+    padding: 1rem 2rem;
+}
+
+.view-pack-tests ul{
+    padding: 1rem 2rem;
+}
+
+.view-pack-tests h3{
+    font-size: 1.5rem;
+    margin: 0.5rem 1rem;
+}
