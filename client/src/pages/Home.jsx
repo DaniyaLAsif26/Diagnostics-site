@@ -13,12 +13,16 @@ export default function Home() {
     navigate(`/relevance/${relevance}`);
   };
 
+  const handlePackClick = (pack) => {
+    navigate(`/health-packages/${pack.name}`);
+  }
+
   return (
     <>
       <SliderCont />
-      <PopularPackCont />
+      <PopularPackCont onPackClick ={handlePackClick}/>
       <RelevanceCont onRelevanceClick={handleRelevanceClick} />
-      <PopularTestCont />
+      <PopularTestCont/>
       <ChooseUsCont />
     </>
   );
