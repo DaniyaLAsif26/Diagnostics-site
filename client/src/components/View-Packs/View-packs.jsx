@@ -1,6 +1,8 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import Popular from "../Popular-packs/Popular";
+import "../Popular-packs/PopularCont.css";
+
 
 
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
@@ -12,12 +14,13 @@ import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 
 import './View-packs.css';
 
-export default function ViewPackage() {
+export default function ViewPackage({onPackClick}) {
 
     const { pack } = useParams();
 
     const [Packs, setPacks] = useState();
     const [matchingPacks, setMatchingPacks] = useState();
+    const [suggestedPacks, setSuggestedPacks] = useState();
     const [clicked, setClicked] = useState(false);
     const [message, setMessage] = useState('');
 
@@ -53,6 +56,20 @@ export default function ViewPackage() {
 
     }
 
+    useEffect(() => {
+        const fetchSuggestedPacks = async () => {
+            try {
+                const res = await fetch("http://localhost:5000/api/all-packages");
+                const data = await res.json();
+                const suggestedData = data.slice(2, 4);
+                setSuggestedPacks(suggestedData);
+            }
+            catch (error) {
+                console.error("Error fetching suggested packs:", error);
+            }
+        }
+        fetchSuggestedPacks();
+    }, [])
 
     return (
         <>
@@ -81,8 +98,6 @@ export default function ViewPackage() {
                                 >
                                     {clicked ? "Remove" : "Add"}
                                 </Button>
-
-                                {message && <p className="cart-message">{message}</p>}
                             </div>
 
                             <div className="view-pack-tests">
@@ -94,6 +109,20 @@ export default function ViewPackage() {
                                         </li>
                                     ))}
                                 </ul>
+                            </div>
+                            <div className="suggested-packs-cont">
+                                <h2>Suggested Health Packages</h2>
+                                <div className="suggested-packs">
+                                    {suggestedPacks && suggestedPacks.map((pack) => (
+                                        <Popular
+                                            key={pack._id || pack.name}
+                                            name={pack.name}
+                                            price={pack.price}
+                                            tests={pack.tests}
+                                            onClick={onPackClick}
+                                        />
+                                    ))}
+                                </div>
                             </div>
                         </div>
                     </>

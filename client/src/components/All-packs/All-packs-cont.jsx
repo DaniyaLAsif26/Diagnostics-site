@@ -5,7 +5,7 @@ import RelevanceCont from "../Relevance/Relevance-cont.jsx";
 import "../Popular-packs/PopularCont.css";
 import "../Search-results/SearchResults.css";
 
-export default function AllPacksCont() {
+export default function AllPacksCont({ onPackClick }) {
   const [packs, setPacks] = useState([]);
   const [selectedRelevance, setSelectedRelevance] = useState("");
   const [filteredPacks, setFilteredPacks] = useState([]);
@@ -20,7 +20,7 @@ export default function AllPacksCont() {
         }
         const data = await res.json();
         setPacks(data);
-        setFilteredPacks(data); 
+        setFilteredPacks(data);
       } catch (error) {
         console.error("Error fetching all packs:", error);
       }
@@ -37,23 +37,23 @@ export default function AllPacksCont() {
   const handleRelevanceClick = (relevance) => {
     if (relevance === selectedRelevance) {
       setSelectedRelevance("");
-      setFilteredPacks(packs); 
-    } 
+      setFilteredPacks(packs);
+    }
     else {
-    setSelectedRelevance(relevance);
-    const filtered = packs.filter(
-      (pack) => Array.isArray(pack.relevance) && pack.relevance.includes(relevance)
-    );
-    setFilteredPacks(filtered);
-  }
+      setSelectedRelevance(relevance);
+      const filtered = packs.filter(
+        (pack) => Array.isArray(pack.relevance) && pack.relevance.includes(relevance)
+      );
+      setFilteredPacks(filtered);
+    }
   };
 
   return (
     <div className="all-tests all-packs">
       <div className="relevance">
-        <RelevanceCont 
-        selected={selectedRelevance} 
-        onRelevanceClick={handleRelevanceClick} 
+        <RelevanceCont
+          selected={selectedRelevance}
+          onRelevanceClick={handleRelevanceClick}
         />
       </div>
 
@@ -66,11 +66,13 @@ export default function AllPacksCont() {
             </div>
             <div className="search-tests">
               {filteredPacks.map((pack) => (
-                <Popular 
-                key={pack._id || pack.name} 
-                name={pack.name} 
-                price={pack.price} 
-                tests={pack.tests} />
+                <Popular
+                  key={pack._id || pack.name}
+                  name={pack.name}
+                  price={pack.price}
+                  tests={pack.tests}
+                  onClick={onPackClick}
+                />
               ))}
             </div>
           </>

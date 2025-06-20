@@ -4,7 +4,7 @@ import Popular from '../Popular-packs/Popular.jsx';
 import '../Popular-packs/PopularCont.css';
 import './SearchResults.css';
 
-export default function SearchResults() {
+export default function SearchResults({onPackClick}) {
     const [searchParams] = useSearchParams();
     const [testResults, setTestResults] = useState([]);
     const [packageResults, setPackageResults] = useState([]);
@@ -75,6 +75,7 @@ export default function SearchResults() {
                                             name={pack.name}
                                             price={pack.price}
                                             tests={pack.tests}
+                                            onClick={onPackClick }
                                         />
                                     ))}
                                 </div>

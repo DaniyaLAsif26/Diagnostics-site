@@ -29,7 +29,7 @@ export default function Popular({ name, price, tests, onClick }) {
     return (
 
         <div className="popular"
-            onClick={ handleCardClick}
+            onClick={handleCardClick}
         >
             <div className="popular-info">
                 <h3 className="">{name}</h3>

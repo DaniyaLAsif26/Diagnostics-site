@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import Popular from "../Popular-packs/Popular.jsx";
 import RelevanceCont from "../Relevance/Relevance-cont.jsx";
 
-export default function HomeRelevance() {
+export default function HomeRelevance({onPackClick}) {
 
     const { relevance } = useParams();
 
@@ -84,6 +84,7 @@ export default function HomeRelevance() {
                                             name={pack.name}
                                             price={pack.price}
                                             tests={pack.tests}
+                                            onClick={onPackClick}
                                         />
                                     ))}
                                 </div>
