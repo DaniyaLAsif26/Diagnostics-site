@@ -1,25 +1,23 @@
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
-import { useState } from 'react';
 import Button from '@mui/material/Button';
 import './Popular.css';
+import { useCart } from "../../context/CartContext";
 
 export default function Popular({ name, price, tests, onClick }) {
 
-    const [message, setMessage] = useState('');
-    const [clicked, setClicked] = useState(false);
+    const { cartItem, addToCart, removeFromCart} = useCart();
 
-    const handleClick = () => {
-        if (!clicked) {
-            setClicked(true);
-            setMessage('Added to cart');
-            setTimeout(() => setMessage(""), 3500);
+    const isInCart = cartItem.some(item => item.name === name);
+
+    const handleClick = (e) => {
+        e.stopPropagation();
+        if (!isInCart) {
+            addToCart({ name, price, tests });
         } else {
-            setClicked(false);
-            setMessage('Removed from cart');
-            setTimeout(() => setMessage(""), 3500);
+            removeFromCart(name);
         }
-
     }
+
     const handleCardClick = () => {
         if (typeof onClick === 'function') {
             onClick({ name });
@@ -27,23 +25,20 @@ export default function Popular({ name, price, tests, onClick }) {
     }
 
     return (
-
-        <div className="popular"
-            onClick={handleCardClick}
-        >
+        <div className="popular" onClick={handleCardClick}>
             <div className="popular-info">
-                <h3 className="">{name}</h3>
+                <h3>{name}</h3>
             </div>
             {Array.isArray(tests) && (
                 <div className="parameters">{tests.length} Parameters</div>
             )}
             <div className="price-book">
-                <div className="">&#8377;{price}</div>
+                <div>&#8377;{price}</div>
                 <Button
                     variant="contained"
                     onClick={handleClick}
                     endIcon={<AddShoppingCartIcon />}>
-                    {clicked ? "Remove" : "Add"}
+                    {isInCart ? "Remove" : "Add"}
                 </Button>
             </div>
         </div>

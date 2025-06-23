@@ -3,26 +3,33 @@ import { useEffect, useState } from "react";
 import Popular from "../Popular-packs/Popular";
 import "../Popular-packs/PopularCont.css";
 
-
-
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
-
 import Button from '@mui/material/Button';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 
-
+import { useCart } from "../../context/CartContext";
 
 import './View-packs.css';
 
-export default function ViewPackage({onPackClick}) {
-
+export default function ViewPackage({ onPackClick }) {
     const { pack } = useParams();
-
+    const { cartItem, addToCart, removeFromCart } = useCart();
     const [Packs, setPacks] = useState();
     const [matchingPacks, setMatchingPacks] = useState();
     const [suggestedPacks, setSuggestedPacks] = useState();
-    const [clicked, setClicked] = useState(false);
-    const [message, setMessage] = useState('');
+
+    const isInCart = cartItem.some(item => item.name === matchingPacks.name);
+
+    const handleClick = (e) => {
+        e.stopPropagation();
+        if (!isInCart) {
+            addToCart({ name: matchingPacks.name, price: matchingPacks.price, tests: matchingPacks.tests });
+        } else {
+            removeFromCart(matchingPacks.name);
+        }
+    }
+
+
 
     useEffect(() => {
         const fetchPackageDetails = async () => {
@@ -43,18 +50,7 @@ export default function ViewPackage({onPackClick}) {
         fetchPackageDetails();
     }, [pack])
 
-    const handleClick = () => {
-        if (!clicked) {
-            setClicked(true);
-            setMessage('Added to cart');
-            setTimeout(() => setMessage(""), 3500);
-        } else {
-            setClicked(false);
-            setMessage('Removed from cart');
-            setTimeout(() => setMessage(""), 3500);
-        }
 
-    }
 
     useEffect(() => {
         const fetchSuggestedPacks = async () => {
@@ -96,7 +92,7 @@ export default function ViewPackage({onPackClick}) {
                                     onClick={handleClick}
                                     endIcon={<AddShoppingCartIcon />}
                                 >
-                                    {clicked ? "Remove" : "Add"}
+                                    {isInCart ? "Remove" : "Add"}
                                 </Button>
                             </div>
 
