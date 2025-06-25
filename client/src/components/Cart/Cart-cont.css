@@ -1,0 +1,116 @@
+.cart-cont {
+    background-color: rgba(211, 211, 211, 0.514);
+    width: 90%;
+    margin: 2rem auto 2rem;
+    padding: 2rem 3rem;
+}
+
+.cart-cont h2 {
+    font-size: 2.6rem;
+    margin-bottom: 3rem;
+}
+
+.cart-info {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    padding: 0rem 0.5rem 1rem;
+    border-bottom: 2px solid green;
+}
+
+.cart-item {
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 2.6rem;
+    width: 80%;
+}
+
+.delete-btn {
+    cursor: pointer;
+    padding: 0.1rem;
+    background-color: rgba(255, 0, 0, 0.815);
+}
+
+.cart-test {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.2rem;
+}
+
+.cart-test h4 {
+    font-size: 1.8rem;
+    color: #21356d;
+}
+
+.item-price{
+    font-size: 1.45rem;
+}
+
+.item-inst{
+    font-size: 1.2rem;
+}
+
+.subtotal h3 {
+    margin: 4rem 2rem 4rem 0rem;
+    font-size: 1.69rem;
+    text-align: right;
+}
+
+.cart-check-box h3{
+    font-size: 1.5rem;
+    color: black;
+}
+
+.cart-check-box {
+    text-align: center;
+    border-top: 2px solid black;
+    padding: 2rem 0rem;
+}
+
+.cart-check-box form {
+    margin: 1.5rem 0rem 0rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5rem;
+    font-size: 1.3rem;
+}
+
+.option-1,
+.option-2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.15rem;
+}
+
+input[type="radio"] {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #ccc;
+    border-radius: 50%;
+    outline: none;
+    cursor: pointer;
+    position: relative;
+    background-color: white;
+    transition: background-color 0.2s, border-color 0.2s;
+    border: 1px solid black;
+}
+
+input[type="radio"]:checked {
+    background-color: green;
+    border-color: green;
+}
+
+.submit-btn{
+    margin: 2.6rem 3rem 0rem 0rem;
+    text-align: right;
+}

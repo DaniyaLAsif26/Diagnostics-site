@@ -18,7 +18,9 @@ export default function ViewPackage({ onPackClick }) {
     const [matchingPacks, setMatchingPacks] = useState();
     const [suggestedPacks, setSuggestedPacks] = useState();
 
-    const isInCart = cartItem.some(item => item.name === matchingPacks.name);
+    const isInCart = matchingPacks
+        ? cartItem.some(item => item.name === matchingPacks.name)
+        : false;
 
     const handleClick = (e) => {
         e.stopPropagation();
