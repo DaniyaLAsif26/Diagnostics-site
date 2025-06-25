@@ -9,6 +9,7 @@ import AllPacks from '../pages/AllPacks.jsx';
 import HomeRelevancePage from '../pages/HomeRelevancePage.jsx';
 import HomeSample from '../pages/HomeSample.jsx';
 import ViewPackagePage from '../pages/ViewPackagePage.jsx';
+import Cart from '../pages/Cart.jsx';
 
 function AppRoutes() {
   return (
@@ -18,6 +19,7 @@ function AppRoutes() {
       <Route path="/index" element={<Home />} />
       <Route path="/search" element={<Search />} />
       <Route path="/all-tests" element={<AllTests />} />
+      <Route path="/cart-items" element={<Cart />} />
       <Route path="/all-packages" element={<AllPacks />} />
       <Route path="/relevance/:relevance" element={<HomeRelevancePage />} />
       <Route path="/health-packages/:pack" element={<ViewPackagePage />} />
