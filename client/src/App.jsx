@@ -11,22 +11,17 @@ import ScrollToTop from './components/Scroll-top/Scroll-to-top.jsx';
 import BackToTop from "./components/Back-to-top/BackToTop";
 import CartMessage from './components/FlashMessage/Cart-message.jsx';
 
-import { CartProvider } from "./context/CartContext";
-
-
 function App() {
   return (
     <>
-      <CartProvider>
-        <ScrollToTop />
-        <Navbar />
-        <OptionsBar />
-        <AppRoutes />
-        <Footer />
-        <Copyright />
-        <BackToTop />
-        <CartMessage />
-      </CartProvider>
+      <ScrollToTop />
+      <Navbar />
+      <OptionsBar />
+      <AppRoutes />
+      <Footer />
+      <Copyright />
+      <BackToTop />
+      <CartMessage />
     </>
   );
 }
