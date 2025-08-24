@@ -1,0 +1,87 @@
+.checkout-cont {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    margin: 2rem 0rem 3rem 4rem;
+}
+
+.checkout-step {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+}
+
+.checkout-step-head {
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+.checkout {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    height: auto;
+}
+
+.checkout-form {
+    position: relative;
+    height: auto;
+    border-left: 1px solid grey;
+    left: 1.2rem;
+}
+
+.details {
+    border-left: none;
+}
+
+.radio-btn {
+    padding: 0rem 0rem 0rem 4rem;
+
+}
+
+.calendar {
+    display: flex;
+    align-items: start;
+    justify-content: center;
+    height: 470px;
+    width: 500px;
+}
+
+.line {
+    height: 50px;
+    width: 1px;
+    border-left: 1px solid grey;
+    position: relative;
+    left: 1.2rem;
+}
+
+.next-btn {
+    margin: 2rem 0rem;
+}
+
+.proceed-btn {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2.6rem 0rem;
+}
+
+.smooth-open {
+    max-height: 1000px;
+    /* adjust based on content */
+    opacity: 1;
+    overflow: hidden;
+    transition: max-height 1s ease, opacity 1s ease;
+}
+
+.smooth-closed {
+    max-height: 50px;
+    /* keeps small line visible */
+    opacity: 1;
+    overflow: hidden;
+    transition: max-height 1s ease, opacity 1s ease;
+}

@@ -1,0 +1,45 @@
+.cart-check-box {
+    padding-top: 1rem ;
+}
+
+.cart-check-box form {
+    margin: 1rem 0rem 0rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5rem;
+    font-size: 1.3rem;
+}
+
+.option-1,
+.option-2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.15rem;
+}
+
+input[type="radio"] {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #ccc;
+    border-radius: 50%;
+    outline: none;
+    cursor: pointer;
+    position: relative;
+    background-color: white;
+    transition: background-color 0.2s, border-color 0.2s;
+    border: 1px solid black;
+}
+
+input[type="radio"]:checked {
+    background-color: green;
+    border-color: green;
+}
+
+.next-btn {
+    margin: 2rem 0rem ;
+}
