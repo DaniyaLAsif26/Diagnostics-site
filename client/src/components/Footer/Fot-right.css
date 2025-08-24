@@ -1,13 +1,23 @@
-.intro{
+.intro {
     padding: 0rem 1rem;
     font-size: 1.2rem;
     font-weight: 500;
     color: #435ca1;
 }
 
-.socials{
+.socials {
     padding: 0rem 1rem;
     display: flex;
     gap: 1rem;
     margin: 3rem 0rem;
+}
+
+.socials a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    gap: 0.2rem;
+    font-weight: 500;
+    font-size: 1.15rem;
 }

@@ -7,15 +7,15 @@ import Copyright from './Copyright.jsx';
 import { v4 as uuidv4 } from 'uuid';
 
 const links = [
-    { id: uuidv4(), name: 'Home' },
-    { id: uuidv4(), name: 'About Us' },
-    { id: uuidv4(), name: 'Book a Test' },
-    { id: uuidv4(), name: 'Home Sample Collection' },
-    { id: uuidv4(), name: 'Health Packages' },
-    { id: uuidv4(), name: 'Tests' },
-    { id: uuidv4(), name: 'Download Reports' },
-    { id: uuidv4(), name: 'Privacy Policy' },
-    { id: uuidv4(), name: 'Gallery' },
+    { id: uuidv4(), name: 'Home', href: '/' },
+    { id: uuidv4(), name: 'About Us', href: 'about-us' },
+    { id: uuidv4(), name: 'Book a Test', href: 'all-tests' },
+    { id: uuidv4(), name: 'Health Packages', href: 'all-packages' },
+    { id: uuidv4(), name: 'Tests', href: 'all-tests' },
+    { id: uuidv4(), name: 'Download Reports', href: '/' },
+    { id: uuidv4(), name: 'Privacy Policy', href: '/' },
+    { id: uuidv4(), name: 'Gallery', href: 'gallery' },
+    { id: uuidv4(), name: 'Admin Login', href: '/' }
 ];
 
 export default function Fotter() {

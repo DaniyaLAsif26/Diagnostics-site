@@ -1,8 +1,9 @@
 footer {
     background-color: white;
-    padding: 5rem 12rem 6rem 12rem;
+    padding: 5rem 12rem 4rem 12rem;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+    align-items: start; 
 }
 
 footer h2 {

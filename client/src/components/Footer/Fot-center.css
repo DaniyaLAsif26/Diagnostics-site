@@ -13,6 +13,9 @@
     font-size: 1.20rem;
     text-decoration: none;
     color: #435ca1;
-
 }
 
+.footer-center .admin-link {
+    color: red;
+    font-weight: bold;
+}
