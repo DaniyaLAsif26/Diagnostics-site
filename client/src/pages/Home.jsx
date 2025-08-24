@@ -4,6 +4,7 @@ import PopularPackCont from '../components/Popular-packs/Popular-pack-cont.jsx';
 import PopularTestCont from '../components/Popular-tests/Popular-test-cont.jsx';
 import RelevanceCont from '../components/Relevance/Relevance-cont.jsx';
 import ChooseUsCont from '../components/Choose-us/Choose-us-cont.jsx';
+import SampleGuide from "../components/Sample-Guide/Sample-guide.jsx";
 
 export default function Home() {
 
@@ -22,6 +23,7 @@ export default function Home() {
       <SliderCont />
       <PopularPackCont onPackClick ={handlePackClick}/>
       <RelevanceCont onRelevanceClick={handleRelevanceClick} />
+      <SampleGuide />
       <PopularTestCont/>
       <ChooseUsCont />
     </>

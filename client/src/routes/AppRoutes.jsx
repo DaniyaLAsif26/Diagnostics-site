@@ -10,6 +10,9 @@ import HomeRelevancePage from '../pages/HomeRelevancePage.jsx';
 import HomeSample from '../pages/HomeSample.jsx';
 import ViewPackagePage from '../pages/ViewPackagePage.jsx';
 import Cart from '../pages/Cart.jsx';
+import AdminDashBoard from '../pages/Admin-Dash.jsx';
+import  Appointment  from '../pages/Appointment.jsx';
+import ProtectedRoute from '../components/ProtectedRoute.jsx';
 
 function AppRoutes() {
   return (
@@ -26,6 +29,15 @@ function AppRoutes() {
       <Route path="/home-sample-collection" element={<HomeSample />} />
       <Route path="/about-us" element={<AboutUs />} />
       <Route path="/gallery" element={<GalleryPage />} />
+      <Route path="/cart/Appointment" element={<Appointment />} />
+      <Route
+        path="/admin/dashboard"
+        element={
+          <ProtectedRoute>
+            <AdminDashBoard />
+          </ProtectedRoute>
+        }
+      />
       <Route path="*" element={<NotFound />} />
     </Routes>
   );
