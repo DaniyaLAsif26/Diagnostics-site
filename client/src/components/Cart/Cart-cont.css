@@ -56,61 +56,12 @@
 }
 
 .subtotal h3 {
-    margin: 4rem 2rem 4rem 0rem;
+    margin: 4rem 2rem 2.69rem 0rem;
     font-size: 1.69rem;
     text-align: right;
 }
 
-.cart-check-box h3{
-    font-size: 1.5rem;
-    color: black;
-}
-
-.cart-check-box {
-    text-align: center;
-    border-top: 2px solid black;
-    padding: 2rem 0rem;
-}
-
-.cart-check-box form {
-    margin: 1.5rem 0rem 0rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 5rem;
-    font-size: 1.3rem;
-}
-
-.option-1,
-.option-2 {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 0.15rem;
-}
-
-input[type="radio"] {
-    appearance: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    width: 20px;
-    height: 20px;
-    border: 2px solid #ccc;
-    border-radius: 50%;
-    outline: none;
-    cursor: pointer;
-    position: relative;
-    background-color: white;
-    transition: background-color 0.2s, border-color 0.2s;
-    border: 1px solid black;
-}
-
-input[type="radio"]:checked {
-    background-color: green;
-    border-color: green;
-}
-
 .submit-btn{
-    margin: 2.6rem 3rem 0rem 0rem;
+    margin: 2.6rem 3rem 1.5rem 0rem;
     text-align: right;
 }

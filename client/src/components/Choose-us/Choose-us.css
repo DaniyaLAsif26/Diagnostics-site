@@ -1,10 +1,11 @@
 .choose-us {
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
-    margin-top: 1rem;
     flex-wrap: wrap;
+    gap: 1.5rem;
+    margin: 5rem 1.69rem;
 }
 
 .choose-item,
@@ -12,35 +13,40 @@
     color: white;
 }
 
+.choose-item img,
+.choose-desc {
+    width: 20rem;
+}
+
 .choose-item img {
-    height: 40%;
+    height: 20rem;
     border-radius: 50%;
     border: 0.8rem solid white;
 }
 
 .choose-item {
-    height: 40rem;
-    width: 26rem;
+    height: 30rem;
+    width: 23rem;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    box-sizing: border-box;
-    text-align: center;
     gap: 1rem;
-    padding: 0 1rem;
 }
 
 .choose-item h4 {
-    font-size: 1.6rem;
+    font-size: 1.5rem;
 }
 
 .choose-desc {
-    font-size: 1.2rem;
-    text-align: center;
+    font-size: clamp(14px, 2vw, 18px);
+    line-height: 1.5em;
+    height: calc(1.5em * 3);
+    text-align: start;
 }
+
 .choose-item img:hover {
-    transform: scale(1.1);
+    transform: scale(1.05);
     transition: 0.2s;
-    border: 0.4rem solid white;
+    border: 0.4rem solid rgb(255, 247, 0);
 }

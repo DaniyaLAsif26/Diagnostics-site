@@ -3,8 +3,11 @@ import { useCart } from '../../context/CartContext';
 import DeleteIcon from '@mui/icons-material/Delete';
 import Button from '@mui/material/Button';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export default function CartCont() {
+    const navigate = useNavigate();
+
     const { cartItem, removeFromCart } = useCart();
 
     // Calculate subtotal
@@ -17,6 +20,11 @@ export default function CartCont() {
 
     const handleRadioChange = (e) => {
         setSelectedOption(e.target.value);
+    }
+
+    const redirectAppointment = (e) => {
+        e.preventDefault()
+        navigate('/cart/Appointment')
     }
 
     return (
@@ -46,42 +54,15 @@ export default function CartCont() {
                             <h3>Subtotal: &#8377; {subtotal}</h3>
                         </div>
 
-                        <div className="cart-check-box">
-                            <h3>Home Sample Collection at</h3>
-                            <form>
-                                <div className="option-1">
-                                    <input
-                                        type="radio"
-                                        name="radio-btn"
-                                        id="option1"
-                                        value="option1"
-                                        checked={selectedOption === 'option1'}
-                                        onChange={handleRadioChange}
-                                    />
-                                    <label htmlFor="option1">Diagnostic Center</label>
-                                </div>
-                                <div className="option-2">
-                                    <input
-                                        type="radio"
-                                        name="radio-btn"
-                                        id="option2"
-                                        value="option2"
-                                        checked={selectedOption === 'option2'}
-                                        onChange={handleRadioChange}
-                                    />
-                                    <label htmlFor="option2">Home Address</label>
-                                </div>
-                            </form>
-                            <div className='submit-btn'>
-                                <Button
-
-                                    type='submit'
-                                    variant="contained"
-                                    color="success"
-                                    size="large">
-                                    Proceed
-                                </Button>
-                            </div>
+                        <div className='submit-btn'>
+                            <Button
+                                type='submit'
+                                variant="contained"
+                                color="success"
+                                onClick={redirectAppointment}
+                                size="large">
+                                Proceed
+                            </Button>
                         </div>
                     </>
                 ) : (
