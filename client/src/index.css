@@ -56,12 +56,12 @@ button:hover {
   }
 }
 
-.popular-pack .popular{
-    height: 16rem;
+.popular-pack .popular {
+  height: 16rem;
 }
 
-.all-packs .popular{
-    height: 16rem;
+.all-packs .popular {
+  height: 16rem;
 
 }
 
@@ -69,11 +69,78 @@ button:hover {
   text-decoration: none;
 }
 
-.home-sample .relevance-cont h2{
+.home-sample .relevance-cont h2 {
   padding-top: 0rem;
 }
 
 
-.home-sample .relevance-cont{
+.home-sample .relevance-cont {
   padding-top: 0rem;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+.flash-cont {
+  position: relative;
+}
+
+.global-flash {
+  position: fixed;
+  width: 15rem;
+  bottom: 3rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #000000;
+  color: #fff;
+  padding: 0.8rem 1rem;
+  border-radius: 6px;
+  z-index: 1000;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  animation: fadeOut 3.5s forwards;
+}
+
+.flash-msg {
+  color: white;
+  font-size: 1.26rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.flash-border {
+  height: 15%;
+  width: 100%;
+  background-color: green;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  animation: shrinkLine 3.5s linear forwards;
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+
+  80% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes shrinkLine {
+  0% {
+    width: 100%;
+  }
+
+  100% {
+    width: 0%;
+  }
 }
