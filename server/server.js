@@ -32,7 +32,13 @@ const HOST = '0.0.0.0';
 console.log('🔍 Environment PORT:', process.env.PORT);
 console.log('🔍 Using PORT:', PORT);
 
-const allowedOrigins = ["http://localhost:5173", "http://localhost:5174", "http://localhost:3000", "https://diagnostics-site-frontend.vercel.app", "https://visiondiagnosticscentre.com", "https://visiondiagnosticscentre.com"];
+const allowedOrigins = ["http://localhost:5173",
+  "http://localhost:5174",
+  "http://localhost:3000",
+  "https://diagnostics-site-frontend.vercel.app",
+  "https://diagnostics-site-frontend-9bimci5zy.vercel.app",
+  "https://visiondiagnosticscentre.com",
+  "https://www.visiondiagnosticscentre.com"];
 
 app.use(cors({
   origin: function (origin, callback) {
