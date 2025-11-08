@@ -5,7 +5,7 @@ import jwt from "jsonwebtoken";
 import bcrypt from 'bcryptjs';
 
 import OtpSession from '../models/OtpSession.js';
-import User from '../models/User.js';
+import User from '../models/user.js';
 import AdminPassword from '../models/adminPass.js';
 
 import dotenv from 'dotenv';
