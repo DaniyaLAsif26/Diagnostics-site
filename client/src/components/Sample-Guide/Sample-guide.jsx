@@ -1,5 +1,5 @@
 import Test from '../../assets/Guide-imgs/test.webp';
-import Kart from '../../assets/Guide-imgs/toKart.webp';
+import Kart from '../../assets/Guide-imgs/tokart.webp';
 import Scooter from '../../assets/Guide-imgs/scooter.webp';
 import Arrow from '../../assets/Guide-imgs/arrow.webp';
 import Correct from '../../assets/Guide-imgs/correct.jpg';
