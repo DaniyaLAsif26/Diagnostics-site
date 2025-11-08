@@ -5,9 +5,9 @@ import { useEffect } from 'react'
 
 import { useTrigger } from '../../context/TriggerContext'
 
+const BackendURL = import.meta.env.VITE_BACKEND_URL || "http://localhost:5000";
+
 export default function UploadReportsCont() {
-
-
     const navigate = useNavigate()
     const location = useLocation();
 
@@ -54,7 +54,7 @@ export default function UploadReportsCont() {
         try {
             setLoading(true)
 
-            const res = await fetch('http://localhost:5000/api/report/upload', {
+            const res = await fetch(`${BackendURL}/api/report/upload`, {
                 method: "POST",
                 body: formData
             })

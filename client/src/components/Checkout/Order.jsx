@@ -5,8 +5,9 @@ import { useCart } from '../../context/CartContext';
 import { useAppointment } from '../../context/AppointmentContext'
 import { useLogin } from '../../context/LoginContext';
 import { useTrigger } from "../../context/TriggerContext";
-
 import { useNavigate } from 'react-router-dom';
+
+const BackendURL = import.meta.env.VITE_BACKEND_URL || "http://localhost:5000";
 
 export default function Order() {
 
@@ -54,7 +55,7 @@ export default function Order() {
             comments: "",
         }
         try {
-            const res = await fetch("http://localhost:5000/api/save/appointment", {
+            const res = await fetch(`${BackendURL}/api/save/appointment`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

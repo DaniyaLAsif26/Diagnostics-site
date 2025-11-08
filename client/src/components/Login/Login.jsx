@@ -9,6 +9,8 @@ import { useState, useEffect } from 'react';
 
 import logo from '../../assets/logo.png'
 
+const BackendURL = import.meta.env.VITE_BACKEND_URL || "http://localhost:5000";
+
 export default function LoginForm() {
     const { showLoginForm, toggleLoginForm, showOtpForm, mobileNo, setMobileNo } = useLogin();
 
@@ -26,7 +28,7 @@ export default function LoginForm() {
             setError("Please enter a valid phone number");
         } else {
             try {
-                const res = await fetch("http://localhost:5000/api/login/send-otp",
+                const res = await fetch(`${BackendURL}/api/login/send-otp`,
                     {
                         method: "POST",
                         headers: {

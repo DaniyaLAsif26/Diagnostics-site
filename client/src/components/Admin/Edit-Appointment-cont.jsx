@@ -4,6 +4,8 @@ import { useParams, useNavigate } from "react-router-dom";
 
 import GppBadIcon from '@mui/icons-material/GppBad';
 
+const BackendURL = import.meta.env.VITE_BACKEND_URL || "http://localhost:5000";
+
 export default function EditAppointment() {
 
     const { id } = useParams()
@@ -34,7 +36,7 @@ export default function EditAppointment() {
 
     // fetch appointment
     useEffect(() => {
-        fetch(`http://localhost:5000/api/appointments/${id}`)
+        fetch(`${BackendURL}/api/appointments/${id}`)
             .then(res => res.json())
             .then(data => {
                 if (data.success) {
@@ -117,7 +119,7 @@ export default function EditAppointment() {
             comments
         }
 
-        fetch(`http://localhost:5000/api/appointments/edit/${id}`, {
+        fetch(`${BackendURL}/api/appointments/edit/${id}`, {
             method: "PUT",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(updatedData)
@@ -171,7 +173,7 @@ export default function EditAppointment() {
     return (
         <div className="edit-appt-cont">
             <div className="edit-appt-cont-btn">
-            <button className="back-btn" onClick={() => navigate('/admin/dashboard')}>Back</button>
+                <button className="back-btn" onClick={() => navigate('/admin/dashboard')}>Back</button>
             </div>
             <form className='edit-appt-form' onSubmit={handleSubmit}>
                 <div className="form-row-1">

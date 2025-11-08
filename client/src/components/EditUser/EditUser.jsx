@@ -7,6 +7,8 @@ import UserForm from '../UserDetails/UserForm';
 
 import './edit-user.css'
 
+const BackendURL = import.meta.env.VITE_BACKEND_URL || "http://localhost:5000";
+
 export default function EditForm() {
 
     const { id } = useParams()
@@ -27,7 +29,7 @@ export default function EditForm() {
     useEffect(() => {
         const getEditUser = async () => {
             try {
-                const res = await fetch(`http://localhost:5000/api/user/search/${id}`)
+                const res = await fetch(`${BackendURL}/api/user/search/${id}`)
 
                 const data = await res.json()
                 console.log(data.user)
@@ -77,7 +79,7 @@ export default function EditForm() {
         };
 
         try {
-            const res = await fetch("http://localhost:5000/api/user/edit", {
+            const res = await fetch(`${BackendURL}/api/user/edit`, {
                 method: "PUT",
                 headers: { "Content-Type": "application/json" },
                 credentials: "include",
@@ -110,7 +112,7 @@ export default function EditForm() {
 
     return (
         <div className="edit-form-cont">
-            <button className='back-btn' onClick={()=> navigate('/admin/dashboard')}>Back</button>
+            <button className='back-btn' onClick={() => navigate('/admin/dashboard')}>Back</button>
 
             <UserForm number={number} userName={userName} setUserName={setUserName} address={address} setAddress={setAddress} second_Number={second_Number} setSecond_Number={setSecond_Number} errors={errors} setErrors={setErrors} updateUserDetails={updateUserDetails} />
         </div>

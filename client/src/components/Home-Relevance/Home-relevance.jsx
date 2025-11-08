@@ -5,6 +5,8 @@ import { useNavigate } from "react-router-dom";
 import Popular from "../Popular-packs/Popular.jsx";
 import RelevanceCont from "../Relevance/Relevance-cont.jsx";
 
+const BackendURL = import.meta.env.VITE_BACKEND_URL || "http://localhost:5000";
+
 export default function HomeRelevance({onPackClick}) {
 
     const { relevance } = useParams();
@@ -25,8 +27,7 @@ export default function HomeRelevance({onPackClick}) {
 
         const fetchResults = async () => {
             try {
-                // const res = await fetch(`http://localhost:5000/api/search?q=${relevance}`);
-                const res = await fetch(`http://localhost:5000/api/search/relevance?q=${relevance}`);
+                const res = await fetch(`${BackendURL}/api/search/relevance?q=${relevance}`);
                 const data = await res.json();
                 setTests(data.tests || []);
                 setPacks(data.packages || []);

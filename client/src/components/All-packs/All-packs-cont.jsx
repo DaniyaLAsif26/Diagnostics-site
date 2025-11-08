@@ -5,6 +5,8 @@ import RelevanceCont from "../Relevance/Relevance-cont.jsx";
 import "../Popular-packs/PopularCont.css";
 import "../Search-results/SearchResults.css";
 
+const BackendURL = import.meta.env.VITE_BACKEND_URL || "http://localhost:5000";
+
 export default function AllPacksCont({ onPackClick }) {
   const [packs, setPacks] = useState([]);
   const [selectedRelevance, setSelectedRelevance] = useState("");
@@ -14,7 +16,7 @@ export default function AllPacksCont({ onPackClick }) {
   useEffect(() => {
     const fetchAllPacks = async () => {
       try {
-        const res = await fetch("http://localhost:5000/api/all-packages");
+        const res = await fetch(`${BackendURL}/api/all-packages`);
         if (!res.ok) {
           throw new Error(`HTTP error! status: ${res.status}`);
         }

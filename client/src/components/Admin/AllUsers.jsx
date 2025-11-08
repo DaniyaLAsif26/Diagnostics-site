@@ -5,6 +5,7 @@ export default function AllItems({ data = [], head = [], columns = 2, contHead, 
 
     const navigate = useNavigate()
 
+    const BackendURL = import.meta.env.VITE_BACKEND_URL || "http://localhost:5000";
 
     const editUser = async (id) => {
         navigate(`/user/edit/${id}`)
@@ -16,7 +17,7 @@ export default function AllItems({ data = [], head = [], columns = 2, contHead, 
         if (!confirmDelete) return;
 
         try {
-            const res = await fetch(`http://localhost:5000/api/user/delete/${id}`, {
+            const res = await fetch(`${BackendURL}/api/user/delete/${id}`, {
                 method: "DELETE"
             })
 
@@ -43,7 +44,7 @@ export default function AllItems({ data = [], head = [], columns = 2, contHead, 
         if (!confirmDelete) return;
 
         try {
-            const res = await fetch(`http://localhost:5000/api/report/delete/${id}`, {
+            const res = await fetch(`${BackendURL}/api/report/delete/${id}`, {
                 method: "DELETE"
             })
 
@@ -109,10 +110,7 @@ export default function AllItems({ data = [], head = [], columns = 2, contHead, 
                                             <td>{item.number}</td>
                                             <td>
                                                 {item.file_url ? (
-                                                    // <a href={item.file_url} target="_blank" rel="noreferrer">
-                                                    //     download
-                                                    // </a>
-                                                    <a href={`http://localhost:5000/api/report/download/${item._id}`} target="_blank" rel="noopener noreferrer">download</a>
+                                                    <a href={`${BackendURL}/api/report/download/${item._id}`} target="_blank" rel="noopener noreferrer">download</a>
                                                 ) : (
                                                     "No report"
                                                 )}

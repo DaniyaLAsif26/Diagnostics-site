@@ -4,6 +4,8 @@ import ReadMoreIcon from '@mui/icons-material/ReadMore';
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 
+const BackendURL = import.meta.env.VITE_BACKEND_URL || "http://localhost:5000";
+
 export default function PopularTestCont() {
 
     const [popularTests, setPopularTests] = useState([]);
@@ -22,7 +24,7 @@ export default function PopularTestCont() {
         const fetchPopularTests = async () => {
 
             try {
-                const res = await fetch("http://localhost:5000/api/home/popular-tests-packs");
+                const res = await fetch(`${BackendURL}/api/home/popular-tests-packs`);
                 const data = await res.json();
                 setPopularTests(data.tests);
             }

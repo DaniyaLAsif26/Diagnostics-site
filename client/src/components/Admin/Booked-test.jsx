@@ -4,6 +4,8 @@ import { useParams, useNavigate } from "react-router-dom";
 
 import { useTrigger } from "../../context/TriggerContext";
 
+const BackendURL = import.meta.env.VITE_BACKEND_URL || "http://localhost:5000";
+
 export default function BookedTests() {
 
     const { triggerDataUpdate } = useTrigger();
@@ -16,7 +18,7 @@ export default function BookedTests() {
     const [completedBy, setCompletedBy] = useState('')
 
     useEffect(() => {
-        fetch(`http://localhost:5000/api/appointments/${id}`)
+        fetch(`${BackendURL}/api/appointments/${id}`)
             .then(res => res.json())
             .then(data => {
                 if (data.success) {
@@ -29,7 +31,7 @@ export default function BookedTests() {
     }, [id]);
 
     const handleDelete = (id) => {
-        fetch(`http://localhost:5000/api/appointments/${id}`, {
+        fetch(`${BackendURL}/api/appointments/${id}`, {
             method: "DELETE"
         })
             .then(res => res.json())
@@ -50,7 +52,7 @@ export default function BookedTests() {
     const completeAppointment = async (e) => {
         e.preventDefault();
         try {
-            const response = await fetch(`http://localhost:5000/api/appointments/complete/${id}`, {
+            const response = await fetch(`${BackendURL}/api/appointments/complete/${id}`, {
                 method: "PUT",
                 headers: {
                     "Content-Type": "application/json",
@@ -80,7 +82,7 @@ export default function BookedTests() {
         e.preventDefault()
 
         try {
-            const res = await fetch(`http://localhost:5000/api/appointments/complete/${id}`, {
+            const res = await fetch(`${BackendURL}/api/appointments/complete/${id}`, {
                 method: 'PUT',
                 headers: {
                     "Content-Type": "application/json",

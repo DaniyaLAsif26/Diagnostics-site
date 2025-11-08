@@ -9,6 +9,8 @@ import { useLogin } from '../../context/LoginContext';
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
+const BackendURL = import.meta.env.VITE_BACKEND_URL || "http://localhost:5000";
+
 export default function adminLoginForm() {
     const navigate = useNavigate();
 
@@ -22,7 +24,7 @@ export default function adminLoginForm() {
         e.preventDefault();
         setError('');
         try {
-            const res = await fetch("http://localhost:5000/api/login/admin-login", {
+            const res = await fetch(`${BackendURL}/api/login/admin-login`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"

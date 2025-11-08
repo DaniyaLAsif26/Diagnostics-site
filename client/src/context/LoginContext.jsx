@@ -6,6 +6,8 @@ import { useCart } from "./CartContext";
 
 const LoginContext = createContext();
 
+const BackendURL = import.meta.env.VITE_BACKEND_URL || "http://localhost:5000";
+
 export const LoginProvider = ({ children }) => {
     const navigate = useNavigate()
 
@@ -57,7 +59,7 @@ export const LoginProvider = ({ children }) => {
     useEffect(() => {
         const verifyLogin = async () => {
             try {
-                const response = await fetch("http://localhost:5000/api/login/verify/user",
+                const response = await fetch(`${BackendURL}/api/login/verify/user`,
                     {
                         method: "GET",
                         credentials: "include"
@@ -86,7 +88,7 @@ export const LoginProvider = ({ children }) => {
     }, [dataChanged])
 
     const logout = async () => {
-        const response = await fetch("http://localhost:5000/api/logout/user",
+        const response = await fetch(`${BackendURL}/api/logout/user`,
             {
                 method: "POST",
                 credentials: "include"
@@ -104,7 +106,7 @@ export const LoginProvider = ({ children }) => {
     useEffect(() => {
         const verifyAdmin = async () => {
             try {
-                const res = await fetch('http://localhost:5000/api/login/verify/admin', {
+                const res = await fetch(`${BackendURL}/api/login/verify/admin`, {
                     method: "GET",
                     credentials: "include"
                 })
@@ -128,7 +130,7 @@ export const LoginProvider = ({ children }) => {
 
     const logoutAdmin = async () => {
         try {
-            const res = await fetch('http://localhost:5000/api/logout/admin', {
+            const res = await fetch(`${BackendURL}/api/logout/admin`, {
                 method: 'POST',
                 credentials: "include"
             })

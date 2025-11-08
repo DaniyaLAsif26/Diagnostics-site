@@ -11,6 +11,8 @@ import { useCart } from "../../context/CartContext";
 
 import './View-packs.css';
 
+const BackendURL = import.meta.env.VITE_BACKEND_URL || "http://localhost:5000";
+
 export default function ViewPackage({ onPackClick }) {
     const { pack } = useParams();
     const { cartItem, addToCart, removeFromCart } = useCart();
@@ -36,7 +38,7 @@ export default function ViewPackage({ onPackClick }) {
     useEffect(() => {
         const fetchPackageDetails = async () => {
             try {
-                const res = await fetch("http://localhost:5000/api/all-packages");
+                const res = await fetch(`${BackendURL}/api/all-packages`);
                 const data = await res.json();
                 setPacks(data);
 
@@ -57,7 +59,7 @@ export default function ViewPackage({ onPackClick }) {
     useEffect(() => {
         const fetchSuggestedPacks = async () => {
             try {
-                const res = await fetch("http://localhost:5000/api/all-packages");
+                const res = await fetch(`${BackendURL}/api/all-packages`);
                 const data = await res.json();
                 const suggestedData = data.slice(2, 4);
                 setSuggestedPacks(suggestedData);

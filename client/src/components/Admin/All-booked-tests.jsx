@@ -3,6 +3,8 @@ import './admin.css'
 import { useState, useEffect } from 'react'
 import { useNavigate } from "react-router-dom"
 
+const BackendURL = import.meta.env.VITE_BACKEND_URL || "http://localhost:5000";
+
 export default function AllBookedTests() {
     const navigate = useNavigate()
 
@@ -16,7 +18,7 @@ export default function AllBookedTests() {
 
     const Appointments = async (searchQuery = '') => {
         try {
-            const res = await fetch(`http://localhost:5000/api/appointments?q=${searchQuery}`);
+            const res = await fetch(`${BackendURL}/api/appointments?q=${searchQuery}`);
 
             const data = await res.json();
 
@@ -65,7 +67,7 @@ export default function AllBookedTests() {
                     </form>
                 </div>
                 <div className="appt-btn">
-                    <button className='add-item-btn' onClick={(e)=> navigate('/admin/book-appointment')}>Add Appointment</button>
+                    <button className='add-item-btn' onClick={(e) => navigate('/admin/book-appointment')}>Add Appointment</button>
                 </div>
             </div>
             <div className="app-btn-selector-cont">

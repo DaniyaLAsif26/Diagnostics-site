@@ -7,10 +7,12 @@ export default function ReportsCont() {
     const [allReports, setAllReports] = useState([])
     const [message, setMessage] = useState('')
 
+    const BackendURL = import.meta.env.VITE_BACKEND_URL || "http://localhost:5000";
+
     useEffect(() => {
         const getReports = async () => {
             try {
-                const res = await fetch('http://localhost:5000/api/report/search/all')
+                const res = await fetch('${BackendURL}/api/report/search/all')
 
                 const data = await res.json()
 

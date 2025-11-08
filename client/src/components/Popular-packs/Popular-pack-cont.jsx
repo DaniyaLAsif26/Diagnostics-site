@@ -5,6 +5,8 @@ import { Link } from 'react-router-dom';
 
 import { useEffect, useState } from 'react';
 
+const BackendURL = import.meta.env.VITE_BACKEND_URL || "http://localhost:5000";
+
 export default function PopularPackCont({ onPackClick }) {
     const [popularPacks, setPopularPacks] = useState([]);
 
@@ -21,7 +23,7 @@ export default function PopularPackCont({ onPackClick }) {
 
         const fetchPopularPacks = async () => {
             try {
-                const res = await fetch("http://localhost:5000/api/home/popular-tests-packs");
+                const res = await fetch(`${BackendURL}/api/home/popular-tests-packs`);
                 const data = await res.json();
                 setPopularPacks(data.packages);
             }

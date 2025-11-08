@@ -5,6 +5,8 @@ import RadioBtn from '../Appointment/Radio.jsx'
 import TimeSlot from '../Appointment/TimeSlot.jsx'
 import Calendar from '../Appointment/Calendar.jsx'
 
+const BackendURL = import.meta.env.VITE_BACKEND_URL || "http://localhost:5000";
+
 export default function BookAppointment() {
     const navigate = useNavigate()
 
@@ -72,7 +74,7 @@ export default function BookAppointment() {
 
     const getSearchresult = async () => {
         try {
-            const res = await fetch(`http://localhost:5000/api/search?q=${search}`);
+            const res = await fetch(`${BackendURL}/api/search?q=${search}`);
             const data = await res.json();
             setTestResults(data.tests || []);
             setPackageResults(data.packages || []);
@@ -83,7 +85,7 @@ export default function BookAppointment() {
 
     const getUsers = async (searchQuery = '') => {
         try {
-            const res = await fetch(`http://localhost:5000/api/user/search?q=${searchQuery}`);
+            const res = await fetch(`${BackendURL}/api/user/search?q=${searchQuery}`);
             const data = await res.json();
 
             if (data.Success === true) {
@@ -200,7 +202,7 @@ export default function BookAppointment() {
             comments: "",
         }
         try {
-            const res = await fetch("http://localhost:5000/api/save/appointment", {
+            const res = await fetch(`${BackendURL}/api/save/appointment`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -228,7 +230,7 @@ export default function BookAppointment() {
 
     return (
         <div className="book-appointment">
-            <button className="back-btn" onClick={()=> navigate('/admin/dashboard')}>Back</button>
+            <button className="back-btn" onClick={() => navigate('/admin/dashboard')}>Back</button>
             <div className="book-appointment-head">
                 <h3>Book Appointment</h3>
             </div>

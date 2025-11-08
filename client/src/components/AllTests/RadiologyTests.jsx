@@ -5,6 +5,8 @@ import "../Popular-packs/PopularCont.css";
 import "../Search-results/SearchResults.css";
 import RelevanceCont from "../Relevance/Relevance-cont.jsx";
 
+const BackendURL = import.meta.env.VITE_BACKEND_URL || "http://localhost:5000";
+
 export default function RadiologyTests() {
     const [tests, setTests] = useState([]);
     const [selectedRelevance, setSelectedRelevance] = useState("");
@@ -14,7 +16,7 @@ export default function RadiologyTests() {
     useEffect(() => {
         const fetchAllTests = async () => {
             try {
-                const res = await fetch("http://localhost:5000/api/tests/radiology");
+                const res = await fetch(`${BackendURL}/api/tests/radiology`);
                 if (!res.ok) {
                     throw new Error(`HTTP error! status: ${res.status}`);
                 }
@@ -69,7 +71,7 @@ export default function RadiologyTests() {
                                     key={test._id || test.name}
                                     name={test.name}
                                     price={test.price}
-                                     patientPreparation={test.patientPreparation}
+                                    patientPreparation={test.patientPreparation}
                                 />
                             ))}
                         </div>

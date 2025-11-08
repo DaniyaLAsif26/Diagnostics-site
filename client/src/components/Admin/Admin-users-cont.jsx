@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
 import AllItems from './AllUsers';
 
+const BackendURL = import.meta.env.VITE_BACKEND_URL || "http://localhost:5000";
+
 export default function AllUsersCont() {
     const [allUsers, setAllUsers] = useState([]);
     const [message, setMessage] = useState('');
@@ -8,7 +10,7 @@ export default function AllUsersCont() {
 
     const getUsers = async (searchQuery = '') => {
         try {
-            const res = await fetch(`http://localhost:5000/api/user/search?q=${searchQuery}`);
+            const res = await fetch(`${BackendURL}/api/user/search?q=${searchQuery}`);
             const data = await res.json();
 
             if (data.Success === true) {

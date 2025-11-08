@@ -2,6 +2,8 @@ import './download-reports.css'
 import { useState } from 'react'
 import DownloadReports from './download-reports'
 
+const BackendURL = import.meta.env.VITE_BACKEND_URL || "http://localhost:5000";
+
 export default function DownloadReportsCont() {
 
     const [search, setSearch] = useState('')
@@ -15,7 +17,7 @@ export default function DownloadReportsCont() {
         if (!search.trim()) return;
 
         try {
-            const res = await fetch(`http://localhost:5000/api/report/search?uniq_id=${search}`)
+            const res = await fetch(`${BackendURL}/api/report/search?uniq_id=${search}`)
 
             const data = await res.json()
 

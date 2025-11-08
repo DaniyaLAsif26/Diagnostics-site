@@ -6,7 +6,6 @@ export const AppointmentProvider = ({ children }) => {
 
     const [appointmentMessage, setAppointmentMessage] = useState("");
     const [appointment, setAppointment] = useState(() => {
-        // Try to load from sessionStorage on initial render
         try {
             const saved = sessionStorage.getItem('appointmentData');
             if (saved) {

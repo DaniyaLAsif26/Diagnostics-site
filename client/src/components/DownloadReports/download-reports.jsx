@@ -1,5 +1,7 @@
 import './download-reports.css'
 
+const BackendURL = import.meta.env.VITE_BACKEND_URL || "http://localhost:5000";
+
 export default function DownloadReports({ data }) {
 
     return (
@@ -14,7 +16,7 @@ export default function DownloadReports({ data }) {
                 <tbody>
                     <tr>
                         <td>{data.uniq_id}</td>
-                        <td><a href={`http://localhost:5000/api/report/download/${data._id}`} download target="_blank" rel="noopener noreferrer">download</a></td>
+                        <td><a href={`${BackendURL}/api/report/download/${data._id}`} download target="_blank" rel="noopener noreferrer">download</a></td>
                     </tr>
 
 

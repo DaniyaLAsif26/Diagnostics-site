@@ -5,6 +5,8 @@ import "../Popular-packs/PopularCont.css";
 import "../Search-results/SearchResults.css";
 import RelevanceCont from "../Relevance/Relevance-cont.jsx";
 
+const BackendURL = import.meta.env.VITE_BACKEND_URL || "http://localhost:5000";
+
 export default function LaboratoryTests() {
     const [tests, setTests] = useState([]);
     const [selectedRelevance, setSelectedRelevance] = useState("");
@@ -14,7 +16,7 @@ export default function LaboratoryTests() {
     useEffect(() => {
         const fetchAllTests = async () => {
             try {
-                const res = await fetch("http://localhost:5000/api/tests/laboratory");
+                const res = await fetch(`${BackendURL}/api/tests/laboratory`);
                 if (!res.ok) {
                     throw new Error(`HTTP error! status: ${res.status}`);
                 }

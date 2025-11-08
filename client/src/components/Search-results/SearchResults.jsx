@@ -4,6 +4,9 @@ import Popular from '../Popular-packs/Popular.jsx';
 import '../Popular-packs/PopularCont.css';
 import './SearchResults.css';
 
+const BackendURL = import.meta.env.VITE_BACKEND_URL || "http://localhost:5000";
+
+
 export default function SearchResults({ onPackClick }) {
     const [searchParams] = useSearchParams();
     const [testResults, setTestResults] = useState([]);
@@ -17,7 +20,7 @@ export default function SearchResults({ onPackClick }) {
 
             setLoading(true);
             try {
-                const res = await fetch(`http://localhost:5000/api/search?q=${query}`);
+                const res = await fetch(`${BackendURL}/api/search?q=${query}`);
                 const data = await res.json();
                 setTestResults(data.tests || []);
                 setPackageResults(data.packages || []);

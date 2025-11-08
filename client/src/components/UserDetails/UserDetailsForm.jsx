@@ -5,6 +5,9 @@ import { useTrigger } from '../../context/TriggerContext';
 
 import UserForm from './UserForm';
 
+const BackendURL = import.meta.env.VITE_BACKEND_URL || "http://localhost:5000";
+
+
 export default function UserDetailForm() {
     const navigate = useNavigate();
     const location = useLocation();
@@ -58,7 +61,7 @@ export default function UserDetailForm() {
         };
 
         try {
-            const res = await fetch("http://localhost:5000/api/user/edit", {
+            const res = await fetch(`${BackendURL}/api/user/edit`, {
                 method: "PUT",
                 headers: { "Content-Type": "application/json" },
                 credentials: "include",
@@ -92,7 +95,7 @@ export default function UserDetailForm() {
 
     return (
         <>
-            <UserForm  number={number} userName={userName} setUserName={setUserName} address={address} setAddress={setAddress} second_Number={second_Number} setSecond_Number={setSecond_Number} errors={errors} setErrors={setErrors} updateUserDetails={updateUserDetails} />
+            <UserForm number={number} userName={userName} setUserName={setUserName} address={address} setAddress={setAddress} second_Number={second_Number} setSecond_Number={setSecond_Number} errors={errors} setErrors={setErrors} updateUserDetails={updateUserDetails} />
         </>
     )
 }

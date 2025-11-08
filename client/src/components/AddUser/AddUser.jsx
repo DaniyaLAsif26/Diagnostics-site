@@ -3,6 +3,8 @@ import PhoneInput from 'react-phone-input-2';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom'
 
+const BackendURL = import.meta.env.VITE_BACKEND_URL || "http://localhost:5000";
+
 export default function AddUser() {
     const navigate = useNavigate()
 
@@ -17,7 +19,7 @@ export default function AddUser() {
         }
         console.log(number, name)
         try {
-            const res = await fetch('http://localhost:5000/api/user/add', {
+            const res = await fetch(`${BackendURL}/api/user/add`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

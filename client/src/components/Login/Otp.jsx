@@ -7,6 +7,8 @@ import { useLogin } from '../../context/LoginContext';
 import { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
+const BackendURL = import.meta.env.VITE_BACKEND_URL || "http://localhost:5000";
+
 export default function OtpInput({ length = 6, onOtpSubmit = () => { } }) {
 
     const navigate = useNavigate()
@@ -81,7 +83,7 @@ export default function OtpInput({ length = 6, onOtpSubmit = () => { } }) {
             return;
         } else {
             try {
-                const res = await fetch("http://localhost:5000/api/login/verify-otp", {
+                const res = await fetch(`${BackendURL}/api/login/verify-otp`, {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json"
