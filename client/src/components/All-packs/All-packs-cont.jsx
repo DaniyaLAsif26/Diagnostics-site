@@ -42,15 +42,18 @@ export default function AllPacksCont({ onPackClick }) {
     else {
       setSelectedRelevance(relevance);
       const filtered = packs.filter(
-        (pack) => Array.isArray(pack.relevance) && pack.relevance.includes(relevance)
+        (pack) => {
+          return Array.isArray(pack.relevance) && pack.relevance.includes(relevance)
+        }
       );
+      console.log("Filtered Packs:", filtered);
       setFilteredPacks(filtered);
     }
   };
 
   return (
     <div className="all-tests all-packs">
-      <div className="relevance">
+      <div className="">
         <RelevanceCont
           selected={selectedRelevance}
           onRelevanceClick={handleRelevanceClick}
@@ -64,7 +67,7 @@ export default function AllPacksCont({ onPackClick }) {
             <div className="search-heading">
               <h1>{selectedRelevance ? `'${selectedRelevance}' Packs` : "All Health Packages"}</h1>
             </div>
-            <div className="search-tests">
+            <div className="search-tests search-packs">
               {filteredPacks.map((pack) => (
                 <Popular
                   key={pack._id || pack.name}

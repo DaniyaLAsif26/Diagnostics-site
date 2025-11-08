@@ -1,27 +1,24 @@
 .options-bar ul {
-    height: 100%;
-    width: 100%;
+    width: auto;
     display: flex;
     justify-content: center;
-    gap: 2.6rem;
     align-items: center;
     list-style: none;
 }
 
-.options-bar li{
+.options-bar li {
     height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 1rem;
-    color: black;
-    font-size: 1.2rem;;
+    font-size: 1.1rem;
     font-weight: 600;
     cursor: pointer;
 }
 
-.options-bar {
-    height: 4rem;
+.options-bar-cont {
+    height: 3.5rem;
     width: 100%;
     display: flex;
     justify-content: space-evenly;
@@ -29,4 +26,262 @@
     flex-direction: row;
     background-color: pink;
     box-sizing: border-box;
+}
+
+.sidebar {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-left: 1.26rem;
+    cursor: pointer;
+}
+
+.sidebar-cont {
+    position: fixed;
+    top: 0;
+    left: 0;
+    min-height: 100vh;
+    width: 100vw;
+    background: rgba(0, 0, 0, 0.433);
+    backdrop-filter: blur(6px);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 999;
+}
+
+.sidebar-cont.show {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.side-drawer {
+    background-color: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    min-height: 100vh;
+    max-width: auto;
+    width: 23rem;
+    transform: translateX(-100%);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 2px 0 8px rgba(0, 0, 0, 0.3);
+    padding: 0.5rem 0rem;
+    z-index: 1000;
+    overflow-y: auto;
+    /* overflow-x: hidden; */
+    overflow-x: auto;
+    will-change: transform;
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: column;
+    max-height: 100vh;
+}
+
+.side-options {
+    flex: 1;
+    overflow-y: auto;
+    overflow-x: hidden;
+    scrollbar-width: 22rem;
+}
+
+.side-options::-webkit-scrollbar {
+    width: 0.5rem;
+    /* Change width here */
+}
+
+.side-options::-webkit-scrollbar-thumb {
+    background: #21356d;
+    /* Scrollbar color */
+    border-radius: 10px;
+}
+
+.side-drawer.show {
+    transform: translateX(0);
+}
+
+.side-drawer * {
+    box-sizing: border-box;
+}
+
+.side-close-btn {
+    display: flex;
+    justify-content: flex-end;
+    padding: 0.5rem 1rem;
+}
+
+.cancel-icon {
+    cursor: pointer;
+    color: #21356d;
+    transition: transform 0.2s ease;
+}
+
+.cancel-icon:hover {
+    transform: scale(1.1);
+}
+
+.side-logo {
+    padding: 0rem 1rem;
+}
+
+.side-logo .nav-logo img {
+    height: 4.5rem;
+    margin: 0rem;
+    margin-left: 0rem;
+}
+
+.side-options-ul {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    gap: 1rem;
+    list-style: none;
+    color: black;
+    padding: 0;
+    margin: 0;
+    margin-bottom: 1rem;
+}
+
+.side-options-ul li {
+    padding: 0.69rem 1rem;
+    font-size: 1.1rem;
+    width: 100%;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    box-sizing: border-box;
+}
+
+.side-options ul li:hover {
+    background-color: rgba(33, 53, 109, 0.1);
+}
+
+.side-search {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0rem 0rem 1.5rem;
+    padding: 0 1rem;
+    box-sizing: border-box;
+}
+
+.side-search .nav-search input {
+    width: 15.5rem;
+}
+
+.side-user-login {
+    height: auto;
+    padding: 0.5rem 1.1rem;
+    position: sticky;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    color: black;
+    border-radius: 0.26rem 0.26rem 0rem 0rem;
+    box-sizing: border-box;
+}
+
+.side-user {
+    background-color: rgba(128, 128, 128, 0.124);
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1rem;
+    font-size: 1rem;
+    padding: 0.7rem 0.85rem;
+    border-radius: 2rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.side-user:hover {
+    background-color: rgba(128, 128, 128, 0.2);
+}
+
+.side-user-details {
+    cursor: pointer;
+}
+
+.user-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.user-icon svg {
+    height: 100%;
+    border-radius: 50%;
+    padding: 0.2rem;
+    font-size: 2.26rem;
+    color: #21356d;
+}
+
+.side-user-name {
+    font-weight: bold;
+}
+
+.side-user-number {
+    font-size: 0.85rem;
+}
+
+.side-selected {
+    background-color: #21356d;
+    color: white;
+}
+
+.side-login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.side-dropdown {
+    display: flex;
+    align-items: start;
+    position: relative;
+    flex-direction: column;
+    transition: 1.2s ease;
+
+}
+
+.side-options-ul .side-dropdown {
+
+    padding: 0rem;
+}
+
+.side-dropdown-icon {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.69rem 1rem;
+    width: 100%;
+}
+
+.subtest-ul {
+    width: 100%;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+}
+
+.subtest-ul.open {
+    max-height: 200px;
+    /* enough for 2 items */
+}
+
+.subtest-ul li {
+    top: 100%;
+    left: 0%;
+    height: 100%;
+    width: 100%;
+    position: relative;
+    list-style: none;
+    padding: 0.69rem 2rem;
+}
+
+.side-drop-li-selected{
+   background-color: #21356d32;
 }

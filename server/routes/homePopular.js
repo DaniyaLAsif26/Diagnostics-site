@@ -7,7 +7,7 @@ const router = express.Router();
 router.get("/popular-tests-packs", async (req, res) => {
     try {
         const [tests, packages] = await Promise.all([
-            Test.find().limit(3),
+            Test.find({popular : true}).limit(3),
             Package.find().limit(3)
         ]);
         res.json({ tests, packages });

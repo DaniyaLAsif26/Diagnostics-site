@@ -4,6 +4,7 @@
     align-items: flex-start;
     flex-direction: column;
     gap: 1.5rem;
+    color: black;
 }
 
 .footer-left h2{

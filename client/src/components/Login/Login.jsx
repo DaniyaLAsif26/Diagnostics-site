@@ -1,30 +1,71 @@
 import PhoneInput from 'react-phone-input-2';
 import Alert from '@mui/material/Alert';
 import 'react-phone-input-2/lib/style.css';
-import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
 import CancelIcon from '@mui/icons-material/Cancel';
 import '../Login/Login.css';
 import { useLogin } from '../../context/LoginContext';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+
+import logo from '../../assets/logo.png'
 
 export default function LoginForm() {
-    const { showLoginForm, toggleLoginForm, showOtpForm } = useLogin();
+    const { showLoginForm, toggleLoginForm, showOtpForm, mobileNo, setMobileNo } = useLogin();
 
-    const [number, setNumber] = useState('');
     const [error, setError] = useState('');
 
-    const submitOtp = (e) => {
+    const closeLoginForm = () => {
+        setMobileNo('');
+        setError('');
+        toggleLoginForm();
+    }
+
+    const submitOtp = async (e) => {
         e.preventDefault();
-        if (!number || number == '' || number == null || number.length < 12) {
+        if (!mobileNo || mobileNo == '' || mobileNo == null || mobileNo.length < 12) {
             setError("Please enter a valid phone number");
         } else {
-            toggleLoginForm(number);
-            showOtpForm();
-        }
-        console.log("hi")
+            try {
+                const res = await fetch("http://localhost:5000/api/login/send-otp",
+                    {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json"
+                        },
+                        credentials: "include",
+                        body: JSON.stringify({ mobileNo })
+                    }
+                )
+                const data = await res.json();
+                // console.log("data", data);
 
+                if (data.Status === "Success") {
+                    console.log("OTP sent successfully");
+                    toggleLoginForm();
+                    showOtpForm();
+                } else {
+                    setError("Error sending OTP");
+                }
+            }
+            catch (error) {
+                console.log("error", error)
+            }
+
+        }
     }
+
+    useEffect(() => {
+        if (showLoginForm) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = 'auto';
+        }
+
+        // cleanup on unmount
+        return () => {
+            document.body.style.overflow = 'auto';
+        };
+    }, [showLoginForm])
 
     if (!showLoginForm) return null;
 
@@ -32,34 +73,41 @@ export default function LoginForm() {
         <>
             <div className="login-overlay" />
             <div className="login-cont">
+                <div className="nav-logo">
+                    <img src={logo} alt="" />
+                    <div className="logo-name">
+                        VISION <br />
+                        DIAGNOSTIC <br />
+                        CENTER
+                    </div>
+                </div>
                 <div className="login-form">
-                    <h1>Log In / Sign Up</h1>
+                    <h1>Log In </h1>
                     <form onSubmit={submitOtp}>
                         <Box display="flex" flexDirection="column" gap={2}>
 
                             <CancelIcon
                                 fontSize="medium"
                                 className="cancel-icon"
-                                onClick={toggleLoginForm}
+                                onClick={closeLoginForm}
                             />
 
                             <PhoneInput
+                                className='phone-input'
                                 country={'in'}
                                 onlyCountries={['in']}
-                                value={number}
+                                value={mobileNo}
                                 onChange={(value) => {
-                                    setNumber(value);
+                                    setMobileNo(value);
                                     if (error) setError("");
                                 }}
                                 countryCodeEditable={false}
                                 disableDropdown={true}
                                 containerStyle={{ width: '100%' }}
                                 inputStyle={{
-                                    height: '3.6rem',
                                     borderRadius: '4px',
                                     border: '1px solid #817a7aff',
                                     color: 'black',
-                                    fontSize: '1.26rem',
                                 }}
                             />
                             {error && (
@@ -72,14 +120,12 @@ export default function LoginForm() {
                             )}
 
                             <div id='recaptcha-container' />
-
-                            <Button type="submit" variant="contained" sx={{
-                                textTransform: 'none',
-                                fontSize: "1.2rem",
-                                marginBottom: '2rem'
-                            }}>
-                                Send OTP via SMS
-                            </Button>
+                            <div className="phone-btn">
+                                <button
+                                    type="submit">
+                                    Send OTP via SMS
+                                </button>
+                            </div>
                         </Box>
                     </form>
                 </div>

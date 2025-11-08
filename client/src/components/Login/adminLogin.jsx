@@ -6,14 +6,13 @@ import Box from '@mui/material/Box';
 import CancelIcon from '@mui/icons-material/Cancel';
 import '../Login/Login.css';
 import { useLogin } from '../../context/LoginContext';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-
 
 export default function adminLoginForm() {
     const navigate = useNavigate();
 
-    const { showAdminForm, toggleAdminForm } = useLogin();
+    const { showAdminForm, toggleAdminForm, setIsAdminLogin, isAdminLogIn } = useLogin();
 
     const [error, setError] = useState('');
     const [password, setPassword] = useState('');
@@ -23,11 +22,12 @@ export default function adminLoginForm() {
         e.preventDefault();
         setError('');
         try {
-            const res = await fetch("http://localhost:5000/api/admin-login", {
+            const res = await fetch("http://localhost:5000/api/login/admin-login", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
                 },
+                credentials: "include",
                 body: JSON.stringify({
                     username,
                     password
@@ -45,7 +45,7 @@ export default function adminLoginForm() {
                 return;
             }
             toggleAdminForm();
-            localStorage.setItem("isAdminLoggedIn", "true");
+            setIsAdminLogin(true)
             navigate('/admin/dashboard');
         }
         catch (error) {
@@ -53,76 +53,92 @@ export default function adminLoginForm() {
         }
     }
 
+    useEffect(() => {
+        if (showAdminForm) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = 'auto';
+        }
+
+        return () => {
+            document.body.style.overflow = 'auto';
+        };
+    }, [showAdminForm])
+
     if (!showAdminForm) return null;
 
     return (
         <>
-            <div className="login-overlay" />
-            <div className="login-cont">
-                <div className="login-form">
-                    <h1>Admin Login</h1>
-                    <form onSubmit={adminLogin}>
-                        <Box display="flex" flexDirection="column" gap={2}>
+            {!isAdminLogIn && (
+                <>
+                    <div className="login-overlay" />
+                    <div className="login-cont">
+                        <div className="login-form">
+                            <h1>Admin Login</h1>
+                            <form onSubmit={adminLogin}>
+                                <Box display="flex" flexDirection="column" gap={2}>
 
-                            <CancelIcon
-                                fontSize="medium"
-                                className="cancel-icon"
-                                onClick={toggleAdminForm}
-                            />
+                                    <CancelIcon
+                                        fontSize="medium"
+                                        className="cancel-icon"
+                                        onClick={toggleAdminForm}
+                                    />
 
-                            <TextField
-                                id="outlined-basic"
-                                label="Username"
-                                variant="outlined"
-                                autoComplete="off"
-                                value={username}
-                                onChange={(e) => setUsername(e.target.value)}
-                                sx={{
-                                    "& .MuiOutlinedInput-root": {
-                                        "& fieldset": {
-                                            border: '1.5px solid black',   // default border color
-                                        },
-                                    },
-                                }}
-                            />
+                                    <TextField
+                                        id="outlined-basic"
+                                        label="Username"
+                                        variant="outlined"
+                                        autoComplete="off"
+                                        value={username}
+                                        onChange={(e) => setUsername(e.target.value)}
+                                        sx={{
+                                            "& .MuiOutlinedInput-root": {
+                                                "& fieldset": {
+                                                    border: '1.5px solid black',   // default border color
+                                                },
+                                            },
+                                        }}
+                                    />
 
-                            <TextField
-                                id="outlined-password-input"
-                                label="Password"
-                                type="password"
-                                value={password}
-                                onChange={(e) => setPassword(e.target.value)}
-                                sx={{
-                                    "& .MuiOutlinedInput-root": {
-                                        "& fieldset": {
-                                            border: '1.5px solid black',
-                                        },
-                                    }
-                                }}
-                            />
-                            {error && (
-                                <Alert variant="filled" severity="error" sx={{
-                                    color: 'white',
-                                    backgroundColor: '#fe8383ff',
-                                }}>
-                                    {error}
-                                </Alert>
-                            )}
+                                    <TextField
+                                        id="outlined-password-input"
+                                        label="Password"
+                                        type="password"
+                                        value={password}
+                                        onChange={(e) => setPassword(e.target.value)}
+                                        sx={{
+                                            "& .MuiOutlinedInput-root": {
+                                                "& fieldset": {
+                                                    border: '1.5px solid black',
+                                                },
+                                            }
+                                        }}
+                                    />
+                                    {error && (
+                                        <Alert variant="filled" severity="error" sx={{
+                                            color: 'white',
+                                            backgroundColor: '#fe8383ff',
+                                        }}>
+                                            {error}
+                                        </Alert>
+                                    )}
 
-                            <div id='recaptcha-container' />
+                                    <div id='recaptcha-container' />
 
-                            <Button type="submit" variant="contained" sx={{
-                                textTransform: 'none',
-                                fontSize: "1.2rem",
-                                marginBottom: '2rem'
-                            }}>
-                                Login
-                            </Button>
-                        </Box>
-                    </form>
-                </div>
-            </div>
-
+                                    <Button type="submit" variant="contained" sx={{
+                                        textTransform: 'none',
+                                        fontSize: "1.2rem",
+                                        marginBottom: '2rem'
+                                    }}>
+                                        Login
+                                    </Button>
+                                </Box>
+                            </form>
+                        </div>
+                    </div>
+                </>
+            )
+            }
         </>
     );
 }

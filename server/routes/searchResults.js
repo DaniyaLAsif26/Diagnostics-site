@@ -15,8 +15,8 @@ router.get('/', async (req, res) => {
 
   const orConditions = keywords.flatMap(word => ([
     { name: { $regex: new RegExp(word, "i") } },
-    { relevance: { $elemMatch: { $regex: new RegExp(word, "i") } } },
-    { tests: { $elemMatch: { $regex: new RegExp(word, "i") } } }  // added this line
+    { relevance: { $regex: new RegExp(word, "i") } }, 
+    { tests: { $elemMatch: { $regex: new RegExp(word, "i") } } }  
   ]));
 
   try {
@@ -32,7 +32,19 @@ router.get('/', async (req, res) => {
   }
 });
 
+router.get('/relevance', async (req, res) => {
+  const query = req.query.q;
 
-
+  try {
+    const [tests, packages] = await Promise.all([
+      Test.find({ relevance: query }).limit(50),
+      Package.find({ relevance: query }).limit(50)
+    ]);
+    res.json({ tests, packages });
+  } catch (err) {
+    console.error("Search error:", err);
+    res.status(500).json({ message: "Search failed", error: err.message });
+  }
+})
 
 export default router;

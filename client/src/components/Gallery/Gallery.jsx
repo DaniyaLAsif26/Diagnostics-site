@@ -1,38 +1,93 @@
-import { useState } from "react";
-import "./Gallery.css";
+// import { useState, useEffect } from "react";
+// import "./Gallery.css";
 
-import image1 from "../../assets/Gallery-imgs/Gallery1.avif";
-import image2 from "../../assets/Gallery-imgs/Gallery2.avif";
-import image3 from "../../assets/Gallery-imgs/Gallery3.avif";
-import image4 from "../../assets/Gallery-imgs/Gallery4.webp";
-import image5 from "../../assets/Gallery-imgs/Gallery5.webp";
-import image6 from "../../assets/Gallery-imgs/Gallery6.webp";
-import image7 from "../../assets/image1.jpg";
-import image8 from "../../assets/image2.avif";
-import offer from "../../assets/offer.jpg";
+// import SkipNextIcon from '@mui/icons-material/SkipNext';
+// import SkipPreviousIcon from '@mui/icons-material/SkipPrevious';
+// import images from "../../gallery.json";
+
+// const Gallery = () => {
+//     const [currentIndex, setCurrentIndex] = useState(null);
+
+//     const openModal = (index) => setCurrentIndex(index);
+//     const closeModal = () => setCurrentIndex(null);
+//     const showPrev = () => setCurrentIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1));
+//     const showNext = () => setCurrentIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1));
+
+//     useEffect(() => {
+//         if (currentIndex !== null) {
+//             document.body.style.overflow = "hidden";
+//         } else {
+//             document.body.style.overflow = "auto";
+//         }
+//     }, [currentIndex]);
+
+//     return (
+//         <>
+//             <div className={`gallery-container ${currentIndex !== null ? "blurred" : ""}`}>
+//                 <h2 className="heading">Image Gallery</h2>
+//                 <div className="gallery">
+//                     {images.map((img, index) => (
+//                         <img
+//                             key={index}
+//                             src={img}
+//                             alt={`Gallery ${index}`}
+//                             onClick={() => openModal(index)}
+//                         />
+//                     ))}
+//                 </div>
+//             </div>
+
+//             {currentIndex !== null && (
+//                 <div className="modal">
+//                     <span className="close" onClick={closeModal}>×</span>
+//                     <button className="nav prev" onClick={showPrev}>
+//                         <SkipPreviousIcon />
+//                     </button>
+//                     <img
+//                         className="modal-img"
+//                         src={images[currentIndex]}
+//                         alt={`Zoomed ${currentIndex}`}
+//                         loading="lazy"
+//                     />
+//                     <button className="nav next" onClick={showNext}>
+//                         <SkipNextIcon  />
+//                     </button>
+//                 </div>
+//             )}
+//         </>
+//     );
+// };
+
+// export default Gallery;
+
+
+import { useState, useEffect } from "react";
+import "./Gallery.css";
 
 import SkipNextIcon from '@mui/icons-material/SkipNext';
 import SkipPreviousIcon from '@mui/icons-material/SkipPrevious';
 
-const images = [
-    { title: "Image 1", src: image1 },
-    { title: "Image 2", src: image2 },
-    { title: "Image 3", src: image3 },
-    { title: "Image 4", src: image4 },
-    { title: "Image 5", src: image5 },
-    { title: "Image 6", src: image6 },
-    { title: "Image 7", src: image7 },
-    { title: "Image 8", src: image8 },
-    { title: "Image 9", src: offer },
-];
-
 const Gallery = () => {
+    const [images, setImages] = useState([]); // store URLs
     const [currentIndex, setCurrentIndex] = useState(null);
+
+    // Load gallery.json from public folder
+    useEffect(() => {
+        fetch("/gallery.json")
+            .then(res => res.json())
+            .then(data => setImages(data))
+            .catch(err => console.error("Failed to load gallery:", err));
+    }, []);
 
     const openModal = (index) => setCurrentIndex(index);
     const closeModal = () => setCurrentIndex(null);
-    const showPrev = () => setCurrentIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1));
-    const showNext = () => setCurrentIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1));
+    const showPrev = () => setCurrentIndex(prev => prev === 0 ? images.length - 1 : prev - 1);
+    const showNext = () => setCurrentIndex(prev => prev === images.length - 1 ? 0 : prev + 1);
+
+    // Disable scroll when modal is open
+    useEffect(() => {
+        document.body.style.overflow = currentIndex !== null ? "hidden" : "auto";
+    }, [currentIndex]);
 
     return (
         <>
@@ -42,9 +97,10 @@ const Gallery = () => {
                     {images.map((img, index) => (
                         <img
                             key={index}
-                            src={img.src}
-                            alt={img.title}
+                            src={img}
+                            alt={`Gallery ${index}`}
                             onClick={() => openModal(index)}
+                            loading="lazy" // lazy-load thumbnails
                         />
                     ))}
                 </div>
@@ -53,9 +109,18 @@ const Gallery = () => {
             {currentIndex !== null && (
                 <div className="modal">
                     <span className="close" onClick={closeModal}>×</span>
-                    <button className="nav prev" onClick={showPrev}> <SkipPreviousIcon style={{ fontSize: '3rem' }} /> </button>
-                    <img className="modal-img" src={images[currentIndex].src} alt="zoomed" />
-                    <button className="nav next" onClick={showNext}> <SkipNextIcon style={{ fontSize: '3rem' }} /> </button>
+                    <button className="nav prev" onClick={showPrev}>
+                        <SkipPreviousIcon />
+                    </button>
+                    <img
+                        className="modal-img"
+                        src={images[currentIndex]}
+                        alt={`Zoomed ${currentIndex}`}
+                        loading="lazy" // lazy-load modal image
+                    />
+                    <button className="nav next" onClick={showNext}>
+                        <SkipNextIcon />
+                    </button>
                 </div>
             )}
         </>

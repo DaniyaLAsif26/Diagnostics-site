@@ -1,0 +1,91 @@
+.all-booked-tests-cont {
+    padding: 0rem 3rem;
+    color: white;
+    width: 100%;
+}
+
+.all-booked-tests-cont h2 {
+    padding: 1rem 2.6rem;
+    color: white;
+}
+
+.all-test-table-cont {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3rem;
+    justify-content: center;
+    align-items: center;
+    margin: 1rem 3rem;
+    padding-bottom: 3rem;
+}
+
+.all-test-table th,
+.all-test-table td {
+    text-align: start;
+    padding: 0.3rem 0.5rem;
+}
+
+.all-test-table th,
+.all-test-table td {
+    font-size: 1.2rem;
+}
+
+.all-test-table {
+    background-color:
+        #ff6764;
+    padding: 1.5rem 2rem;
+    border-radius: 2.6rem;
+    color: white;
+}
+
+.app-btn-selector {
+    background-color: rgba(214, 214, 214, 0.80);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 2rem;
+    width: 40rem;
+    gap: 0.5rem;
+    box-sizing: border-box;
+}
+
+.app-btn-selector-cont {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0.5rem 0rem 1.5rem;
+    box-sizing: border-box;
+}
+
+.app-btn {
+    border-radius: 2rem;
+    padding: 0.9rem 1rem;
+    font-size: 1.2rem;
+    color: black;
+    width: 50%;
+    text-align: center;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+.app-btn:hover:not(.selected-btn) {
+    background-color: rgba(0, 0, 255, 0.1);
+}
+
+.selected-btn {
+    background-color: blue;
+    color: white;
+}
+
+.appointment-search {
+    width: 60%;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem 0rem;
+    border-radius: 0.5rem;
+    gap: 6rem;
+    margin: 2rem auto;
+}

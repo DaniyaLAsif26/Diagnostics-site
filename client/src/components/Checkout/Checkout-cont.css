@@ -1,0 +1,29 @@
+.checkout-head {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1.5rem 0rem;
+    color: white;
+    font-size: 1.69rem;
+}
+
+.checkout {
+     background-image: linear-gradient(to right bottom, oklch(20.992% 0.03416 263.451 / 0.81) 0px, rgb(0, 0, 0) 50%, oklch(27.837% 0.03355 257.693 / 0.807) 100%);
+     color: black;
+    padding-bottom: 2rem;
+    overflow: visible;
+}
+
+.checkout-grid {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 3rem;
+    padding: 0rem 3rem;
+    overflow: visible;
+    /* align-items: start; */
+}
+
+.checkout-cont {
+    overflow: visible;
+}

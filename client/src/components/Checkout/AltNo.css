@@ -1,0 +1,13 @@
+.alt-no-input {
+    background-color: transparent;
+    height: 2.5rem;
+    font-size: 1.26rem;
+    color: black;
+    padding: 0rem 0.7rem;
+    width: 10rem;
+}
+
+.error {
+    border: 2px solid red;
+    order: 2;
+}

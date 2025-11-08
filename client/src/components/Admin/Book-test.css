@@ -1,0 +1,140 @@
+.booked-tests {
+    background: linear-gradient(to right bottom, oklch(0.21 0.034 264.665) 0px, rgb(0, 0, 0) 50%, oklch(0.278 0.033 256.848) 100%);
+}
+
+.Booked-test-table {
+    color: white;
+    width: 100%;
+    text-align: center;
+    border: 2px solid lightblue;
+}
+
+.Booked-test-table td,
+.Booked-test-table th {
+    padding: 1rem 0.5rem;
+}
+
+.Booked-test-table th {
+    font-size: 1.26rem;
+}
+
+.Booked-test-table td {
+    font-size: 1.16rem;
+}
+
+.booking-table {
+    display: flex;
+    flex-direction: column;
+    gap: 2.6rem;
+}
+
+.booked-tests {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 2.6rem 4rem;
+    width: 100%;
+}
+
+.all-appointment-test {
+    margin: 3rem 0rem;
+    padding: 1rem 3rem;
+    border: 2px solid lightblue;
+}
+
+.test-name,
+.test-price {
+    color: white;
+}
+
+.appointment-test {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.25rem 0.7rem;
+}
+
+.appointment-payment-btn {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    gap: 1.26rem;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 2rem;
+    padding-bottom: 2rem;
+}
+
+.appointment-btn {
+    width: 100%;
+    display: flex;
+    gap: 1.2rem;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.appointment-btn .dlt-btn {
+    background-color: red;
+}
+
+.appointment-btn .complete-btn {
+    background-color: green;
+}
+
+.appointment-btn .edit-btn {
+    width: 7rem;
+}
+
+.appointment-payment-radio {
+    display: flex;
+    align-items: center;
+    gap: 1.26rem;
+    color: white;
+}
+
+.pyt-status {
+    font-size: 1.2rem;
+    color: orange;
+}
+
+.payment-comment-cont {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 3rem;
+}
+
+.payment-comment-cont h3 {
+    color: white;
+}
+
+.revert-btn{
+    background-color: orange;
+}
+
+.booked-tests-cont{
+    position: relative;
+}
+
+.back-btn{
+    position: absolute;
+    left: 1rem;
+}
+
+.appointment-report a{
+    color: white;
+    text-decoration: underline;
+}
+
+.appointment-report{
+    padding: 0rem 2rem 2rem;
+}
+
+.upload-btn{
+    font-size: 1rem;
+    padding: 0.26rem 0.5rem;
+    margin: 1rem 0rem;
+}

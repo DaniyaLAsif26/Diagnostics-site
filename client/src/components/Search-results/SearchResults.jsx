@@ -4,7 +4,7 @@ import Popular from '../Popular-packs/Popular.jsx';
 import '../Popular-packs/PopularCont.css';
 import './SearchResults.css';
 
-export default function SearchResults({onPackClick}) {
+export default function SearchResults({ onPackClick }) {
     const [searchParams] = useSearchParams();
     const [testResults, setTestResults] = useState([]);
     const [packageResults, setPackageResults] = useState([]);
@@ -34,7 +34,7 @@ export default function SearchResults({onPackClick}) {
     return (
         <div className="search-tests-cont">
             <div className="search-heading">
-                <h1>Search results for "{query}"</h1>
+                <h1>Search results for : "{query}"</h1>
             </div>
 
             {loading ? (
@@ -75,7 +75,7 @@ export default function SearchResults({onPackClick}) {
                                             name={pack.name}
                                             price={pack.price}
                                             tests={pack.tests}
-                                            onClick={onPackClick }
+                                            onClick={onPackClick}
                                         />
                                     ))}
                                 </div>

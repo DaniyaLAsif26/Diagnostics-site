@@ -8,9 +8,13 @@
     padding: 0rem 1rem;
 }
 
+.footer-center ul li{
+    font-size: 1rem;
+}
+
 .footer-center a{
     font-weight: 500;
-    font-size: 1.20rem;
+    font-size: 1.15rem;
     text-decoration: none;
     color: #435ca1;
 }

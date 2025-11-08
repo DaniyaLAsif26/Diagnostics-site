@@ -1,6 +1,6 @@
 .intro {
     padding: 0rem 1rem;
-    font-size: 1.2rem;
+    font-size: 1.15rem;
     font-weight: 500;
     color: #435ca1;
 }
@@ -21,3 +21,12 @@
     font-weight: 500;
     font-size: 1.15rem;
 }
+
+.footer-right iframe {
+    width: 400px;
+    height: 350px;
+}
+
+.socials .social-icon{
+       font-size: 2.6rem;
+    }

@@ -1,9 +1,85 @@
-.options-bar ul li:hover {
-    background-color: #21356de7;
-    color: white;
-    border-bottom: 6px solid white;
+.option-ul {
+  height: 3.5rem;
+  gap: 2.6rem;
 }
 
-.options-bar ul li {
+.option-ul li {
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, border-bottom 0.26s ease-in-out;
+}
+
+.option-item {
+  color: black;
+
+}
+
+.option-ul li:hover {
+  background-color: #21356de7;
+  color: white;
+  border-bottom: 6px solid white;
+  height: 100%;
+}
+
+.option-ul li.test-li:hover {
+  border-bottom: 6px solid white;
+}
+
+.option-selected {
+  background-color: #21356de7;
+  color: white;
+  border-bottom: 6px solid white;
   transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, border-bottom 0.3s ease-in-out;
+}
+
+.option-ul .option-selected {
+  color: white;
+}
+
+.test-li {
+  position: relative;
+
+}
+
+.dropdown-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.dropdown-cont {
+  background-color: white;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  gap: 1rem;
+  width: 11rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+}
+
+.dropdown-ul {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.dropdown-ul li {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  cursor: pointer;
+}
+
+.dropdown-li {
+  color: black;
+}
+
+.dropdown-ul li:hover {
+  background-color: #e2e2e2;
+  color: #21356de7;
+  border-bottom: none;
+}
+
+.drop-li-selected {
+  background-color: #21356de7;
+  color: white;
 }

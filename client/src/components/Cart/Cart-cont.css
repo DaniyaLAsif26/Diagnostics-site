@@ -1,22 +1,25 @@
+.shopping-cart {
+    /* background: linear-gradient(#d0d0d0, #b0b0b0); */
+    background-image: linear-gradient(to right bottom, oklch(20.992% 0.03416 263.451 / 0.81) 0px, rgb(0, 0, 0) 50%, oklch(27.837% 0.03355 257.693 / 0.807) 100%);
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    min-height: 26rem;
+    color: black;
+}
+
 .cart-cont {
-    background-color: rgba(211, 211, 211, 0.514);
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
     width: 90%;
-    margin: 2rem auto 2rem;
+    margin: 3.5rem auto 3rem;
     padding: 2rem 3rem;
+    border-radius: 1.5rem;
+    text-align: center;
 }
 
 .cart-cont h2 {
     font-size: 2.6rem;
-    margin-bottom: 3rem;
-}
-
-.cart-info {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 0.3rem;
-    padding: 0rem 0.5rem 1rem;
-    border-bottom: 2px solid green;
 }
 
 .cart-item {
@@ -35,25 +38,10 @@
     background-color: rgba(255, 0, 0, 0.815);
 }
 
-.cart-test {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 1.2rem;
-}
-
-.cart-test h4 {
+.cart-test-action .delete-btn svg{
     font-size: 1.8rem;
-    color: #21356d;
 }
 
-.item-price{
-    font-size: 1.45rem;
-}
-
-.item-inst{
-    font-size: 1.2rem;
-}
 
 .subtotal h3 {
     margin: 4rem 2rem 2.69rem 0rem;
@@ -61,7 +49,89 @@
     text-align: right;
 }
 
-.submit-btn{
+.submit-btn {
     margin: 2.6rem 3rem 1.5rem 0rem;
     text-align: right;
+}
+
+.cart-head {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 3rem;
+}
+
+.empty-msg {
+    font-size: 1.5rem;
+    color: #000000;
+    margin-top: 2rem;
+    margin-bottom: 4rem;
+}
+
+.cart-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    color: black;
+}
+
+.cart-table th,
+.cart-table td {
+    padding: 1.4rem;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.cart-table th {
+    background-color: #f5f5f5;
+    background: linear-gradient(90deg, #94EDFF, #00D4FF);
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.cart-test-details {
+    max-width: 400px;
+}
+
+.test-pre b {
+    color: #3b58a6;
+}
+
+.cart-test-name {
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: black;
+}
+
+.test-pre {
+    font-size: 1rem;
+    color: #393939;
+}
+
+.cart-test-price {
+    font-weight: bold;
+    text-align: center;
+}
+
+.cart-test-action {
+    text-align: center;
+}
+
+.delete-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #f44336;
+    padding: 5px;
+    border-radius: 4px;
+}
+
+.delete-btn:hover {
+    background-color: #ffebee;
+}
+
+.cart-test-name,
+.cart-test-price {
+    font-size: 1.2rem;
 }

@@ -1,0 +1,15 @@
+.addr-textarea{
+    background-color: transparent;
+    border: 2px solid black;
+    resize: none;
+    height: 8rem;
+    width: 15rem;
+    color: black;
+    padding:0.7rem;
+    font-size: 1.15rem;
+    scrollbar-width: none;
+}
+
+.error{
+    border: 2px solid red;
+}

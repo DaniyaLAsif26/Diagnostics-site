@@ -1,0 +1,67 @@
+.donwload-reports-cont {
+    min-height: 26rem;
+    padding: 1.26rem;
+}
+
+.donwload-reports-cont-head,
+.donwload-reports-cont-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.donwload-reports-cont-form {
+    margin: 1.5rem 0rem;
+}
+
+.download-reports-form {
+    height: 2.26rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.download-reports-form input {
+    height: 100%;
+    width: 15.5rem;
+    background-color: transparent;
+    color: black;
+    padding: 0.3rem 0.5rem;
+    border: 1.26px solid black;
+    font-size: 1.1rem;
+    border-radius: 0.5rem;
+}
+
+.report-search-btn {
+    background-color: green;
+    font-size: 1.1rem;
+    height: 100%;
+    padding: 0.26rem 0.7rem;
+}
+
+.download-reports-form input:focus {
+    border: 2px solid #21356d88;
+}
+
+.report-table {
+    max-width: 80%;
+}
+
+.download-reports-cont-table {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 3rem;
+}
+
+.cart-table th,
+.cart-table td {
+    padding: 0.9rem;
+    font-size: 1.1rem;
+}
+
+.report-table tbody a {
+    color: blue;
+    text-decoration: underline;
+}

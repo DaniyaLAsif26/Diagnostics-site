@@ -25,7 +25,8 @@ export default function HomeRelevance({onPackClick}) {
 
         const fetchResults = async () => {
             try {
-                const res = await fetch(`http://localhost:5000/api/search?q=${relevance}`);
+                // const res = await fetch(`http://localhost:5000/api/search?q=${relevance}`);
+                const res = await fetch(`http://localhost:5000/api/search/relevance?q=${relevance}`);
                 const data = await res.json();
                 setTests(data.tests || []);
                 setPacks(data.packages || []);

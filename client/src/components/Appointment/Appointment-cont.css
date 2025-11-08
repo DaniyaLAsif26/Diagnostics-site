@@ -1,11 +1,28 @@
-.checkout-cont {
+.appointment-bg {
+    /* background-color: grey; */
+    /* background: linear-gradient(#d1d1d1, #cbcbcb); */
+    background-image: linear-gradient(to right bottom, oklch(20.992% 0.03416 263.451 / 0.81) 0px, rgb(0, 0, 0) 50%, oklch(27.837% 0.03355 257.693 / 0.807) 100%);
+    padding: 2rem 4rem 3rem 4rem;
+}
+
+.appointment-cont {
     display: flex;
     flex-direction: column;
     align-items: start;
-    margin: 2rem 0rem 3rem 4rem;
+    background-color: rgb(250, 250, 250);
+    color: black;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+    padding: 1.5rem 2rem;
+    border-radius: 1rem;
 }
 
-.checkout-step {
+.appointment-heading {
+    width: 100%;
+    text-align: center;
+    margin: 1rem 0rem 2rem;
+}
+
+.appointment-step {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -13,12 +30,12 @@
     cursor: pointer;
 }
 
-.checkout-step-head {
+.appointment-step-head {
     font-size: 1.5rem;
     font-weight: 500;
 }
 
-.checkout {
+.appointment {
     display: flex;
     flex-direction: column;
     align-items: start;
@@ -26,7 +43,7 @@
     height: auto;
 }
 
-.checkout-form {
+.appointment-form {
     position: relative;
     height: auto;
     border-left: 1px solid grey;

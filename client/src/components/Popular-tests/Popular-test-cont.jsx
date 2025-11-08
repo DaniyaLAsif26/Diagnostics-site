@@ -8,7 +8,16 @@ export default function PopularTestCont() {
 
     const [popularTests, setPopularTests] = useState([]);
 
+    const [viewMore, setViewMore] = useState(window.innerWidth >= 1290);
+
     useEffect(() => {
+
+        const handleResize = () => {
+            setViewMore(window.innerWidth <= 1290)
+        }
+
+        handleResize()
+        window.addEventListener("resize", handleResize);
 
         const fetchPopularTests = async () => {
 
@@ -24,27 +33,41 @@ export default function PopularTestCont() {
 
         }
         fetchPopularTests();
+
+        return () => {
+            window.removeEventListener("resize", handleResize);
+        };
     }, [])
 
     return (
         <div className="popular-cont" style={{ backgroundColor: "pink" }}>
-            <h2>Popular Tests</h2>
-            <div className="popular-items popular-test">
+            <div className="popular-cont-head">
+                <h2>Popular Tests</h2>
+                {viewMore &&
+                    <Link to="/all-tests" className="link">
+                        <div className="more-link">VIEW MORE</div>
+                    </Link>
+                }
+            </div>
+            <div className="popular-items-wrapper">
+                <div className="popular-items popular-test">
 
-                {popularTests.map((test) => (
-                    <Popular
-                        key={test._id}
-                        name={test.name}
-                        price={test.price}
-                    />
-                ))}
+                    {popularTests.map((test) => (
+                        <Popular
+                            key={test._id}
+                            name={test.name}
+                            price={test.price}
+                            patientPreparation={test.patientPreparation}
+                        />
+                    ))}
 
-                <Link to="/all-tests" className="link">
-                    <div className="more">
-                        <div className="more-text">See more </div>
-                        <ReadMoreIcon className="more-icon" style={{ fontSize: '3rem' }} />
-                    </div>
-                </Link>
+                    <Link to="/tests/laboratory" className="link">
+                        <div className="more">
+                            <div className="more-text">See more </div>
+                            <ReadMoreIcon className="more-icon" style={{ fontSize: '3rem' }} />
+                        </div>
+                    </Link>
+                </div>
             </div>
         </div>
     )

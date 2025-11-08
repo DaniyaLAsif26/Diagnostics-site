@@ -3,17 +3,17 @@ import './Radio.css';
 import Button from '@mui/material/Button';
 
 
-export default function RadioBtn({sendRadioData}) {
-    const [selectedOption, setSelectedOption] = useState('Diagnostic Center'); // Default selected: Diagnostic Center
+export default function RadioBtn({ sendRadioData, selectedRadio }) {
+    const [selectedOption, setSelectedOption] = useState(selectedRadio || 'Diagnostic Center');
 
     const handleRadioChange = (e) => {
         setSelectedOption(e.target.value);
     }
 
-const submitRadio =(e) =>{
-    e.preventDefault();
-    sendRadioData(selectedOption);
-}
+    const submitRadio = (e) => {
+        e.preventDefault();
+        sendRadioData(selectedOption);
+    }
 
     return (
         <div className="cart-check-box">

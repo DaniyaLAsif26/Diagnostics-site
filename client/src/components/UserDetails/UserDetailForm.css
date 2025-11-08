@@ -1,0 +1,77 @@
+.edit-user-from {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    width: 100%;
+    height: 100%;
+}
+
+.user-detail-cont {
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 1.5rem 2.6rem;
+    margin: 2rem 0rem;
+    border-radius: 1rem;
+}
+
+.user-detail-form-div {
+    display: flex;
+    flex-direction: column;
+    gap: 0.26rem;
+    position: relative; /* Add this */
+}
+
+.user-detail-form input {
+    border: none;
+    background-color: white;
+    color: black;
+    padding: 0.8rem 0.5rem;
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+.user-detail-form label {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: white;
+}
+
+.user-detail-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.user-detail-form form {
+    display: flex;
+    flex-direction: column;
+    margin: 2.26rem;
+    gap: 2.6rem;
+}
+
+.user-detail-form button {
+    margin-bottom: 1rem;
+}
+
+.user-detail-cont {
+    background-image: linear-gradient(to right bottom, oklch(20.992% 0.03416 263.451 / 0.81) 0px, rgb(0, 0, 0) 50%, oklch(27.837% 0.03355 257.693 / 0.807) 100%);
+}
+
+.error-line {
+    height: 0.26rem;
+    background-color: red;
+    position: absolute; /* Add this */
+    bottom: -0.46rem; /* Add this - adjust spacing as needed */
+    left: 0;
+    right: 0;
+}
+
+.input-field:focus {
+    border: none;
+}
+

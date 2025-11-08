@@ -1,0 +1,352 @@
+.selected-item-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    padding: 1.4rem;
+    border-bottom: 1px solid black;
+}
+
+.book-appointment {
+    margin: 2rem 0rem;
+    min-height: 21rem;
+    text-align: center;
+}
+
+.book-appointment h3 {
+    font-size: 1.8rem;
+    color: #333;
+}
+
+.book-appointment-head {
+    margin-bottom: 1rem;
+}
+
+.book-appointment form {
+    margin: 2rem 0rem;
+}
+
+.item-search-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.item-search form input {
+    width: 17rem;
+    padding: 0.8rem;
+    font-size: 1rem;
+    border: 2px solid #ddd;
+    border-radius: 6px;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.book-appointment .item-search-form input {
+    width: 17rem;
+}
+
+.book-appointment form input:focus {
+    border-color: #2196F3;
+}
+
+.book-appointment form button {
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+    background-color: #f44336;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.book-appointment form button:hover {
+    background-color: #d32f2f;
+}
+
+.search-results {
+    margin: 2rem auto;
+    max-width: 55rem;
+}
+
+.admin-test-heading,
+.admin-package-heading {
+    margin: 2rem 0 1rem 0;
+    text-align: left;
+}
+
+.admin-test-heading h2,
+.admin-package-heading h2 {
+    font-size: 1.5rem;
+    color: #333;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #2196F3;
+}
+
+.test-results,
+.pack-results {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.admin-search-tests,
+.admin-search-packs {
+    display: grid;
+    grid-template-columns: repeat(3, 17rem);
+    align-items: center;
+    padding: 0.8rem;
+    font-size: 1.2rem;
+    color: black;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    width: 100%;
+}
+
+.admin-search-tests:hover,
+.admin-search-packs:hover {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+}
+
+.admin-search-tests.added,
+.admin-search-packs.added {
+    background-color: #e8f5e9;
+    border-color: #4caf50;
+}
+
+.admin-search-tests>div:first-child,
+.admin-search-packs>div:first-child {
+    text-align: left;
+    font-weight: 500;
+}
+
+.admin-search-tests>div:nth-child(2),
+.admin-search-packs>div:nth-child(2) {
+    text-align: center;
+    font-weight: bold;
+    color: #2196F3;
+}
+
+.admin-search-tests>div:last-child,
+.admin-search-packs>div:last-child {
+    text-align: right;
+}
+
+.add-appt-btn {
+    font-size: 0.9rem;
+    padding: 0.5rem 1rem;
+    background-color: #2196F3;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-weight: 600;
+}
+
+.add-appt-btn:hover {
+    background-color: #1976D2;
+    transform: scale(1.05);
+}
+
+.add-appt-btn:disabled {
+    background-color: #4caf50;
+    cursor: default;
+    opacity: 0.8;
+}
+
+.add-appt-btn:disabled:hover {
+    transform: none;
+}
+
+.book-appt-details {
+    margin: 3rem auto;
+    max-width: 55rem;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    padding: 0.5rem 2rem 2rem;
+    background-color: #f9f9f9;
+    min-height: 12rem;
+}
+
+.book-appt-details h3 {
+    font-size: 1.5rem;
+    color: #333;
+}
+
+.book-appt-details.empty {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #666;
+    font-style: italic;
+}
+
+.selected-items-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    margin-bottom: 1.5rem;
+}
+
+.selected-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: white;
+    border-radius: 6px;
+    border: 1px solid #e0e0e0;
+    transition: box-shadow 0.3s;
+}
+
+.selected-item:hover {
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.selected-item-info {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    flex: 1;
+}
+
+.selected-item-name {
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: black;
+}
+
+.selected-item-type {
+    font-size: 0.75rem;
+    color: #666;
+    background-color: #e3f2fd;
+    padding: 0.2rem 0.6rem;
+    border-radius: 3px;
+    text-transform: uppercase;
+}
+
+.selected-item-price {
+    margin-right: 1.5rem;
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: #2196F3;
+}
+
+.remove-item-btn {
+    padding: 0.5rem 1rem;
+    background-color: #f44336;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background-color 0.3s;
+}
+
+.remove-item-btn:hover {
+    background-color: #d32f2f;
+}
+
+.appt-total {
+    border-top: 2px solid #ddd;
+    padding-top: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.appt-total-label {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #333;
+}
+
+.appt-total-amount {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #2196F3;
+}
+
+.book-appointment-btn {
+    width: 100%;
+    padding: 1rem;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.book-appointment-btn:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+.book-appointment-btn:hover {
+    background-color: #388E3C;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .book-appointment form input {
+        width: 15rem;
+    }
+
+    .admin-search-tests,
+    .admin-search-packs {
+        grid-template-columns: 1fr 6rem 5rem;
+        font-size: 1rem;
+    }
+
+    .search-results,
+    .book-appt-details {
+        max-width: 95%;
+    }
+
+    .selected-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.8rem;
+    }
+
+    .selected-item-price {
+        margin-right: 0;
+    }
+}
+
+.item-search {
+    position: relative;
+}
+
+.no-msg {
+    color: black;
+    font-weight: bold;
+    position: absolute;
+    top: 0;
+    left: 8.5rem;
+}
+
+.item-search-cont{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    position: relative;
+}
+
+.radio-cont{
+    color: black;
+}

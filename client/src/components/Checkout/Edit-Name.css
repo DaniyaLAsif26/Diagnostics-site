@@ -1,0 +1,13 @@
+.edit-name-form {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.edit-name-input {
+    height: 2.5rem;
+    background-color: transparent;
+    padding: 0.7rem;
+    color: black;
+    font-size: 1.2rem;
+}

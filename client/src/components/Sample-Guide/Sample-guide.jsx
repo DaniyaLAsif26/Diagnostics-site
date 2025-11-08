@@ -13,29 +13,28 @@ export default function SampleGuide() {
             <h1>Book Home Sample Collection </h1>
             <div className="guide-cont">
                 <div className="select-test box">
-                    <img src={Test} alt="" />
+                    <img src={Test} alt="" loading="lazy"/>
                     <div className="">Book a test </div>
                 </div>
                 <div className="arrow">
-                    <img src={Arrow} alt="" />
+                    <img src={Arrow} alt="" loading="lazy"/>
                 </div>
                 <div className="Kart box">
-                    <img src={Kart} alt="" />
+                    <img src={Kart} alt="" loading="lazy"/>
                     <div className="">Go to Cart</div>
                 </div>
                 <div className="arrow">
-                    <img src={Arrow} alt="" />
+                    <img src={Arrow} alt="" loading="lazy"/>
                 </div>
                 <div className="Scooter box">
-                    <img src={Scooter} alt="" />
-                    <div className="">Home Sample
-                        Collection</div>
+                    <img src={Scooter} alt="" loading="lazy"/>
+                    <div className="">Book Appointment</div>
                 </div>
                 <div className="arrow">
-                    <img src={Arrow} alt="" />
+                    <img src={Arrow} alt="" loading="lazy"/>
                 </div>
                 <div className="done box">
-                    <img src={Correct} alt="" />
+                    <img src={Correct} alt="" loading="lazy"/>
                     <div className="">Done </div>
                 </div>
             </div>

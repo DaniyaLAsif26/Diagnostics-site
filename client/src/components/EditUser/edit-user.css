@@ -1,0 +1,9 @@
+.edit-form-cont {
+    position: relative;
+}
+
+.edit-form-cont .back-btn {
+    position: absolute;
+    top: 1rem;
+    left: 3.6rem;
+}

@@ -1,5 +1,5 @@
 import SampleGuide from "../components/Sample-Guide/Sample-guide";
-import AllTestsCont from '../components/AllTests/All-tests-cont.jsx';
+import AllTestsCont from '../components/AllTests/LaboratoryTests.jsx';
 
 
 export default function HomeSample() {

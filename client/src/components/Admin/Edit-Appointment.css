@@ -1,0 +1,145 @@
+.edit-appt-cont {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    padding: 1.5rem 3rem;
+    background: linear-gradient(to right bottom, oklch(0.21 0.034 264.665) 0px, rgb(0, 0, 0) 50%, oklch(0.278 0.033 256.848) 100%);
+}
+
+.form-row-1 h2,
+.form-row-2 h2 {
+    color: white;
+    margin-bottom: 2rem;
+    text-decoration: underline;
+}
+
+.edit-appt-form label,
+.edir-appt-details label {
+    color: white;
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-right: 1rem;
+}
+
+.edit-appt-user div,
+.edit-appt-details div,
+.edit-appt-price div,
+.completed-by-cont div{
+    display: flex;
+    margin-bottom: 1rem;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.edit-appt-form input,
+.comments textarea,
+.edit-address-cont textarea {
+    background-color: white;
+    color: rgb(18, 33, 59);
+    padding: 0.7rem;
+    font-size: 1.1rem;
+    margin: 0rem 0.7rem;
+}
+
+
+
+.edit-appt-form {
+    width: 100%;
+}
+
+.appt-form-1stcolumn {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+
+}
+
+.edit-appt-form {
+    display: grid;
+    grid-template-rows: auto auto;
+    gap: 2rem;
+    width: 100%;
+}
+
+.form-row-1 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    align-items: start;
+}
+
+
+.form-row-2 {
+    align-items: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+}
+
+.form-row-3 {
+    align-items: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+}
+
+.error-input {
+    border: 2px solid red;
+}
+
+.payment-edit {
+    font-weight: bold;
+}
+
+.update-btn {
+    width: 100%;
+    text-align: center;
+    margin: 2.6rem 0rem 4rem;
+}
+
+.comments {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.comments textarea,
+.edit-address-cont textarea {
+    resize: none;
+    width: 26rem;
+    height: 8rem;
+    scrollbar-width: none;
+}
+
+.edit-address-cont textarea {
+    width: 15rem;
+}
+
+.payment-from div {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    align-items: start;
+}
+
+.payment-from {
+    display: flex;
+}
+
+.edit-appt-cont{
+    position: relative;
+}
+
+.edit-appt-cont .back-btn{
+    position: absolute;
+    width: 5rem;
+    right: 0rem;
+    top: 0.5rem;
+    left: 92%;
+}

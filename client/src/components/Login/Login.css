@@ -6,8 +6,7 @@
   width: 100vw;
   backdrop-filter: blur(8px);
   background-color: rgba(0, 0, 0, 0.489);
-  z-index: 9999;
-
+  z-index: 999999;
 }
 
 .login-cont {
@@ -15,12 +14,16 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: 10000;
+  z-index: 111111110000;
   background-color: rgb(244, 244, 244);
   border-radius: 8px;
   padding: 2rem;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-
+  color: black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .login-form {
@@ -36,8 +39,8 @@
 
 .cancel-icon {
   position: absolute;
-  top: 10px;
-  right: 10px;
+  top: 1rem;
+  right: 1rem;
   color: #ff0000;
   cursor: pointer;
 }
@@ -77,4 +80,29 @@
 #outlined-basic,
 #outlined-password-input {
   font-size: 1.2rem;
+}
+
+.otp-btns {
+  display: flex;
+  justify-content: center;
+  /* align-items: center; */
+  width: 100%;
+  gap: 1rem;
+}
+
+.phone-input {
+  height: 3.6rem;
+}
+
+.react-tel-input .form-control {
+  font-size: 1.26rem;
+  height: 3.6rem;
+}
+
+.phone-btn button {
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+  text-transform: 'none';
+  padding: 0.6em 1rem;
+  background-color: #21356d;
 }

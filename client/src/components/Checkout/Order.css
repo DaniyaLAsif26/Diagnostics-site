@@ -1,0 +1,76 @@
+.order-cont {
+    background-color: white;
+    border-radius: 1rem;
+    padding: 3rem 1.5rem 3rem;
+}
+
+.order-details {
+    border-top: 4px solid black;
+    border-bottom: 4px solid black;
+    padding: 1rem 0.7rem;
+}
+
+.coupon-input {
+    background-color: #fff;
+    padding: 1rem 0.7rem;
+    border-radius: 0.5rem;
+    font-size: 1.1rem;
+    border: 2px solid red;
+    color: red;
+    font-weight: 500;
+}
+
+.coupon {
+    padding-bottom: 2rem;
+    padding-top: 1rem;
+}
+
+.coupon-form {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.coupon-btn,
+.coupon-form input {
+    height: 2.6rem;
+}
+
+.coupon .coupon-btn {
+    color: red;
+    border: 2px solid red;
+    font-size: 1rem;
+}
+
+.order-summary {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    flex-direction: column;
+    padding: 2rem;
+    border-top: 2px solid grey;
+    border-bottom: 2px solid grey;
+    gap: 0.75rem;
+}
+
+.order-subtotal,
+.order-discount,
+.order-total {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+}
+
+.discount-price {
+    color: red;
+}
+
+.pay-btn {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    text-align: end;
+    padding: 0rem 1rem;
+}

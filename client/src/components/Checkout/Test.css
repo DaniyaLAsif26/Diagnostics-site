@@ -1,0 +1,45 @@
+.test-cont {
+    background-color: white;
+    /* padding: 2rem 3.5rem ; */
+    padding: 2rem 3.4rem 2rem 2.5rem;
+
+    border-radius: 1rem;
+}
+
+.test-details {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: 1.5rem 0rem;
+    font-size: 1.2rem;
+    font-weight: bolder;
+}
+
+.test-cont-head {
+    color: rgb(67, 92, 161);
+}
+
+.test-subtotal h3 {
+    text-align: end;
+    font-size: 1.4rem;
+    margin-bottom: 2rem;
+}
+
+.note {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 1.15rem;
+    padding: 1rem 0rem;
+    background: linear-gradient(0deg, #cff7ff, #b9f3ff);
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.test-details-name {
+    margin-right: 0.7rem;
+    width: 100%;
+}
+
+.test-details-price {
+    width: 5rem;
+}

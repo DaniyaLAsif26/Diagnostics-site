@@ -2,6 +2,16 @@
     width: 100%;
     text-align: center;
     padding: 1rem 2rem;
+    background-color: pink;
+    position: relative;
+}
+
+.popular-packs{
+    margin-top: 2rem;
+}
+
+.popular-items-wrapper {
+    width: 100%;
 }
 
 .popular-items{
@@ -18,6 +28,20 @@
     padding: 1.5rem 0rem;
     text-align: start;
     margin: 0rem 2.6rem;
+    color: black;
+}
+
+.popular-cont-head{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    color: black;
+}
+
+.more-link{
+    font-size: 1.26rem;
+    font-weight: bold;
 }
 
 .more{

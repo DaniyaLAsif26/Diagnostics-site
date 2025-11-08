@@ -1,153 +1,156 @@
-import { useState } from "react";
-import { LocalizationProvider, DateCalendar } from "@mui/x-date-pickers";
-import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
-import dayjs from "dayjs";
+import { useState, useEffect, useRef } from "react";
 import Button from '@mui/material/Button';
-
+import NavigateNextIcon from '@mui/icons-material/NavigateNext';
+import NavigateBeforeIcon from '@mui/icons-material/NavigateBefore';
 
 import './Calendar.css';
 
-export default function Calendar({ sendDate }) {
-  const today = dayjs();
-  const maxDate = today.add(3, "day"); 
+export default function Calendar({ sendDate, selectedDate: initialSelectedDate }) {
+  const [selectedDate, setSelectedDate] = useState(null);
+  // console.log(selectedDate)
 
-  const [selectedDate, setSelectedDate] = useState(today);
+  // Initialize with the prop value on component mount and when prop changes
+  useEffect(() => {
+    if (initialSelectedDate) {
+      setSelectedDate(new Date(initialSelectedDate));
+    }
+  }, [initialSelectedDate]);
 
-  const submitDate =  () => {
+  // Get current date and generate next 6 days
+  const today = new Date();
+  const dates = [];
+
+  for (let i = 0; i < 6; i++) {
+    const date = new Date(today);
+    date.setDate(today.getDate() + i);
+    dates.push(date);
+  }
+
+  const formatDay = (date) => {
+    const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+    return days[date.getDay()];
+  };
+
+  const formatDate = (date) => {
+    const day = date.getDate();
+    const suffix = ['th', 'st', 'nd', 'rd'][day % 10 > 3 || Math.floor(day / 10) === 1 ? 0 : day % 10];
+    return `${day}${suffix}`;
+  };
+
+  const formatMonth = (date) => {
+    const months = [
+      'January', 'February', 'March', 'April', 'May', 'June',
+      'July', 'August', 'September', 'October', 'November', 'December'
+    ];
+    return months[date.getMonth()];
+  };
+
+  const isToday = (date) => {
+    const today = new Date();
+    return date.toDateString() === today.toDateString();
+  };
+
+  const isSameDate = (date1, date2) => {
+    return date1 && date2 && date1.toDateString() === date2.toDateString();
+  };
+
+  const submitDate = () => {
     sendDate(selectedDate);
   }
 
+  const sliderRef = useRef(null);
+
+  const scroll = (direction) => {
+    if (sliderRef.current) {
+      const scrollAmount = window.innerWidth < 360 ? 100 : 200;
+      sliderRef.current.scrollBy({
+        left: direction === "next" ? scrollAmount : -scrollAmount,
+        behavior: "smooth",
+      });
+    }
+  };
+
   return (
-    <div style={{ textAlign: "center" }} className="calendar-cont">
-      <div className="calendar" style={{ marginBottom: "20px" }}>
-        <LocalizationProvider dateAdapter={AdapterDayjs}>
-          <DateCalendar
-            value={selectedDate}
-            onChange={(newDate) => setSelectedDate(newDate)}
-            disablePast
-            minDate={today}
-            maxDate={maxDate}
-            views={["day"]}
-            sx={{
-              // Override MUI's internal height constraints but maintain document flow
-              height: "auto !important",
-              minHeight: "auto !important",
-              maxHeight: "none !important",
-              width: "100%",
-              maxWidth: "none",
-              minWidth: "400px",
-              overflow: "visible !important",
-              display: "block", // Ensure proper block-level behavior
-              // position: "static", // Ensure it stays in document flow
-              marginBottom: "2rem", // Add bottom margin to push content down
+    <>
+      <div className="calendar-slider">
+        <button className="calendar-scroll-btn prev" onClick={() => scroll("prev")}>
+          <NavigateBeforeIcon />
+        </button>
+        <div className="calendar-cont" ref={sliderRef}>
 
-              // Container styling - Force auto height but maintain flow
-              "& .MuiDateCalendar-root": {
-                width: "100%",
-                height: "auto !important",
-                minHeight: "auto !important",
-                maxHeight: "none !important",
-                maxWidth: "none",
-                overflow: "visible !important",
-                display: "block",
-                // position: "static",
-              },
+          {dates.map((date, index) => (
+            <div
+              key={index}
+              onClick={() => setSelectedDate(date)}
+              className={`date-card ${isToday(date) ? ' today' : ''} ${isSameDate(selectedDate, date) && 'selected'} `}
+            >
+              <div className="day-date">
+                {isToday(date) ? ' Today'
+                  :
+                  <>
+                    <span> {formatDay(date)}</span>
+                    <span> {formatDate(date)}</span>
+                  </>
+                }
+              </div>
+              <div className="text-xs opacity-90">
+                {isToday(date) ?
+                  <>
+                    <span>{formatDate(date)}</span>
+                    &nbsp;
+                    <span>{formatMonth(date)}</span>
+                  </>
+                  :
+                  <>
+                    <span>{formatMonth(date)}</span>
+                  </>
+                }
+              </div>
+            </div>
+          ))}
 
-              // Week container styling
-              "& .MuiDayCalendar-weekContainer": {
-                justifyContent: "space-between",
-                margin: "0",
-                height: "auto !important",
-
-              },
-
-              // Month container styling - Critical for preventing scrollbars
-              "& .MuiDayCalendar-monthContainer": {
-                width: "100%",
-                height: "auto !important",
-                minHeight: "auto !important",
-                maxHeight: "none !important",
-                overflow: "visible !important",
-
-              },
-
-              // Slides container - This often causes the scrollbar issue
-              "& .MuiDayCalendar-slideTransition": {
-                height: "auto !important",
-                minHeight: "auto !important",
-                overflow: "visible !important",
-              },
-
-              // Header styling
-              // "& .MuiPickersCalendarHeader-root": {
-              //   paddingLeft: "16px",
-              //   paddingRight: "16px",
-              //   minHeight: "40px",
-              // },
-
-              "& .MuiPickersCalendarHeader-label": {
-                fontSize: "20px",
-                marginBottom: "0.5rem",
-                fontWeight: "600",
-                marginTop: "3.5rem",
-
-              },
-
-              "& .MuiPickersArrowSwitcher-root": {
-                display: "none"
-              },
-
-              "& .MuiDayCalendar-weekDayLabel": {
-                fontSize: "18px",
-                fontWeight: "600",
-                width: "5rem",
-                marginTop: "2.6rem",
-              },
-
-              // Day numbers (bigger cells)
-              "& .MuiPickersDay-root": {
-                fontSize: "18px",
-                height: "60px", // Your increased height
-                width: "4rem",
-                margin: "2px",
-                flexShrink: 0,
-              },
-
-              // Selected date styling
-              "& .Mui-selected": {
-                backgroundColor: "#1976d2 !important",
-                color: "white",
-                fontWeight: "bold",
-              },
-
-              // Disabled dates styling
-              "& .Mui-disabled": {
-                color: "#ccc",
-              },
-
-              // Force all internal containers to be visible
-              "& .MuiDateCalendar-root, & .MuiDayCalendar-monthContainer, & .MuiDayCalendar-weekContainer, & .MuiDayCalendar-slideTransition": {
-                overflowX: "visible !important",
-                overflowY: "visible !important",
-              },
-            }}
-          />
-        </LocalizationProvider>
+        </div>
+        <button className="calendar-scroll-btn next" onClick={() => scroll("next")}>
+          <NavigateNextIcon />
+        </button>
       </div>
 
-      <div className="selected-date">
-        Selected Date: <b>{selectedDate.format("DD/MM/YYYY")}</b>
+      {/* Selected Date Display */}
+
+      <div className="select-date-cont">
+        <h3 className="select-date-head">Selected Date:</h3>
+
+        {
+          selectedDate ? (
+            <div className="selected-date">
+              {selectedDate.toLocaleDateString('en-US', {
+                weekday: 'long',
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+              })}
+            </div>
+          ) : (
+            <>
+              <div className="">
+                None
+              </div>
+            </>
+          )
+        }
       </div>
+
       <div className="next-btn">
         <Button
           variant="contained"
           color="success"
           size="large"
-          onClick ={submitDate}
-          >
+          disabled={!selectedDate}
+          onClick={submitDate}
+        >
           Next
         </Button>
       </div>
-    </div>
-  );
+    </>
+  )
 }

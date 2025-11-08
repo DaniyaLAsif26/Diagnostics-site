@@ -2,12 +2,18 @@
     font-size: 1.26rem;
     font-weight: 500;
     margin: 1rem 2rem;
+    color: black;
+    text-align: start;
 }
 
 .view-nav a,
 .current-package {
-    padding: 0rem 1.1rem;
+    padding: 0rem 1rem;
     text-decoration: underline;
+}
+
+.view-nav a:first-child{
+    padding-left: 0rem;
 }
 
 .view-pack-cont {
@@ -37,6 +43,7 @@
 .view-pack h2 {
     font-size: 2rem;
     margin: 1rem 0rem;
+    color: black;
 }
 
 .view-pack-parameter {
@@ -100,4 +107,5 @@
 .suggested-packs-cont h2{
     font-size: 2rem;
     margin: 1rem 2rem;
+    color: black;
 }

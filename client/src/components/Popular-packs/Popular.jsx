@@ -3,20 +3,28 @@ import Button from '@mui/material/Button';
 import './Popular.css';
 import { useCart } from "../../context/CartContext";
 
-export default function Popular({ name, price, tests, onClick }) {
+export default function Popular({ name, price, tests, patientPreparation, onClick }) {
 
-    const { cartItem, addToCart, removeFromCart} = useCart();
+    const { cartItem, addToCart, removeFromCart } = useCart();
 
     const isInCart = cartItem.some(item => item.name === name);
 
     const handleClick = (e) => {
-        e.stopPropagation();
-        if (!isInCart) {
-            addToCart({ name, price, tests });
-        } else {
-            removeFromCart(name);
+    e.stopPropagation();
+
+    if (!isInCart) {
+        const itemToAdd = { name, price, tests };
+
+        // Only add patientPreparation if it exists
+        if (patientPreparation) {
+            itemToAdd.patientPreparation = patientPreparation;
         }
+
+        addToCart(itemToAdd);
+    } else {
+        removeFromCart(name);
     }
+};
 
     const handleCardClick = () => {
         if (typeof onClick === 'function') {
@@ -25,7 +33,8 @@ export default function Popular({ name, price, tests, onClick }) {
     }
 
     return (
-        <div className="popular" onClick={handleCardClick}>
+        // {isInCart ? "Remove" : "Add"}
+        <div className={`popular ${isInCart ? " " : ""}`}onClick={handleCardClick}>
             <div className="popular-info">
                 <h3>{name}</h3>
             </div>
@@ -37,7 +46,7 @@ export default function Popular({ name, price, tests, onClick }) {
                 <Button
                     variant="contained"
                     onClick={handleClick}
-                    endIcon={<AddShoppingCartIcon />}>
+                    endIcon={<AddShoppingCartIcon className='pop-shop-icon' />}>
                     {isInCart ? "Remove" : "Add"}
                 </Button>
             </div>

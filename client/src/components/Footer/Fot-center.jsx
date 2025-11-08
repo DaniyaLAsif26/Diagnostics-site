@@ -1,13 +1,19 @@
 import './Fot-center.css';
 import { useLogin } from '../../context/LoginContext.jsx';
+import { useNavigate } from 'react-router-dom';
 
 export default function FotCenter({ link }) {
+    const navigate = useNavigate()
 
-    const { toggleAdminForm } = useLogin();
+    const { toggleAdminForm, isAdminLogIn } = useLogin();
 
     const adminLogin = (e) => {
         e.preventDefault();
-        toggleAdminForm();
+        if (isAdminLogIn) {
+            navigate('/admin/dashboard');
+        }else{
+            toggleAdminForm();
+        }
     }
 
     return (

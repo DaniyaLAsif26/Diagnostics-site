@@ -1,0 +1,14 @@
+.checkout-box {
+    padding: 2rem 3.5rem 2rem 2.5rem;
+}
+
+.checkout-summary {
+    width: 100%;
+    background-color: white;
+    border-radius: 1rem;
+}
+
+.checkout-box-head {
+    margin-bottom: 2rem;
+    color: rgb(67, 92, 161);
+}

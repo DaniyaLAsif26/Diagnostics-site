@@ -5,6 +5,7 @@ import PopularTestCont from '../components/Popular-tests/Popular-test-cont.jsx';
 import RelevanceCont from '../components/Relevance/Relevance-cont.jsx';
 import ChooseUsCont from '../components/Choose-us/Choose-us-cont.jsx';
 import SampleGuide from "../components/Sample-Guide/Sample-guide.jsx";
+import OfferText from "../components/Offer-text/Offer-text.jsx";
 
 export default function Home() {
 
@@ -21,10 +22,11 @@ export default function Home() {
   return (
     <>
       <SliderCont />
-      <PopularPackCont onPackClick ={handlePackClick}/>
+      <OfferText />
       <RelevanceCont onRelevanceClick={handleRelevanceClick} />
+      <PopularPackCont onPackClick={handlePackClick} />
       <SampleGuide />
-      <PopularTestCont/>
+      <PopularTestCont />
       <ChooseUsCont />
     </>
   );

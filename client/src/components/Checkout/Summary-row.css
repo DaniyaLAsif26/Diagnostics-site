@@ -1,0 +1,60 @@
+.checkout-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: start;
+    margin-bottom: 1.26rem;
+    position: relative;
+
+}
+
+.check-data,
+.check-head {
+    font-size: 1.3rem;
+}
+
+.check-head {
+    padding: 0.9rem 0rem;
+    padding-left: 1.75rem;
+    padding-right: 0.9rem;
+    font-weight: bold;
+    width: 100%;
+    max-width: 16.5rem;
+    background: linear-gradient(0deg, #94EDFF, #00D4FF);
+    border-radius: 2rem 0rem 0rem 2rem;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.check-data {
+    border-radius: 0rem 2rem 2rem 0rem;
+    width: auto;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+}
+
+.check-sep {
+    font-size: 1.5rem;
+    font-weight: bolder;
+    margin: 0rem 1rem;
+}
+
+.check-sep {
+    padding: 0rem 0.5rem;
+}
+
+.add-btn {
+    background: transparent;
+    color: blue;
+    text-decoration: underline;
+    font-size: 1rem;
+    position: absolute;
+    right: -3rem;
+}
+
+.edit-addr-row{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
