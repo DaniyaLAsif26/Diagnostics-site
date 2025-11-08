@@ -12,6 +12,8 @@ import logOutRoute from './routes/logOut.js';
 import UserRoute from './routes/User.js';
 import ReportRoute from './routes/UploadReports.js'
 
+const app = express();
+
 import cookieParser from "cookie-parser";
 app.use(cookieParser());
 
@@ -22,8 +24,6 @@ import compression from 'compression';
 import helmet from 'helmet';
 app.use(helmet());
 app.use(compression());
-
-const app = express();
 app.use(express.json());
 
 const PORT = process.env.PORT || 5000;
