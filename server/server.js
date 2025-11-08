@@ -28,7 +28,7 @@ app.use(express.json());
 
 const PORT = process.env.PORT || 5000;
 
-const allowedOrigins = ["http://localhost:5173", "http://localhost:3000", "https://your-vercel-url.vercel.app", "https://visiondiagnosticscentre.com/"];
+const allowedOrigins = ["http://localhost:5173", "http://localhost:3000", "https://your-vercel-url.vercel.app", "https://visiondiagnosticscentre.com"];
 
 app.use(cors({
   origin: function (origin, callback) {
@@ -63,7 +63,7 @@ app.use("/api", (req, res) => {
   res.status(404).json({ message: "API route not found" });
 });
 
-app.use("*", (req, res) => {
+app.use((req, res) => {
   res.status(404).json({ message: "API route not found" });
 });
 
