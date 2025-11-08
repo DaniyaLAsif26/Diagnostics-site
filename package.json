@@ -7,8 +7,6 @@
   "dependencies": {
     "cloudinary": "^1.37.2",
     "dotenv": "^17.2.2",
-    "multer": "^2.0.2",
-    "multer-storage-cloudinary": "^4.0.0",
     "react-router-dom": "^7.6.1"
   },
   "devDependencies": {
