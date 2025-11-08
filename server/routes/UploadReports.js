@@ -4,7 +4,7 @@ const router = express.Router()
 import Report from '../models/report.js'
 import User from '../models/user.js'
 
-import { cloudinary, storage } from '../../cloudConfig.js'
+import { cloudinary, storage } from '../cloudConfig.js'
 
 import multer from 'multer'
 import Appointment from '../models/appointment.js'
