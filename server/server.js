@@ -46,7 +46,9 @@ app.use(cors({
 
 // const MONGO_URL = "mongodb://127.0.0.1:27017/vision-center";
 const MONGO_URL = process.env.ATLAS_DB_URL;
-mongoose.connect(MONGO_URL).then(() => console.log("MongoDB connected"));
+mongoose.connect(MONGO_URL)
+  .then(() => console.log("MongoDB connected"))
+  .catch((err) => console.error("❌ MongoDB connection error:", err));
 
 app.use("/api", testRoutes);
 app.use("/api", packageRoutes);
