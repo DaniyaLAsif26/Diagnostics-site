@@ -27,6 +27,7 @@ app.use(compression());
 app.use(express.json());
 
 const PORT = process.env.PORT || 5000;
+const HOST = '0.0.0.0';
 
 const allowedOrigins = ["http://localhost:5173","http://localhost:5174", "http://localhost:3000", "https://your-vercel-url.vercel.app", "https://visiondiagnosticscentre.com"];
 
@@ -80,6 +81,6 @@ app.use((err, req, res, next) => {
   });
 });
 
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
+app.listen(PORT, HOST, () => {
+  console.log(`✅ Server running on ${HOST}:${PORT}`);
 });
