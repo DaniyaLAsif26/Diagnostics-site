@@ -12,8 +12,9 @@ import dotenv from "dotenv";
 import path from "path";
 dotenv.config({ path: path.resolve("../../.env") });
 
-const MONGO_URL = "mongodb://127.0.0.1:27017/vision-center";
-// const MONGO_URL = process.env.ATLAS_DB_URL;
+// const MONGO_URL = "mongodb://127.0.0.1:27017/vision-center";
+const MONGO_URL = process.env.ATLAS_DB_URL;
+console.log("MONGO_URL:", MONGO_URL);
 
 async function main() {
     await mongoose.connect(MONGO_URL);
