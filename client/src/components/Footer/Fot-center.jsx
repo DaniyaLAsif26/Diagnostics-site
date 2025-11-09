@@ -3,16 +3,24 @@ import { useLogin } from '../../context/LoginContext.jsx';
 import { useNavigate } from 'react-router-dom';
 
 export default function FotCenter({ link }) {
-    const navigate = useNavigate()
-
+    const navigate = useNavigate();
     const { toggleAdminForm, isAdminLogIn } = useLogin();
 
     const adminLogin = (e) => {
         e.preventDefault();
         if (isAdminLogIn) {
             navigate('/admin/dashboard');
-        }else{
+        } else {
             toggleAdminForm();
+        }
+    }
+
+    const handleNavigation = (e, href, isAdmin) => {
+        e.preventDefault();
+        if (isAdmin) {
+            adminLogin(e);
+        } else {
+            navigate(href);
         }
     }
 
@@ -25,13 +33,13 @@ export default function FotCenter({ link }) {
                         <a
                             href={links.href}
                             className={links.name === 'Admin Login' ? 'admin-link' : ''}
-                            onClick={links.name === 'Admin Login' ? adminLogin : undefined}
+                            onClick={(e) => handleNavigation(e, links.href, links.name === 'Admin Login')}
                         >
                             {links.name}
                         </a>
                     </li>
                 ))}
             </ul>
-        </div >
+        </div>
     )
 }
