@@ -42,7 +42,7 @@ export default function PopularTestCont() {
     }, [])
 
     return (
-        <div className="popular-cont" style={{ backgroundColor: "pink" }}>
+        <div className="popular-cont popular-tests" style={{ backgroundColor: "pink" }}>
             <div className="popular-cont-head">
                 <h2>Popular Tests</h2>
                 {viewMore &&

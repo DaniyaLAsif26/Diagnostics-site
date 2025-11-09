@@ -675,8 +675,7 @@
     }
 
     .second-slider {
-        height: 26rem;
-        width: auto;
+        display: none;
     }
 
     .relevance-link img {
@@ -820,6 +819,17 @@
     .appointment-msg {
         width: 30rem;
     }
+}
+
+@media screen and (max-width : 786px) {
+    .popular-packs {
+        margin-top: 0rem;
+    }
+
+    .popular-tests {
+        margin-top: 2rem;
+    }
+
 }
 
 @media screen and (max-width : 796px) {
@@ -990,6 +1000,22 @@
         width: 13rem;
     }
 
+    .search-heading h1 {
+        font-size: 2rem;
+    }
+
+    .popular-info h3 {
+        font-size: 1.3rem;
+    }
+
+    .relevance-cont h2 {
+        font-size: 1.8rem;
+    }
+
+    .choose-us-cont h2 {
+        font-size: 1.75rem;
+    }
+
 }
 
 @media screen and (max-width : 720px) {
@@ -1096,6 +1122,16 @@
 }
 
 @media screen and (max-width : 626px) {
+
+    .popular-cont h2 {
+        font-size: 1.7rem;
+    }
+
+    .more-link {
+        font-size: 1.15rem;
+        font-weight: 500;
+    }
+
     .popular-items {
         gap: 0.5rem;
     }
@@ -1306,6 +1342,13 @@
         height: 8rem;
         scrollbar-width: none;
     }
+
+    .choose-us-cont h2 {
+        padding: 0.5rem 0rem 1rem;
+        font-size: 1.5rem;
+        text-align: center;
+        position: relative;
+    }
 }
 
 @media screen and (max-width : 560px) {
@@ -1351,18 +1394,18 @@
 }
 
 @media screen and (max-width : 500px) {
+
+    .search-heading h1 {
+        font-size: 1.7rem;
+    }
+
+    .popular-cont h2 {
+        font-size: 1.5rem;
+    }
+
     .footer-right iframe {
         width: 300px;
         height: 250px;
-    }
-
-    .first-slider {
-        height: 26rem;
-    }
-
-    .second-slider {
-        height: 21rem;
-        width: auto;
     }
 
     .head-desc,
@@ -1618,17 +1661,17 @@
         font-size: 0.9rem;
     }
 
+    .relevance-cont h2 {
+        font-size: 1.69rem;
+        padding: 1rem;
+    }
+
 }
 
 @media screen and (max-width : 420px) {
 
     .first-slider {
-        height: 23rem;
-    }
-
-    .second-slider {
-        height: 17rem;
-        width: auto;
+        height: 29rem;
     }
 
     .socials .gmail a {
@@ -1762,6 +1805,15 @@
 }
 
 @media screen and (max-width : 400px) {
+
+    .popular-cont h2 {
+        font-size: 1.26rem;
+    }
+
+    .more-link {
+        font-size: 1.05rem;
+    }
+
     .radio-btn {
         padding: 0rem 0rem 0rem 1rem;
     }
@@ -1857,11 +1909,7 @@
     }
 
     .first-slider {
-        height: 21rem;
-    }
-
-    .second-slider {
-        height: 15.69rem;
+        height: 25rem;
     }
 
     .navbar-right svg {
@@ -2078,6 +2126,10 @@
     .subtest-ul li {
         padding: 0.69rem 1.5rem;
     }
+
+    .relevance-cont h2 {
+        padding: 1rem 0rem;
+    }
 }
 
 @media screen and (max-width : 349px) {
@@ -2103,6 +2155,10 @@
 
     .appointment-msg .msg {
         font-size: 1rem;
+    }
+
+    .relevance-cont h2 {
+        font-size: 1.5rem;
     }
 }
 

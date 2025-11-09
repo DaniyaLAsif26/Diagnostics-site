@@ -1,14 +1,14 @@
 .choose-us-cont {
-    padding: 1.5rem 0rem 2rem;
-    background-color: #21356d;
-    color: white;
+  padding: 1.5rem 0rem 2rem;
+  background-color: #21356d;
+  color: white;
 }
 
 .choose-us-cont h2 {
-    padding: 1rem 0rem 1.5rem;
-    font-size: 2.1rem;
-    text-align: center;
-    position: relative;
+  padding: 0.7rem 0rem 1rem;
+  font-size: 2rem;
+  text-align: center;
+  position: relative;
 }
 
 .choose-us-cont h2::after {
@@ -16,6 +16,6 @@
   position: absolute;
   bottom: 0;
   left: 45%;
-  width: 10%; 
-  border-bottom: 7px solid white;
+  width: 10%;
+  border-bottom: 5px solid white;
 }

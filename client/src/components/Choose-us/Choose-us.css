@@ -37,7 +37,6 @@
 .choose-desc {
     font-size: clamp(14px, 2vw, 18px);
     line-height: 1.5em;
-    /* height: calc(1.5em * 3); */
     text-align: start;
 }
 
