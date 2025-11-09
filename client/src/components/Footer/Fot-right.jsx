@@ -7,9 +7,9 @@ export default function FotRight() {
 
     return (
         <div className="footer-right">
-            <h2>Vision Diagnostics Center</h2>
+            <h2>Vision Diagnostics Centre</h2>
             <div className="intro">
-                To be the most trusted diagnostic center by delivering accurate, timely, and affordable healthcare diagnostics through advanced technology, compassionate care, and a commitment to improving every life we touch.
+                To be the most trusted diagnostic centre by delivering accurate, timely, and affordable healthcare diagnostics through advanced technology, compassionate care, and a commitment to improving every life we touch.
             </div>
             <div className="socials">
                 <a href="https://www.instagram.com/visiondiagnosticcentre5/?hl=en"> <InstagramIcon className="social-icon" style={{ color: " black" }} /></a>

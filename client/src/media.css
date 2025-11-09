@@ -1119,6 +1119,11 @@
     .options-bar ul li {
         font-size: 1rem;
     }
+
+    .about-dr h2 {
+        font-size: 1.8rem;
+        padding: 1rem 2rem;
+    }
 }
 
 @media screen and (max-width : 626px) {
@@ -1349,6 +1354,14 @@
         text-align: center;
         position: relative;
     }
+
+    .cart-cont h2 {
+        font-size: 2.26rem;
+    }
+
+    .cart-head h3 {
+        font-size: 1.26rem;
+    }
 }
 
 @media screen and (max-width : 560px) {
@@ -1390,6 +1403,10 @@
     .test-cont {
         background-color: white;
         padding: 2rem 1.5rem;
+    }
+
+    .about-dr h2 {
+        font-size: 1.65rem;
     }
 }
 
@@ -1666,6 +1683,22 @@
         padding: 1rem;
     }
 
+    .cart-cont h2 {
+        font-size: 2rem;
+    }
+
+    .cart-head h3 {
+        font-size: 1.15rem;
+    }
+
+    .empty-msg {
+        font-size: 1.26rem;
+    }
+
+    .heading {
+  font-size: 1.7rem;
+}
+
 }
 
 @media screen and (max-width : 420px) {
@@ -1802,6 +1835,9 @@
         font-size: 1rem;
     }
 
+    .about-dr h2 {
+        font-size: 1.5rem;
+    }
 }
 
 @media screen and (max-width : 400px) {
@@ -2130,6 +2166,10 @@
     .relevance-cont h2 {
         padding: 1rem 0rem;
     }
+
+    .about-dr h2 {
+        padding: 1rem;
+    }
 }
 
 @media screen and (max-width : 349px) {
@@ -2159,6 +2199,10 @@
 
     .relevance-cont h2 {
         font-size: 1.5rem;
+    }
+
+    .download-reports-form input {
+        width: 13rem;
     }
 }
 

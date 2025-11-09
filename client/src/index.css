@@ -1,3 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Bhai+2:wght@400..800&family=Baloo+Bhaijaan+2:wght@400..800&family=Comic+Relief:wght@400;700&family=Gidole&family=Kanchenjunga:wght@400;500;600;700&family=Roboto:ital,wght@0,100..900;1,100..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Bhai+2:wght@400..800&family=Baloo+Bhaijaan+2:wght@400..800&family=Comic+Relief:wght@400;700&family=Gidole&family=Kanchenjunga:wght@400;500;600;700&family=Roboto:ital,wght@0,100..900;1,100..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Bhai+2:wght@400..800&family=Baloo+Bhaijaan+2:wght@400..800&family=Comic+Relief:wght@400;700&family=Gidole&family=Kanchenjunga:wght@400;500;600;700&family=Roboto:ital,wght@0,100..900;1,100..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Bhai+2:wght@400..800&family=Baloo+Bhaijaan+2:wght@400..800&family=Comic+Relief:wght@400;700&family=Gidole&family=Kanchenjunga:wght@400;500;600;700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+
+:root {
+  --font1: 'Poppins';
+  --font2: 'Roboto';
+  --font3: 'Rubik';
+  --font4: 'Kanchenjunga';
+  --font4: 'Kanchenjunga';
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -17,6 +30,10 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+input {
+  font-family: var(--font2);
 }
 
 button {
@@ -193,6 +210,48 @@ input:focus {
   border-bottom: 1px solid #21356d;
 
 }
+
+.contact,
+.footer-center ul,
+.choose-desc,
+.head-desc,
+.dr-desc {
+  font-family: var(--font2);
+}
+
+.options-bar-cont {
+  font-family: var(--font3);
+}
+
+.relevance-name {
+  font-family: var(--font4);
+}
+
+.relevance-cont h2,
+.popular-cont-head,
+.sample-guide h1,
+.choose-us-cont h2,
+.footer-left h2,
+.footer-center h2,
+.footer-right h2,
+.more-text,
+.donwload-reports-cont-head h3,
+.about-us-head h1,
+.about-dr h2,
+.dr-degre,
+.heading,
+.cart-head ,
+.side-options ,
+.copyright
+{
+  font-family: var(--font3);
+}
+
+.popular {
+  font-family: var(--font1);
+}
+
+
 
 @keyframes fadeOut {
   0% {

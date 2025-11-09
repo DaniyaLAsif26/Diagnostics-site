@@ -12,7 +12,7 @@ export default function NavLogo() {
                 <div className="logo-name">
                     VISION <br />
                     DIAGNOSTIC <br />
-                    CENTER
+                    CENTRE
                 </div>
             </div>
         </Link >
