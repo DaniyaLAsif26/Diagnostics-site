@@ -1,14 +1,7 @@
-import { Link } from 'react-router-dom';
+import NotFound from '../components/NotFound/NotFound';
 
-
-export default function NotFound() {
+export default function NotFoundPage() {
   return (
-    <div style={{ padding: '2rem', textAlign: 'center' }}>
-      <h2>404 - Page Not Found</h2>
-      <p>Sorry, the page you requested does not exist.</p>
-      <Link to="/" style={{ color: '#007bff', textDecoration: 'underline' }}>
-        Go back to Home
-      </Link>
-    </div>
+    <NotFound />
   );
 }
