@@ -46,7 +46,7 @@ export default function PopularTestCont() {
             <div className="popular-cont-head">
                 <h2>Popular Tests</h2>
                 {viewMore &&
-                    <Link to="/all-tests" className="link">
+                    <Link to="/tests/laboratory" className="link">
                         <div className="more-link">VIEW MORE</div>
                     </Link>
                 }

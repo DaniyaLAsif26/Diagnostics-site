@@ -199,7 +199,7 @@ export default function OptionsBar() {
                                                 <Button
                                                     onClick={() => {
                                                         setOpenSideBar(false);
-                                                        toggleLoginForm();
+                                                        // toggleLoginForm();
                                                     }}
                                                     variant="contained"
                                                     size="small">

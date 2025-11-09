@@ -79,7 +79,7 @@ export default function Navbar() {
                     <NavSearch />
                     <NavLoc />
                     <NavTime />
-                    <NavSign />
+                    {/* <NavSign /> */}
 
                 </>
             }
