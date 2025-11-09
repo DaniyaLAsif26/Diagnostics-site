@@ -1,7 +1,7 @@
 import { Routes, Route } from 'react-router-dom';
 import Home from '../pages/Home.jsx';
 import Search from '../pages/Search.jsx';
-import NotFoundPage from '../pages/NotFound.jsx';
+import NotFoundPage from '../pages/NotFoundPage.jsx';
 import LaboratoryTestsPage from '../pages/LaboratoryTestsPage.jsx'
 import RadiologyTestsPage from '../pages/RadiologyTestsPage.jsx';
 import AboutUs from '../pages/AboutUs.jsx';
