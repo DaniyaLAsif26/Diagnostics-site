@@ -63,12 +63,14 @@ export default function PopularTestCont() {
                         />
                     ))}
 
-                    <Link to="/tests/laboratory" className="link">
-                        <div className="more">
-                            <div className="more-text">See more </div>
-                            <ReadMoreIcon className="more-icon" style={{ fontSize: '3rem' }} />
-                        </div>
-                    </Link>
+                    {!viewMore &&
+                        <Link to="/tests/laboratory" className="link">
+                            <div className="more">
+                                <div className="more-text">See more </div>
+                                <ReadMoreIcon className="more-icon" style={{ fontSize: '3rem' }} />
+                            </div>
+                        </Link>
+                    }
                 </div>
             </div>
         </div>

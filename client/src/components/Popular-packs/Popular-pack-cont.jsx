@@ -61,12 +61,14 @@ export default function PopularPackCont({ onPackClick }) {
                         />
                     ))}
 
-                    <Link to="/all-packages" className="link">
-                        <div className="more">
-                            <div className="more-text">View more </div>
-                            <ReadMoreIcon className="more-icon" style={{ fontSize: '3rem' }} />
-                        </div>
-                    </Link>
+                    {!viewMore &&
+                        <Link to="/all-packages" className="link">
+                            <div className="more">
+                                <div className="more-text">View more </div>
+                                <ReadMoreIcon className="more-icon" style={{ fontSize: '3rem' }} />
+                            </div>
+                        </Link>
+                    }
                 </div>
             </div>
         </div>
