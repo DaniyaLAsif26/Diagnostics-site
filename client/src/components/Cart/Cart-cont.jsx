@@ -16,7 +16,7 @@ export default function CartCont() {
         e.preventDefault();
         if (!isLoggedIn) {
             setFromPath(location.pathname);
-            toggleLoginForm();
+            // toggleLoginForm();
             return;
         }
 

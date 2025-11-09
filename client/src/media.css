@@ -1604,9 +1604,14 @@
         background-color: rgb(255, 255, 255);
         box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
         width: 100%;
-        margin: 0rem;
+        margin: auto 0rem;
         border-radius: 0rem;
         text-align: center;
+    }
+
+    .shopping-cart {
+        background: white;
+        min-height: 21rem;
     }
 
     .copyright p {
@@ -2260,7 +2265,7 @@
         width: 15rem;
     }
 
-     .dr-degre {
+    .dr-degre {
         width: 17rem;
     }
 }
