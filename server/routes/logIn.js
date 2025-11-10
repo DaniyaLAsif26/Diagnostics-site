@@ -11,6 +11,15 @@ import AdminPassword from '../models/adminPass.js';
 import dotenv from 'dotenv';
 dotenv.config({ path: "../.env" });
 
+const isProduction = process.env.NODE_ENV === 'production';
+
+const getCookieOptions = (maxAge) => ({
+    httpOnly: true,
+    secure: isProduction, // true in production (HTTPS), false in development
+    sameSite: isProduction ? "none" : "lax", // "none" for cross-origin, "lax" for same-origin
+    maxAge: maxAge,
+});
+
 router.post("/send-otp", async (req, res) => {
     const { mobileNo } = req.body;
 
@@ -96,14 +105,7 @@ router.post("/verify-otp", async (req, res) => {
                 { expiresIn: '7d' }
             );
 
-            res.cookie("usertoken", userToken,
-                {
-                    httpOnly: true,
-                    secure: false,
-                    sameSite: "strict",
-                    maxAge: 7 * 24 * 60 * 60 * 1000,
-                }
-            )
+            res.cookie("usertoken", userToken, getCookieOptions(7 * 24 * 60 * 60 * 1000))
             return res.status(200).json({ data, user })
         }
         else {
@@ -164,12 +166,7 @@ router.post('/admin-login', async (req, res) => {
             { expiresIn: '3d' }
         )
 
-        res.cookie('adminToken', adminToken, {
-            httpOnly: true,
-            secure: false,
-            sameSite: "strict",
-            maxAge: 3 * 24 * 60 * 60 * 1000,
-        })
+        res.cookie('adminToken', adminToken, getCookieOptions(3 * 24 * 60 * 60 * 1000));
 
         return res.json({ success: true, message: "Login successful", adminToken });
     } catch (err) {
