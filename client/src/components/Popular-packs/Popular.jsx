@@ -34,7 +34,7 @@ export default function Popular({ name, price, tests, patientPreparation, onClic
 
     return (
         // {isInCart ? "Remove" : "Add"}
-        <div className={`popular ${isInCart ? " " : ""}`}onClick={handleCardClick}>
+        <div className={`popular ${isInCart ? "selectedTest" : ""}`}onClick={handleCardClick}>
             <div className="popular-info">
                 <h3>{name}</h3>
             </div>

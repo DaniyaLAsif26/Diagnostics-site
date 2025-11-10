@@ -853,7 +853,6 @@
     }
 
     .options-bar li {
-        font-size: 1.1rem;
         padding: 0.5rem;
     }
 
@@ -877,10 +876,6 @@
     .option-ul {
         gap: 2rem;
         margin: 0rem 0.5rem;
-    }
-
-    .options-bar li {
-        font-size: 1.1rem;
     }
 
     .popular-cont {
@@ -1073,6 +1068,15 @@
 
     .all-items-cont-head h3 {
         font-size: 1.3rem;
+    }
+
+    .view-pack h2 {
+        font-size: 1.75rem;
+    }
+
+    .view-pack-parameter,
+    .view-pack-tests ul li {
+        font-size: 1.2rem;
     }
 }
 
@@ -1450,6 +1454,25 @@
         overflow: hidden;
         flex-wrap: wrap;
     }
+
+    .view-pack-parameter,
+    .view-pack-tests ul li {
+        font-size: 1.1rem;
+    }
+
+    .view-pack,
+    .view-pack-tests {
+        padding: 1rem;
+        background-color: beige;
+    }
+
+    .view-pack h2 {
+        font-size: 1.6rem;
+    }
+
+    .view-pack-price {
+        font-size: 1.65rem;
+    }
 }
 
 @media screen and (max-width : 560px) {
@@ -1518,7 +1541,7 @@
         font-size: 0.9rem;
     }
 
-    .all-items-table-cont{
+    .all-items-table-cont {
         overflow: auto;
         overflow-x: scroll;
     }
@@ -1743,6 +1766,10 @@
     .appointment-search {
         gap: 2.6rem;
     }
+
+    .view-nav {
+        font-size: 1.05rem;
+    }
 }
 
 @media screen and (max-width : 450px) {
@@ -1822,6 +1849,22 @@
 
     .all-items-cont-head h3 {
         font-size: 1.15rem;
+    }
+
+    .view-pack h2 {
+        font-size: 1.4rem;
+    }
+
+    .view-pack-price {
+        font-size: 1.6rem;
+    }
+
+    .view-pack button {
+        padding: 0.5rem;
+    }
+
+    .view-nav {
+        font-size: 1rem;
     }
 }
 

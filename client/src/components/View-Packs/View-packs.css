@@ -12,7 +12,7 @@
     text-decoration: underline;
 }
 
-.view-nav a:first-child{
+.view-nav a:first-child {
     padding-left: 0rem;
 }
 
@@ -56,6 +56,8 @@
 .view-pack-price {
     font-size: 1.8rem;
     margin: 1.26rem 0rem 0.5rem;
+    color: black;
+    font-weight: 400;
 }
 
 .view-pack-tests {
@@ -82,21 +84,21 @@
     padding: 1rem 2rem;
 }
 
-.view-pack-tests ul{
+.view-pack-tests ul {
     padding: 1rem 2rem;
 }
 
-.view-pack-tests h3{
+.view-pack-tests h3 {
     font-size: 1.5rem;
     margin: 0.5rem 1rem;
 }
 
-.suggested-packs-cont{
+.suggested-packs-cont {
     width: 80%;
     margin: auto;
 }
 
-.suggested-packs{
+.suggested-packs {
     display: flex;
     flex-direction: row;
     justify-content: start;
@@ -104,7 +106,7 @@
     flex-wrap: wrap;
 }
 
-.suggested-packs-cont h2{
+.suggested-packs-cont h2 {
     font-size: 2rem;
     margin: 1rem 2rem;
     color: black;
