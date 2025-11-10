@@ -1,4 +1,5 @@
 import React from 'react';
+import { HelmetProvider } from 'react-helmet-async';
 import { createRoot } from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 import App from './App.jsx';
@@ -17,7 +18,9 @@ createRoot(document.getElementById('root')).render(
         <CartProvider>
           <LoginProvider>
             <AppointmentProvider>
-              <App />
+              <HelmetProvider>
+                <App />
+              </HelmetProvider>
             </AppointmentProvider>
           </LoginProvider>
         </CartProvider>

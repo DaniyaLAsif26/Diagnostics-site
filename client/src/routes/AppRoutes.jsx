@@ -8,7 +8,6 @@ import AboutUs from '../pages/AboutUs.jsx';
 import GalleryPage from '../pages/Gallery.jsx';
 import AllPacks from '../pages/AllPacks.jsx';
 import HomeRelevancePage from '../pages/HomeRelevancePage.jsx';
-import HomeSample from '../pages/HomeSample.jsx';
 import ViewPackagePage from '../pages/ViewPackagePage.jsx';
 import Cart from '../pages/Cart.jsx';
 import AdminDashBoard from '../pages/Admin-Dash.jsx';
@@ -44,7 +43,6 @@ function AppRoutes() {
       <Route path="/all-packages" element={<AllPacks />} />
       <Route path="/relevance/:relevance" element={<HomeRelevancePage />} />
       <Route path="/health-packages/:pack" element={<ViewPackagePage />} />
-      <Route path="/home-sample-collection" element={<HomeSample />} />
       <Route path="/download-reports" element={<DownloadReportsPage />} />
       <Route path="/about-us" element={<AboutUs />} />
       <Route path="/gallery" element={<GalleryPage />} />

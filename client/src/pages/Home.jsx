@@ -1,5 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
+import { Helmet } from 'react-helmet-async';
+
 import SliderCont from '../components/Slider/Slider-cont.jsx';
 import PopularPackCont from '../components/Popular-packs/Popular-pack-cont.jsx';
 import PopularTestCont from '../components/Popular-tests/Popular-test-cont.jsx';
@@ -38,11 +40,15 @@ export default function Home() {
 
   return (
     <>
+      <Helmet>
+        <title>Book Radiology Scans & Lab Tests Online at Vision Diagnostic Centre</title>
+        <meta name="description" content="Browse our comprehensive laboratory tests" />
+      </Helmet>
       <SliderCont />
       <OfferText />
 
       {!hide &&
-      <RelevanceCont onRelevanceClick={handleRelevanceClick} />
+        <RelevanceCont onRelevanceClick={handleRelevanceClick} />
       }
       <PopularPackCont onPackClick={handlePackClick} />
       {!hide ?
