@@ -85,7 +85,7 @@ export default function AllItems({ data = [], head = [], columns = 2, contHead, 
                 </div>
             </div>
 
-            {/* <div className="all-items-table-cont">
+            <div className="all-items-table-cont">
                 {hasData ? (
                     <table className='all-items-table cart-table'>
                         <thead>
@@ -133,7 +133,7 @@ export default function AllItems({ data = [], head = [], columns = 2, contHead, 
                 ) : (
                     <p className="msg">{message || "No data found"}</p>
                 )}
-            </div> */}
+            </div>
         </div>
     );
 }

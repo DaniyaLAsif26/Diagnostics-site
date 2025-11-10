@@ -1517,6 +1517,11 @@
         padding: 0.5rem;
         font-size: 0.9rem;
     }
+
+    .all-items-table-cont{
+        overflow: auto;
+        overflow-x: scroll;
+    }
 }
 
 @media screen and (max-width : 500px) {

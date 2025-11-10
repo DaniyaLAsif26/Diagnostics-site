@@ -12,7 +12,7 @@ export default function ReportsCont() {
     useEffect(() => {
         const getReports = async () => {
             try {
-                const res = await fetch('${BackendURL}/api/report/search/all')
+                const res = await fetch(`${BackendURL}/api/report/search/all`)
 
                 const data = await res.json()
 
@@ -43,7 +43,7 @@ export default function ReportsCont() {
         heading: "All Reports",
         input: "Search Reports",
         button: "Upload Reports",
-        add_btn_url : '/upload/reports'
+        add_btn_url: '/upload/reports'
     }
 
     return (

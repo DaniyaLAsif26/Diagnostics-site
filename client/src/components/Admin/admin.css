@@ -119,6 +119,7 @@ h1 {
     width: 100%;
     color: black;
     background-color: #fff;
+    white-space: nowrap;
 }
 
 
