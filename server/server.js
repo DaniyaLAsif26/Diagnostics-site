@@ -42,20 +42,20 @@ const allowedOrigins = ["http://localhost:5173",
 
 app.use(cors({
   origin: function (origin, callback) {
-    if (!origin) return callback(null, true);
+    if (!origin) return callback(null, origin);
     if (allowedOrigins.indexOf(origin) === -1) {
       const msg = 'The CORS policy for this site does not allow access from the specified Origin.';
       return callback(new Error(msg), false);
     }
-    return callback(null, true);
+    else{
+      return callback(null, true);
+    }
   },
   credentials: true,
+   methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"],
 }));
 
-// app.use(cors({
-//   origin: true,
-//   credentials: true
-// }));
 
 // const MONGO_URL = "mongodb://127.0.0.1:27017/vision-center";
 const MONGO_URL = process.env.ATLAS_DB_URL;
