@@ -101,10 +101,9 @@ h1 {
     color: black;
 }
 
-main {
+.admin-main {
     padding: 2rem 2.6rem;
 }
-
 
 .all-items-cont-head {
     display: flex;

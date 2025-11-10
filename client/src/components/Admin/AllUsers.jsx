@@ -85,7 +85,7 @@ export default function AllItems({ data = [], head = [], columns = 2, contHead, 
                 </div>
             </div>
 
-            <div className="all-items-table-cont">
+            {/* <div className="all-items-table-cont">
                 {hasData ? (
                     <table className='all-items-table cart-table'>
                         <thead>
@@ -103,7 +103,6 @@ export default function AllItems({ data = [], head = [], columns = 2, contHead, 
                                 <tr key={item._id || index}>
                                     <td>{index + 1}</td>
 
-                                    {/* Check if it's a report or user */}
                                     {item.uniq_id ? (
                                         <>
                                             <td>{item.uniq_id}</td>
@@ -134,7 +133,7 @@ export default function AllItems({ data = [], head = [], columns = 2, contHead, 
                 ) : (
                     <p className="msg">{message || "No data found"}</p>
                 )}
-            </div>
+            </div> */}
         </div>
     );
 }

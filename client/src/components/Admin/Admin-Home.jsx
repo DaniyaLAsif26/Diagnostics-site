@@ -72,6 +72,7 @@ useEffect(()=>{
             </header>
 
             <main>
+                <div className="admin-main">
                 <AdminControlBox box={adminControl} selected={selected} setSelected={setSelected} />
 
                 {selected === 'Users' && (
@@ -91,6 +92,7 @@ useEffect(()=>{
                         <ReportsCont />
                     </div>
                 )}
+                </div>
             </main >
         </div>
     );

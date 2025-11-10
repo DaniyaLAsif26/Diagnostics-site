@@ -1,6 +1,4 @@
 import { useLocation } from 'react-router-dom'
-// import './App.css'
-
 import { useLogin } from './context/LoginContext';
 
 // App.jsx
