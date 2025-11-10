@@ -145,7 +145,6 @@ router.get("/verify/user", async (req, res) => {
 
 //admin Login
 router.post('/admin-login', async (req, res) => {
-    console.log(isProduction)
     try {
         const { username, password } = req.body;
 
@@ -177,8 +176,6 @@ router.post('/admin-login', async (req, res) => {
 });
 
 router.get('/verify/admin', async (req, res) => {
-    console.log(isProduction)
-
     try {
         const token = req.cookies.adminToken
         if (!token) return res.json({ Success: false })
