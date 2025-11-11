@@ -71,7 +71,7 @@ export default function SearchResults({ onPackClick }) {
                                 <div className="package-heading test-heading">
                                     <h2>Packages</h2>
                                 </div>
-                                <div className="search-tests search-packs">
+                                <div className="search-tests search-packs all-packs">
                                     {packageResults.map((pack) => (
                                         <Popular
                                             key={pack._id}
