@@ -8,7 +8,6 @@ export default function SliderCont() {
    // Slider images from public folder
    const images1 = [
       '/Slider-img/slider-img-1.jpg',
-      '/Slider-img/slider-img-6.webp',
       '/Slider-img/slider-img-7.avif',
       '/Slider-img/slider-img-2.jpg',
       '/Slider-img/slider-img-3.jpg',
@@ -18,10 +17,9 @@ export default function SliderCont() {
 
    // Offer images from public folder
    const offer = [
-      '/Offer-img/offer-1.jpg',
-      '/Offer-img/offer-2.jpg',
       '/Offer-img/offer-3.jpg',
       '/Offer-img/offer-4.jpg',
+      '/Offer-img/offer-1.jpg',
    ];
 
    const goToGallery = () => {

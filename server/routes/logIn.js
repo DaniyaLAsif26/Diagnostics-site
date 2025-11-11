@@ -99,7 +99,7 @@ router.post("/verify-otp", async (req, res) => {
 
             const userToken = jwt.sign({
                 id: user._id,
-                phoneNumber: mobileNo
+                role: "user"
             },
                 process.env.JWT_SECRET,
                 { expiresIn: '7d' }
