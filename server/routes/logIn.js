@@ -105,7 +105,7 @@ router.post("/verify-otp", async (req, res) => {
                 { expiresIn: '7d' }
             );
 
-            res.cookie("usertoken", userToken, getCookieOptions(7 * 24 * 60 * 60 * 1000))
+            res.cookie("userToken", userToken, getCookieOptions(7 * 24 * 60 * 60 * 1000))
             return res.status(200).json({ data, user })
         }
         else {
