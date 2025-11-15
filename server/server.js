@@ -1,3 +1,8 @@
+import dotenv from "dotenv";
+dotenv.config();
+
+const isProduction = process.env.NODE_ENV === 'production';
+
 import express from "express";
 import mongoose from "mongoose";
 import cors from "cors";
@@ -17,12 +22,16 @@ const app = express();
 import cookieParser from "cookie-parser";
 app.use(cookieParser());
 
-import dotenv from "dotenv";
-dotenv.config();
-
 import compression from 'compression';
+
 import helmet from 'helmet';
-app.use(helmet());
+app.use(
+  helmet({
+    crossOriginEmbedderPolicy: isProduction,  // Enable in production
+    crossOriginOpenerPolicy: isProduction,    // Enable in production
+    crossOriginResourcePolicy: { policy: "cross-origin" }
+  })
+);
 app.use(compression());
 app.use(express.json());
 
@@ -42,18 +51,18 @@ const allowedOrigins = ["http://localhost:5173",
 
 app.use(cors({
   origin: function (origin, callback) {
-    if (!origin) return callback(null, origin);
+    if (!origin) return callback(null, !isProduction);
     if (allowedOrigins.indexOf(origin) === -1) {
       const msg = 'The CORS policy for this site does not allow access from the specified Origin.';
       return callback(new Error(msg), false);
     }
-    else{
+    else {
       return callback(null, true);
     }
   },
   credentials: true,
-   methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-    allowedHeaders: ["Content-Type", "Authorization"],
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"],
 }));
 
 

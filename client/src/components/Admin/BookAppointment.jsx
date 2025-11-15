@@ -85,7 +85,9 @@ export default function BookAppointment() {
 
     const getUsers = async (searchQuery = '') => {
         try {
-            const res = await fetch(`${BackendURL}/api/user/search?q=${searchQuery}`);
+            const res = await fetch(`${BackendURL}/api/user/search?q=${searchQuery}`, {
+                credentials: 'include'
+            });
             const data = await res.json();
 
             if (data.Success === true) {
@@ -207,8 +209,8 @@ export default function BookAppointment() {
                 headers: {
                     "Content-Type": "application/json",
                 },
+                credentials: 'include',
                 body: JSON.stringify(appointmentData),
-
             })
 
             const data = await res.json()

@@ -2,12 +2,13 @@ import express from 'express';
 import Appointment from '../models/appointment.js';
 import User from '../models/user.js';
 
+import allowUserOrAdmin from '../middlewares/authMiddleware.js';
+
 const router = express.Router();
 
-router.post('/appointment', async (req, res) => {
+router.post('/appointment', allowUserOrAdmin, async (req, res) => {
     try {
         const { phone_no, name, date } = req.body;
-        console.log(phone_no)
 
         // ✅ Check if user already exists by phone number
         let existingUser = await User.findOne({ number: phone_no });
@@ -56,7 +57,8 @@ router.post('/appointment', async (req, res) => {
         const appointment = new Appointment({
             ...req.body,
             user: existingUser._id,
-            uniq_id
+            uniq_id,
+            createdBy : req.user ? req.user.role : null
         });
         await appointment.save();
 

@@ -209,6 +209,9 @@ export default function BookedTests() {
                             <div className="">
                                 <h4>Appointment Completed By &nbsp;: &nbsp;" {appointment.completedBy} "</h4>
                             </div>
+                            <div className="">
+                                <h4>Appointment Created By &nbsp;: &nbsp; <b>{appointment.createdBy}</b></h4>
+                            </div>
                         </div>
 
                     </div>

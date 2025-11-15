@@ -83,6 +83,10 @@ const appointmentSchema = new Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: "Report",
         default: null,
+    },
+    createdBy: {
+        type: String,
+        default : null
     }
 }, { timestamps: true });
 
