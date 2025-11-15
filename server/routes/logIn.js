@@ -126,7 +126,7 @@ router.post("/verify-otp", async (req, res) => {
 
 router.get("/verify/user", async (req, res) => {
     try {
-        const token = req.cookies.usertoken
+        const token = req.cookies.userToken
         if (!token) return res.json({ Success: false })
 
         const decode = jwt.verify(token, process.env.JWT_SECRET);
