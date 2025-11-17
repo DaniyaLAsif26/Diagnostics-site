@@ -8,7 +8,7 @@ import PopularTestCont from '../components/Popular-tests/Popular-test-cont.jsx';
 import RelevanceCont from '../components/Relevance/Relevance-cont.jsx';
 import ChooseUsCont from '../components/Choose-us/Choose-us-cont.jsx';
 import SampleGuide from "../components/Sample-Guide/Sample-guide.jsx";
-// import OfferText from "../components/Offer-text/Offer-text.jsx";
+import OfferText from "../components/Offer-text/Offer-text.jsx";
 import TempOffer from "../components/TempOffer/TempOffer.jsx";
 
 
