@@ -14,7 +14,7 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import './Navbar.css';
 
 import { useState, useEffect } from 'react';
-import { Navigate, useNavigate } from 'react-router-dom';
+import {useNavigate } from 'react-router-dom';
 
 export default function Navbar() {
     const [navbarSize, setNavbarSize] = useState(window.innerWidth < 1090)
@@ -47,6 +47,7 @@ export default function Navbar() {
 
     const redirectUser = () => {
         if (isloggedIn) {
+            console.log(isloggedIn)
             navigate('/user-profile')
         } else {
             toggleLoginForm()
@@ -68,10 +69,10 @@ export default function Navbar() {
 
                         <LocationPinIcon onClick={redirectMap} />
 
-                        <Person2Icon 
-                        onClick={redirectUser} 
+                        <Person2Icon
+                            onClick={redirectUser}
                         />
-                        <ShoppingCartIcon onClick={()=> navigate('/cart-items')} />
+                        <ShoppingCartIcon onClick={() => navigate('/cart-items')} />
                     </div>
                 </>
                 :
