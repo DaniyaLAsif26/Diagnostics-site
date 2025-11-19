@@ -61,6 +61,7 @@ export default function Order() {
                     "Content-Type": "application/json",
                 },
                 body: JSON.stringify(appointmentData),
+                credentials: "include"
 
             })
             if (!res.ok) {
