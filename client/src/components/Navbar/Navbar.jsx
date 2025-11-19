@@ -22,7 +22,7 @@ export default function Navbar() {
 
     const navigate = useNavigate()
 
-    const { isloggedIn, toggleLoginForm } = useLogin()
+    const { isLoggedIn, toggleLoginForm } = useLogin()
 
     useEffect(() => {
         const handleResize = () => {
@@ -46,8 +46,7 @@ export default function Navbar() {
     }
 
     const redirectUser = () => {
-        if (isloggedIn) {
-            console.log(isloggedIn)
+        if (isLoggedIn) {
             navigate('/user-profile')
         } else {
             toggleLoginForm()
