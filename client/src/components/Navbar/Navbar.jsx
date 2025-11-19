@@ -69,7 +69,7 @@ export default function Navbar() {
                         <LocationPinIcon onClick={redirectMap} />
 
                         <Person2Icon 
-                        // onClick={redirectUser} 
+                        onClick={redirectUser} 
                         />
                         <ShoppingCartIcon onClick={()=> navigate('/cart-items')} />
                     </div>
@@ -81,7 +81,7 @@ export default function Navbar() {
                     <NavSearch />
                     <NavLoc />
                     <NavTime />
-                    {/* <NavSign /> */}
+                    <NavSign />
 
                 </>
             }

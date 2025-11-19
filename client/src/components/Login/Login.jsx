@@ -34,19 +34,16 @@ export default function LoginForm() {
                         headers: {
                             "Content-Type": "application/json"
                         },
-                        credentials: "include",
                         body: JSON.stringify({ mobileNo })
                     }
                 )
                 const data = await res.json();
-                // console.log("data", data);
 
                 if (data.Status === "Success") {
-                    console.log("OTP sent successfully");
                     toggleLoginForm();
                     showOtpForm();
                 } else {
-                    setError("Error sending OTP");
+                    setError(data.Message);
                 }
             }
             catch (error) {

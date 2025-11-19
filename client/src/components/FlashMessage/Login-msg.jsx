@@ -9,7 +9,7 @@ export default function LoginMsg() {
 
     useEffect(() => {
         if (loginMsg) {
-            const timer = setTimeout(() => clearMessage(), 3000);
+            const timer = setTimeout(() => clearLoginMsg(), 3000);
             return () => clearTimeout(timer);
         }
     }, [loginMsg, clearLoginMsg]);

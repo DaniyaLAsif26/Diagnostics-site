@@ -31,12 +31,12 @@ router.post("/send-otp", async (req, res) => {
     }
 
     const API_KEY = process.env.OTP_VERIFICATION_API_KEY;
-    const url = `https://2factor.in/API/V1/${API_KEY}/SMS/+${mobileNo}/AUTOGEN2`;
+    const url = `https://2factor.in/API/V1/${API_KEY}/SMS/+${mobileNo}/AUTOGEN/Otp_verification_vision`;
 
     try {
         const response = await fetch(url);
         const data = await response.json();
-        console.log(data);
+        // console.log(data);
         if (data.Status == "Success") {
             await OtpSession.findOneAndUpdate(
                 { mobileNo },
@@ -46,6 +46,12 @@ router.post("/send-otp", async (req, res) => {
             return res.status(200).json({
                 Status: "Success",
                 Message: "OTP sent successfully"
+            });
+        }
+        else {
+            return res.status(200).json({
+                Status: "Failed",
+                Message: data.Details
             });
         }
     } catch (err) {
@@ -63,30 +69,30 @@ router.post("/verify-otp", async (req, res) => {
     try {
         if (!mobileNo || mobileNo.length !== 12 || !otp || otp.length !== 6) {
             return res.status(400).json({
-                Status: "Failed",
-                Message: "Invalid request"
-            })
+                data: {
+                    Status: "Failed",
+                    Details: "Invalid request"
+                }
+            });
         }
 
         const sessionId = await OtpSession.findOne({ mobileNo })
 
         if (!sessionId) {
             return res.status(400).json({
-                Status: "Failed",
-                Message: "Session not found"
-            })
+                data: {
+                    Status: "Failed",
+                    Details: "Session not found"
+                }
+            });
         }
 
         const API_KEY = process.env.OTP_VERIFICATION_API_KEY;
-        // console.log("\n sessionId", sessionId.sessionId);
-        // console.log(`\n https://2factor.in/API/V1/${API_KEY}/SMS/VERIFY2/${sessionId.sessionId}/${otp}`)
-        // const url = `https://2factor.in/API/V1/${API_KEY}/SMS/VERIFY2/${sessionId.sessionId}/${otp}`
-        const url = "https://2factor.in/API/V1/your-api-key/SMS/VERIFY/Dummy-12345/12345"
+        const url = `https://2factor.in/API/V1/${API_KEY}/SMS/VERIFY/${sessionId.sessionId}/${otp}`
         const response = await fetch(url, {
             method: "GET",
         });
         const data = await response.json();
-        console.log(data);
 
         if (data.Status === "Success" && data.Details === "OTP Matched") {
             await OtpSession.deleteOne({ mobileNo });
@@ -106,21 +112,32 @@ router.post("/verify-otp", async (req, res) => {
             );
 
             res.cookie("userToken", userToken, getCookieOptions(7 * 24 * 60 * 60 * 1000))
-            return res.status(200).json({ data, user })
+            return res.status(200).json({
+                data: {
+                    Status: "Success",
+                    Details: "OTP Verified"
+                },
+                user
+            });
         }
         else {
+            res.clearCookie("userToken");
             return res.status(400).json({
-                Status: "Failed",
-                Message: "Invalid OTP"
-            })
+                data: {
+                    Status: "Failed",
+                    Details: data.Details || "Invalid OTP"
+                }
+            });
         }
     }
     catch (err) {
-        console.log("verify OTp error", err);
+        res.clearCookie("userToken");
         return res.status(500).json({
-            Status: "Failed",
-            Message: "Internal Server Error"
-        })
+            data: {
+                Status: "Failed",
+                Details: "Internal Server Error"
+            }
+        });
     }
 })
 

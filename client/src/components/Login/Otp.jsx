@@ -5,7 +5,7 @@ import CancelIcon from '@mui/icons-material/Cancel';
 import '../Login/Login.css';
 import { useLogin } from '../../context/LoginContext';
 import { useEffect, useRef, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { data, useNavigate } from 'react-router-dom';
 
 const BackendURL = import.meta.env.VITE_BACKEND_URL || "http://localhost:5000";
 
@@ -69,7 +69,7 @@ export default function OtpInput({ length = 6, onOtpSubmit = () => { } }) {
         }
     };
 
-    const handleClose = () => {
+    const handleClose = async () => {
         showOtpForm();
         setMobileNo('');
         setError('');
@@ -95,14 +95,11 @@ export default function OtpInput({ length = 6, onOtpSubmit = () => { } }) {
                     })
                 })
                 const Data = await res.json();
-                // console.log("data", Data);
-
 
                 if (Data.data.Status === 'Success') {
                     setIsLoggedIn(true)
                     console.log("OTP verified successfully");
                     handleClose();
-                    // console.log(Data.user.number)
                     setAllUserData({
                         number: Data.user.number,
                         name: Data.user.name,
@@ -115,13 +112,12 @@ export default function OtpInput({ length = 6, onOtpSubmit = () => { } }) {
                         navigate("/user-profile/edit")
                     }
                     else {
-                        // navigate("/user-profile")
                         navigate(from)
-
                     }
                 }
                 else {
-                    setError("Invalid OTP. Please try again.");
+                    setIsLoggedIn(false)
+                    setError(Data.data.Details);
                 }
             }
             catch (error) {
