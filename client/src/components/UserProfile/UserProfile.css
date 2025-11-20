@@ -76,7 +76,7 @@
 }
 
 .selected {
-    background-color: lightseagreen;
+    background-color: lightseagreen !important;
     transition: background-color 0.26s ease-in-out;
 }
 
@@ -233,4 +233,8 @@
     color: blue;
     text-decoration: underline;
 
+}
+
+.user-results h2{
+   margin: 1rem auto;
 }
