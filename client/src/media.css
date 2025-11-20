@@ -651,8 +651,8 @@
 
     .user-history {
         flex-direction: column;
-        justify-content: center;
         align-items: center;
+        text-align: center;
     }
 
     .user-history-selector {
@@ -673,10 +673,6 @@
 
     .user-reports {
         border-right: none;
-    }
-
-    .user-selector-result {
-        min-height: 26rem;
     }
 
     .all-test-table th,
@@ -1131,11 +1127,6 @@
 
     .review-table .data {
         padding-left: 1rem;
-    }
-
-    .result-appointments {
-        display: grid;
-        grid-template-columns: repeat(2, auto);
     }
 
     .user-appointments svg,

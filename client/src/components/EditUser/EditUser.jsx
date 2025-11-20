@@ -55,11 +55,6 @@ export default function EditForm() {
         const newErrors = {}
 
         if (!userName.trim()) newErrors.name = "Name is required"
-        if (!second_Number) {
-            newErrors.alt_no = "Alternate phone is required"
-        } else if (!/^\d{12}$/.test(second_Number)) {
-            newErrors.alt_no = "Alternate phone must be 10 digits"
-        }
         if (!address.trim() || address.trim() == null) newErrors.address = "Address is required"
 
         setErrors(newErrors)
