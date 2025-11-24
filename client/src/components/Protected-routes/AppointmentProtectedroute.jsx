@@ -1,32 +1,31 @@
 import { useLogin } from "../../context/LoginContext";
 import { useCart } from "../../context/CartContext";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 export default function AppointmentProtectedRoute({ children }) {
-    const { isLoggedIn } = useLogin();
+    const { isLoggedIn, isCheckingAuth } = useLogin(); // ✅ Fixed: isCheckingAuth
     const { cartItem } = useCart();
     const navigate = useNavigate();
-    const [hasCheckedAuth, setHasCheckedAuth] = useState(false);
 
     useEffect(() => {
-        // Give some time for the login verification to complete
-        const timer = setTimeout(() => {
-            setHasCheckedAuth(true);
-        }, 100); // Small delay to let the context initialize
-
-        return () => clearTimeout(timer);
-    }, []);
-
-    useEffect(() => {
-        // Only redirect after we've given time for auth check AND user is not logged in
-        if (hasCheckedAuth && isLoggedIn === false || cartItem.length === 0) {
-            navigate("/home", { replace: true });
+        // ✅ Wait for auth check to complete before redirecting
+        if (!isCheckingAuth) {
+            // Redirect if not logged in
+            if (!isLoggedIn) {
+                navigate("/home", { replace: true });
+                return;
+            }
+            
+            // Redirect if cart is empty (only after confirming user is logged in)
+            if (cartItem.length === 0) {
+                navigate("/home", { replace: true });
+            }
         }
-    }, [isLoggedIn, hasCheckedAuth, navigate, cartItem]);
+    }, [isLoggedIn, isCheckingAuth, navigate, cartItem]);
 
-    // Show loading while authentication is being verified
-    if (!hasCheckedAuth || isLoggedIn === null || cartItem.length === 0) {
+    // ✅ Show loading only while checking authentication
+    if (isCheckingAuth) {
         return (
             <div className="flex items-center justify-center min-h-screen">
                 <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600"></div>
@@ -34,5 +33,11 @@ export default function AppointmentProtectedRoute({ children }) {
         );
     }
 
-    return isLoggedIn ? children : null;
+    // ✅ Return null while redirecting (prevents flash of content)
+    if (!isLoggedIn || cartItem.length === 0) {
+        return null;
+    }
+
+    // ✅ Only render children if both conditions are met
+    return children;
 }

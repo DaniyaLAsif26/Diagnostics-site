@@ -27,6 +27,9 @@ export const LoginProvider = ({ children }) => {
     const [showAdminForm, setShowAdminForm] = useState(false);
     const [OtpForm, setOtpForm] = useState(false);
 
+    const [isCheckingUser, setIsCheckingUser] = useState(true)
+    const [isCheckingAdmin, setIsCheckingAdmin] = useState(true)
+
     const [userData, setUserData] = useState({
         name: '',
         phone_no: '',
@@ -58,6 +61,7 @@ export const LoginProvider = ({ children }) => {
 
     useEffect(() => {
         const verifyLogin = async () => {
+            setIsCheckingUser(true)
             try {
                 const response = await fetch(`${BackendURL}/api/login/verify/user`,
                     {
@@ -82,7 +86,9 @@ export const LoginProvider = ({ children }) => {
                 console.log(error)
                 setIsLoggedIn(false)
             }
-
+            finally {
+                setIsCheckingUser(false)
+            }
         }
         verifyLogin()
     }, [dataChanged])
@@ -105,6 +111,7 @@ export const LoginProvider = ({ children }) => {
 
     useEffect(() => {
         const verifyAdmin = async () => {
+            setIsCheckingAdmin(true)
             try {
                 const res = await fetch(`${BackendURL}/api/login/verify/admin`, {
                     method: "GET",
@@ -123,6 +130,9 @@ export const LoginProvider = ({ children }) => {
             catch (error) {
                 console.log(error)
                 setIsAdminLogin(false)
+            }
+            finally {
+                setIsCheckingAdmin(false)
             }
         }
         verifyAdmin()
@@ -164,7 +174,8 @@ export const LoginProvider = ({ children }) => {
         <LoginContext.Provider value={{
             showLoginForm, OtpForm, showAdminForm, toggleLoginForm, showOtpForm, toggleAdminForm, isLoggedIn, setIsLoggedIn, userData, setUserData, logout, setAllUserData, updateUserData,
             mobileNo, setMobileNo, isAdminLogIn, setIsAdminLogin, logoutAdmin, fromPath,
-            setFromPath, loginMsg, setLoginMsg, clearLoginMsg
+            setFromPath, loginMsg, setLoginMsg, clearLoginMsg,
+            isCheckingUser, isCheckingAdmin
         }}>
             {children}
         </LoginContext.Provider>

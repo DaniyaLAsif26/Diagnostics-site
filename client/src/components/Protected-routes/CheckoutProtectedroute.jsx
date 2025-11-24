@@ -1,34 +1,40 @@
 import { useLogin } from "../../context/LoginContext";
 import { useCart } from "../../context/CartContext";
 import { useAppointment } from "../../context/AppointmentContext";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 export default function CheckoutProtectedRoute({ children }) {
-    const { isLoggedIn } = useLogin();
+    const { isLoggedIn, isCheckingUser } = useLogin();
     const { cartItem } = useCart();
     const { appointment } = useAppointment();
     const navigate = useNavigate();
-    const [hasCheckedAuth, setHasCheckedAuth] = useState(false);
 
     useEffect(() => {
-        // Give some time for the login verification to complete
-        const timer = setTimeout(() => {
-            setHasCheckedAuth(true);
-        }, 100); // Small delay to let the context initialize
+        // Only run validation after auth check is complete
+        if (isCheckingUser) return;
 
-        return () => clearTimeout(timer);
-    }, []);
-
-    useEffect(() => {
-        // Only redirect after we've given time for auth check AND user is not logged in
-        if (hasCheckedAuth && isLoggedIn === false || cartItem.length === 0 || appointment.date === null || !appointment.radio || !appointment.time) {
+        // Check if user is not logged in
+        if (!isLoggedIn) {
             navigate("/home", { replace: true });
+            return;
         }
-    }, [isLoggedIn, hasCheckedAuth, navigate, cartItem, appointment]);
+
+        // Check if cart is empty
+        if (!cartItem || cartItem.length === 0) {
+            navigate("/home", { replace: true });
+            return;
+        }
+
+        // Check if appointment is incomplete
+        if (!appointment || !appointment.date || !appointment.radio || !appointment.time) {
+            navigate("/home", { replace: true });
+            return;
+        }
+    }, [isLoggedIn, isCheckingUser, cartItem, appointment, navigate]);
 
     // Show loading while authentication is being verified
-    if (!hasCheckedAuth || isLoggedIn === null || cartItem.length === 0 || !appointment || appointment === null) {
+    if (isCheckingUser) {
         return (
             <div className="flex items-center justify-center min-h-screen">
                 <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600"></div>
@@ -36,5 +42,11 @@ export default function CheckoutProtectedRoute({ children }) {
         );
     }
 
-    return isLoggedIn ? children : null;
+    // Render children only if all conditions are met
+    if (isLoggedIn && cartItem?.length > 0 && appointment?.date && appointment?.radio && appointment?.time) {
+        return children;
+    }
+
+    // Return null while redirecting
+    return null;
 }
