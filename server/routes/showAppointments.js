@@ -2,9 +2,11 @@ import express from 'express';
 import Appointment from '../models/appointment.js';
 import User from '../models/user.js'
 
+import { AllowAdmin } from '../middlewares/authMiddleware.js';
+
 const router = express.Router();
 
-router.get('/appointments', async (req, res) => {
+router.get('/appointments',AllowAdmin, async (req, res) => {
     const query = req.query.q
 
     try {
@@ -36,7 +38,7 @@ router.get('/appointments', async (req, res) => {
     }
 });
 
-router.get('/appointments/:id', async (req, res) => {
+router.get('/appointments/:id',AllowAdmin, async (req, res) => {
     try {
         const appointment = await Appointment.findById(req.params.id).populate('report');
         if (!appointment) {
@@ -49,7 +51,7 @@ router.get('/appointments/:id', async (req, res) => {
     }
 })
 
-router.put('/appointments/complete/:id', async (req, res) => {
+router.put('/appointments/complete/:id',AllowAdmin, async (req, res) => {
     const appointmentId = req.params.id;
     const updateData = req.body;
 
@@ -70,7 +72,7 @@ router.put('/appointments/complete/:id', async (req, res) => {
 
 })
 
-router.put('/appointments/edit/:id', async (req, res) => {
+router.put('/appointments/edit/:id',AllowAdmin, async (req, res) => {
     try {
         const appointmentId = req.params.id;
         const updateData = req.body;
@@ -151,7 +153,7 @@ router.put('/appointments/edit/:id', async (req, res) => {
     }
 });
 
-router.delete('/appointments/:id', async (req, res) => {
+router.delete('/appointments/:id',AllowAdmin, async (req, res) => {
     try {
         const deletedAppointment = await Appointment.findByIdAndDelete(req.params.id);
         if (!deletedAppointment) {

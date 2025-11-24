@@ -18,7 +18,9 @@ export default function BookedTests() {
     const [completedBy, setCompletedBy] = useState('')
 
     useEffect(() => {
-        fetch(`${BackendURL}/api/appointments/${id}`)
+        fetch(`${BackendURL}/api/appointments/${id}` , {
+            credentials :'include'
+        })
             .then(res => res.json())
             .then(data => {
                 if (data.success) {
@@ -27,12 +29,13 @@ export default function BookedTests() {
                     setCompletedBy(appt.completedBy || '')
                 }
             })
-            .catch(err => console.error(err));
+            .catch(err => console.error(err.message));
     }, [id]);
 
     const handleDelete = (id) => {
         fetch(`${BackendURL}/api/appointments/${id}`, {
-            method: "DELETE"
+            method: "DELETE",
+            credentials : 'include',
         })
             .then(res => res.json())
             .then(data => {
@@ -57,6 +60,7 @@ export default function BookedTests() {
                 headers: {
                     "Content-Type": "application/json",
                 },
+                credentials : 'include',
                 body: JSON.stringify({
                     completed: true,
                     completedBy: completedBy.trim()
@@ -66,7 +70,6 @@ export default function BookedTests() {
             const data = await response.json();
 
             if (data.success) {
-                console.log("Appointment marked as completed successfully!");
                 navigate("/admin/dashboard");
                 triggerDataUpdate()
             } else {
@@ -87,6 +90,7 @@ export default function BookedTests() {
                 headers: {
                     "Content-Type": "application/json",
                 },
+                credentials : 'include',
                 body: JSON.stringify({
                     completed: false
                 })

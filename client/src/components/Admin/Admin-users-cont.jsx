@@ -10,7 +10,9 @@ export default function AllUsersCont() {
 
     const getUsers = async (searchQuery = '') => {
         try {
-            const res = await fetch(`${BackendURL}/api/user/search?q=${searchQuery}`);
+            const res = await fetch(`${BackendURL}/api/user/search?q=${searchQuery}` ,{
+                credentials :"include"
+            });
             const data = await res.json();
 
             if (data.Success === true) {

@@ -29,7 +29,9 @@ export default function EditForm() {
     useEffect(() => {
         const getEditUser = async () => {
             try {
-                const res = await fetch(`${BackendURL}/api/user/search/${id}`)
+                const res = await fetch(`${BackendURL}/api/user/search/${id}` , {
+                    credentials : "include"
+                })
 
                 const data = await res.json()
                 console.log(data.user)

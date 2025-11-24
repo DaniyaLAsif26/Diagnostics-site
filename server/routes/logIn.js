@@ -97,7 +97,7 @@ router.post("/verify-otp", async (req, res) => {
         if (data.Status === "Success" && data.Details === "OTP Matched") {
             await OtpSession.deleteOne({ mobileNo });
 
-            let user = await User.findOne({ number: Number(mobileNo) });
+            let user = await User.findOne({ number: Number(mobileNo) }).populate('reports').populate('appointments');
             if (!user) {
                 user = new User({ number: Number(mobileNo) });
                 await user.save();

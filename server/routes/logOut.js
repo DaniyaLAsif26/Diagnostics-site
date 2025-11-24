@@ -2,7 +2,7 @@ import express from 'express';
 const router = express.Router();
 
 router.post("/user", (req, res) => {
-    res.clearCookie("usertoken", {
+    res.clearCookie("userToken", {
         httpOnly: true,
         secure: process.env.NODE_ENV === "production",
         sameSite: process.env.NODE_ENV === "production" ? "none" : "lax",

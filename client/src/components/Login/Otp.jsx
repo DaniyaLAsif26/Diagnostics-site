@@ -104,7 +104,9 @@ export default function OtpInput({ length = 6, onOtpSubmit = () => { } }) {
                         number: Data.user.number,
                         name: Data.user.name,
                         second_number: Data.user.second_number,
-                        address: Data.user.address
+                        address: Data.user.address,
+                        appointments: Data.user.appointments || [],
+                        reports: Data.user.reports || []
                     });
                     setLoginMsg("Login Successful")
 

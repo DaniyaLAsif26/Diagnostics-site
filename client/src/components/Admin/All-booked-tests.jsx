@@ -18,7 +18,9 @@ export default function AllBookedTests() {
 
     const Appointments = async (searchQuery = '') => {
         try {
-            const res = await fetch(`${BackendURL}/api/appointments?q=${searchQuery}`);
+            const res = await fetch(`${BackendURL}/api/appointments?q=${searchQuery}` ,{
+                credentials: "include"
+            });
 
             const data = await res.json();
 

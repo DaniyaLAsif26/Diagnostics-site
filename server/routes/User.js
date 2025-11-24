@@ -2,10 +2,10 @@ import express from 'express';
 const router = express.Router();
 
 import User from '../models/user.js';
-import Appointment from '../models/appointment.js';
-import Report from '../models/report.js'
 
-router.put('/edit', async (req, res) => {
+import { AllowAdmin , allowUserOrAdmin } from '../middlewares/authMiddleware.js';
+
+router.put('/edit',allowUserOrAdmin, async (req, res) => {
     try {
         const { number, userName, address, second_Number } = req.body;
 
@@ -50,7 +50,7 @@ router.put('/edit', async (req, res) => {
     }
 })
 
-router.get('/search', async (req, res) => {
+router.get('/search',AllowAdmin, async (req, res) => {
     const query = req.query.q; 
 
     try {
@@ -86,7 +86,7 @@ router.get('/search', async (req, res) => {
     }
 });
 
-router.get('/search/:id', async (req, res) => {
+router.get('/search/:id',AllowAdmin, async (req, res) => {
     const { id } = req.params
     try {
         const user = await User.findById(id)
@@ -110,7 +110,7 @@ router.get('/search/:id', async (req, res) => {
     }
 })
 
-router.post('/add', async (req, res) => {
+router.post('/add',AllowAdmin, async (req, res) => {
     const { number, name } = req.body
 
     if (!number || !name || number.toString().length < 12) {
@@ -153,7 +153,7 @@ router.post('/add', async (req, res) => {
     }
 })
 
-router.delete('/delete/:id', async (req, res) => {
+router.delete('/delete/:id',AllowAdmin, async (req, res) => {
     const { id } = req.params
 
     try {

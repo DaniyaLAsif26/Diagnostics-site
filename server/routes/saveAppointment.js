@@ -2,7 +2,7 @@ import express from 'express';
 import Appointment from '../models/appointment.js';
 import User from '../models/user.js';
 
-import allowUserOrAdmin from '../middlewares/authMiddleware.js';
+import {allowUserOrAdmin} from '../middlewares/authMiddleware.js';
 
 const router = express.Router();
 
@@ -78,5 +78,3 @@ router.post('/appointment', allowUserOrAdmin, async (req, res) => {
 });
 
 export default router;
-
-// export default router;

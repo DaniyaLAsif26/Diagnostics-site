@@ -10,7 +10,9 @@ import multer from 'multer'
 import Appointment from '../models/appointment.js'
 const upload = multer({ storage })
 
-router.post('/upload', upload.single('file'), async (req, res) => {
+import { AllowAdmin } from '../middlewares/authMiddleware.js';
+
+router.post('/upload', AllowAdmin, upload.single('file'), async (req, res) => {
     const { uniq_id, reportMobileNo } = req.body
     const file = req.file
 
@@ -104,21 +106,40 @@ router.get('/search', async (req, res) => {
     }
 })
 
-router.get('/search/all', async (req, res) => {
+router.get('/search/admin', AllowAdmin, async (req, res) => {
+    const query = req.query.q;
     try {
-        const reports = await Report.find({})
-
-        if (!reports || reports.length === 0) {
+        if (!query) {
+            const reports = await Report.find({})
+            if (!reports || reports.length === 0) {
+                return res.json({
+                    Success: false,
+                    message: "No Reports found"
+                })
+            }
             return res.json({
-                Success: false,
-                message: "No Reports found"
+                Success: true,
+                reports
             })
         }
 
-        res.json({
-            Success: true,
-            reports
-        })
+        const escapedQuery = query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+
+        const report = await Report.find({
+            $expr: {
+                $regexMatch: {
+                    input: { $toString: "$number" },
+                    regex: escapedQuery,
+                    options: "i"
+                }
+            }
+        });
+
+        if (report.length === 0) {
+            return res.json({ Success: false, message: "No Reports found" });
+        }
+
+        return res.json({ Success: true, reports: report });
     }
     catch (err) {
         console.log(err)
@@ -129,7 +150,7 @@ router.get('/search/all', async (req, res) => {
     }
 })
 
-router.delete('/delete/:id', async (req, res) => {
+router.delete('/delete/:id', AllowAdmin, async (req, res) => {
     const { id } = req.params
 
     if (!id) {
@@ -175,6 +196,7 @@ router.delete('/delete/:id', async (req, res) => {
         })
     }
 })
+
 router.get("/download/:id", async (req, res) => {
     const { id } = req.params;
     try {
@@ -213,7 +235,11 @@ router.get("/download/:id", async (req, res) => {
       </html>
     `;
 
-        // Send HTML page instead of the raw file
+        // Set CSP header to allow Cloudinary iframe
+        res.setHeader(
+            "Content-Security-Policy",
+            "default-src 'self'; frame-src 'self' https://res.cloudinary.com; style-src 'unsafe-inline'"
+        );
         res.setHeader("Content-Type", "text/html");
         res.send(html);
     } catch (error) {

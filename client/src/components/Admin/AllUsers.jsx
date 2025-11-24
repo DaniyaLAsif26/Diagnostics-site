@@ -18,7 +18,8 @@ export default function AllItems({ data = [], head = [], columns = 2, contHead, 
 
         try {
             const res = await fetch(`${BackendURL}/api/user/delete/${id}`, {
-                method: "DELETE"
+                method: "DELETE",
+                credentials: "include"
             })
 
             const data = await res.json()
@@ -45,7 +46,8 @@ export default function AllItems({ data = [], head = [], columns = 2, contHead, 
 
         try {
             const res = await fetch(`${BackendURL}/api/report/delete/${id}`, {
-                method: "DELETE"
+                method: "DELETE",
+                credentials: "include"
             })
 
             const data = await res.json()
@@ -64,7 +66,6 @@ export default function AllItems({ data = [], head = [], columns = 2, contHead, 
             alert(error.message)
         }
     }
-
 
     return (
         <div className="all-items-cont">

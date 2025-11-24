@@ -24,6 +24,7 @@ export default function AddUser() {
                 headers: {
                     'Content-Type': 'application/json'
                 },
+                credentials : "include",
                 body: JSON.stringify({ number, name })
             })
 

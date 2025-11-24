@@ -51,4 +51,25 @@ const allowUserOrAdmin = async (req, res, next) => {
     }
 }
 
-export default allowUserOrAdmin;
+const AllowAdmin = async (req, res, next) => {
+    try {
+        let decoded = verifyTokenFromCookies(req, "adminToken")
+        if (decoded && decoded.role === 'admin') {
+            const admin = await AdminPassword.findById(decoded.id)
+            if (admin) {
+                req.user = {
+                    id: admin._id,
+                    role: "admin"
+                }
+                return next();
+            }
+        }
+        return res.status(401).json({ message: "Unauthorized access" });
+    }
+    catch (err) {
+        console.log(err)
+        return res.status(500).json({ message: "Server error during authentication" });
+    }
+}
+
+export {allowUserOrAdmin, AllowAdmin };

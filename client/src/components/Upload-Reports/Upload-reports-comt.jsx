@@ -47,15 +47,12 @@ export default function UploadReportsCont() {
         formData.append('reportMobileNo', reportMobileNo)
         formData.append('file', file)
 
-        for (let [key, value] of formData.entries()) {
-            console.log(key, value)
-        }
-
         try {
             setLoading(true)
 
             const res = await fetch(`${BackendURL}/api/report/upload`, {
                 method: "POST",
+                credentials : 'include',
                 body: formData
             })
 

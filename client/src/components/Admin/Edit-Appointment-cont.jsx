@@ -36,7 +36,9 @@ export default function EditAppointment() {
 
     // fetch appointment
     useEffect(() => {
-        fetch(`${BackendURL}/api/appointments/${id}`)
+        fetch(`${BackendURL}/api/appointments/${id}` ,{
+            credentials : 'include',
+        })
             .then(res => res.json())
             .then(data => {
                 if (data.success) {
@@ -120,6 +122,7 @@ export default function EditAppointment() {
         }
 
         fetch(`${BackendURL}/api/appointments/edit/${id}`, {
+            credentials : 'include',
             method: "PUT",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(updatedData)
