@@ -17,8 +17,7 @@ export default function SliderCont() {
 
    // Offer images from public folder
    const offer = [
-      '/Offer-img/offer-3.jpg',
-      '/Offer-img/offer-4.jpg',
+      '/Offer-img/iso.jpg',
       '/Offer-img/offer-1.jpg',
    ];
 
