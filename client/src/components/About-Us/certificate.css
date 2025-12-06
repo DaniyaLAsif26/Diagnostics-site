@@ -1,0 +1,13 @@
+.certificate-cont{
+    color: black;
+    padding: 0rem 7rem;
+    font-size: 1.1rem;
+}
+
+.certificate-cont h2{
+     margin-bottom: 0.7rem;
+}
+
+.certificate-cont ul{
+    margin: 1rem 2rem 3rem;
+}

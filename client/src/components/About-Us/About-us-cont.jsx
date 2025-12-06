@@ -1,6 +1,7 @@
 import AboutUsHead from "./About-us-head"
 import AboutDr from "./About-dr"
 import ChooseUs from "../Choose-us/Choose-us-cont.jsx"
+import Certificates from "./Certificates.jsx"
 
 export default function AboutUsCont() {
 
@@ -8,6 +9,7 @@ export default function AboutUsCont() {
         <div className="about-us-cont">
             <AboutUsHead />
             <AboutDr />
+            <Certificates />
             <ChooseUs />
         </div>
     )
