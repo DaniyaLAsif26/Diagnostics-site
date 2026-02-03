@@ -47,7 +47,9 @@ const allowedOrigins = ["http://localhost:5173",
   "https://diagnostics-site-frontend.vercel.app",
   "https://diagnostics-site-frontend-9bimci5zy.vercel.app",
   "https://visiondiagnosticscentre.com",
-  "https://www.visiondiagnosticscentre.com"];
+  "https://www.visiondiagnosticscentre.com",
+  'https://app.visiondiagnosticscentre.com'
+];
 
 app.use(cors({
   origin: function (origin, callback) {

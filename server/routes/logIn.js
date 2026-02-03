@@ -16,8 +16,11 @@ const isProduction = process.env.NODE_ENV === 'production';
 const getCookieOptions = (maxAge) => ({
     httpOnly: true,
     secure: isProduction, // true in production (HTTPS), false in development
-    sameSite: isProduction ? "none" : "lax", // "none" for cross-origin, "lax" for same-origin
-    maxAge: maxAge,
+    // sameSite: isProduction ? "none" : "lax",
+    sameSite: 'lax', // ✅ Change from 'none'
+    path: '/',
+    domain: process.env.NODE_ENV === 'production' ?
+        maxAge : maxAge,
 });
 
 router.post("/send-otp", async (req, res) => {
