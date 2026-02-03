@@ -4,7 +4,6 @@ import { useNavigate } from "react-router-dom";
 
 export default function AdminProtectedRoute({ children }) {
     const { isAdminLogIn, isCheckingAdmin } = useLogin();
-    console.log(isAdminLogIn)
     const navigate = useNavigate();
 
     useEffect(() => {
