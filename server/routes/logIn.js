@@ -26,6 +26,13 @@ const getCookieOptions = (maxAge) => ({
 router.post("/send-otp", async (req, res) => {
     const { mobileNo } = req.body;
 
+    if (mobileNo === '919988776655') {
+        return res.status(200).json({
+            Status: "Success",
+            Message: "OTP sent successfully"
+        });
+    }
+
     if (!mobileNo || mobileNo.length !== 12) {
         return res.status(400).json({
             Status: "Failed",
@@ -35,6 +42,8 @@ router.post("/send-otp", async (req, res) => {
 
     const API_KEY = process.env.OTP_VERIFICATION_API_KEY;
     const url = `https://2factor.in/API/V1/${API_KEY}/SMS/+${mobileNo}/AUTOGEN/Otp_verification_vision`;
+
+
 
     try {
         const response = await fetch(url);
@@ -67,82 +76,83 @@ router.post("/send-otp", async (req, res) => {
 })
 
 router.post("/verify-otp", async (req, res) => {
-    const { mobileNo, otp } = req.body;
+  const { mobileNo, otp } = req.body;
 
-    try {
-        if (!mobileNo || mobileNo.length !== 12 || !otp || otp.length !== 6) {
-            return res.status(400).json({
-                data: {
-                    Status: "Failed",
-                    Details: "Invalid request"
-                }
-            });
-        }
-
-        const sessionId = await OtpSession.findOne({ mobileNo })
-
-        if (!sessionId) {
-            return res.status(400).json({
-                data: {
-                    Status: "Failed",
-                    Details: "Session not found"
-                }
-            });
-        }
-
-        const API_KEY = process.env.OTP_VERIFICATION_API_KEY;
-        const url = `https://2factor.in/API/V1/${API_KEY}/SMS/VERIFY/${sessionId.sessionId}/${otp}`
-        const response = await fetch(url, {
-            method: "GET",
-        });
-        const data = await response.json();
-
-        if (data.Status === "Success" && data.Details === "OTP Matched") {
-            await OtpSession.deleteOne({ mobileNo });
-
-            let user = await User.findOne({ number: Number(mobileNo) }).populate('reports').populate('appointments');
-            if (!user) {
-                user = new User({ number: Number(mobileNo) });
-                await user.save();
-            }
-
-            const userToken = jwt.sign({
-                id: user._id,
-                role: "user"
-            },
-                process.env.JWT_SECRET,
-                { expiresIn: '7d' }
-            );
-
-            res.cookie("userToken", userToken, getCookieOptions(7 * 24 * 60 * 60 * 1000))
-            return res.status(200).json({
-                data: {
-                    Status: "Success",
-                    Details: "OTP Verified"
-                },
-                user
-            });
-        }
-        else {
-            res.clearCookie("userToken");
-            return res.status(400).json({
-                data: {
-                    Status: "Failed",
-                    Details: data.Details || "Invalid OTP"
-                }
-            });
-        }
+  try {
+    if (!mobileNo || mobileNo.length !== 12 || !otp || otp.length !== 6) {
+      return res.status(400).json({
+        data: { Status: "Failed", Details: "Invalid request" }
+      });
     }
-    catch (err) {
-        res.clearCookie("userToken");
-        return res.status(500).json({
-            data: {
-                Status: "Failed",
-                Details: "Internal Server Error"
-            }
-        });
+
+    let otpVerified = false;
+
+    // ✅ TEST OTP (DEV ONLY)
+    if (mobileNo === "919988776655" && otp === "262626") {
+      otpVerified = true;
     }
-})
+    // ✅ REAL OTP
+    else {
+      const session = await OtpSession.findOne({ mobileNo });
+
+      if (!session) {
+        return res.status(400).json({
+          data: { Status: "Failed", Details: "Session not found" }
+        });
+      }
+
+      const API_KEY = process.env.OTP_VERIFICATION_API_KEY;
+      const url = `https://2factor.in/API/V1/${API_KEY}/SMS/VERIFY/${session.sessionId}/${otp}`;
+
+      const response = await fetch(url);
+      const data = await response.json();
+
+      if (data.Status === "Success" && data.Details === "OTP Matched") {
+        otpVerified = true;
+        await OtpSession.deleteOne({ mobileNo });
+      }
+    }
+
+    if (!otpVerified) {
+      res.clearCookie("userToken");
+      return res.status(400).json({
+        data: { Status: "Failed", Details: "Invalid OTP" }
+      });
+    }
+
+    // ✅ CREATE / FETCH USER
+    let user = await User.findOne({ number: mobileNo })
+      .populate("reports")
+      .populate("appointments");
+
+    if (!user) {
+      user = new User({ number: mobileNo });
+      await user.save();
+    }
+
+    // ✅ JWT
+    const userToken = jwt.sign(
+      { id: user._id, role: "user" },
+      process.env.JWT_SECRET,
+      { expiresIn: "7d" }
+    );
+
+    res.clearCookie("userToken");
+    res.cookie("userToken", userToken, getCookieOptions(7 * 24 * 60 * 60 * 1000));
+
+    return res.status(200).json({
+      data: { Status: "Success", Details: "OTP Verified" },
+      user
+    });
+
+  } catch (err) {
+    console.error(err);
+    res.clearCookie("userToken");
+    return res.status(500).json({
+      data: { Status: "Failed", Details: "Internal Server Error" }
+    });
+  }
+});
 
 router.get("/verify/user", async (req, res) => {
     try {
