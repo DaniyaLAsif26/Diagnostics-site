@@ -5,7 +5,10 @@ router.post("/user", (req, res) => {
     res.clearCookie("userToken", {
         httpOnly: true,
         secure: process.env.NODE_ENV === "production",
-        sameSite: process.env.NODE_ENV === "production" ? "none" : "lax",
+        // sameSite: process.env.NODE_ENV === "production" ? "none" : "lax",
+        sameSite: 'lax',
+        path: '/',
+        domain: isProduction ? '.visiondiagnosticscentre.com' : undefined
     });
     return res.json({ Success: true })
 })
