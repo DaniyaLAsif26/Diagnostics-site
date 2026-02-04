@@ -18,8 +18,11 @@ router.post("/user", (req, res) => {
 router.post('/admin', (req, res) => {
     res.clearCookie("adminToken", {
         httpOnly: true,
-        secure: process.env.NODE_ENV === "production",
-        sameSite: process.env.NODE_ENV === "production" ? "none" : "lax",
+        secure: isProduction,
+        // sameSite: process.env.NODE_ENV === "production" ? "none" : "lax",
+        sameSite: 'lax',
+        path: '/',
+        domain: isProduction ? '.visiondiagnosticscentre.com' : undefined
     });
     res.json({ Success: true })
 })
