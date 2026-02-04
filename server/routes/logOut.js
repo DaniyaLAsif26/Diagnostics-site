@@ -4,7 +4,7 @@ const router = express.Router();
 const isProduction = process.env.NODE_ENV === 'production';
 
 router.post("/user", (req, res) => {
-    res.clearCookie('adminToken', {
+    res.clearCookie('userToken', {
         httpOnly: true,
         secure: isProduction,
         // sameSite: process.env.NODE_ENV === "production" ? "none" : "lax",
