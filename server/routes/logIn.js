@@ -16,10 +16,10 @@ const isProduction = process.env.NODE_ENV === 'production';
 const getCookieOptions = (maxAge) => ({
     httpOnly: true,
     secure: isProduction, // true in production (HTTPS) , false in development
-    sameSite: isProduction ? "none" : "lax",
-    //  sameSite: 'lax', // ✅ Change from 'none'
-    // path: '/',
-    // ddomain: isProduction ? '.visiondiagnosticscentre.com' : undefined,
+    // sameSite: isProduction ? "none" : "lax",
+    sameSite: 'lax', // ✅ Change from 'none'
+    path: '/',
+    ddomain: isProduction ? '.visiondiagnosticscentre.com' : undefined,
     maxAge: maxAge,
 });
 
