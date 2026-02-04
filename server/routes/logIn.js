@@ -19,7 +19,7 @@ const getCookieOptions = (maxAge) => ({
     // sameSite: isProduction ? "none" : "lax",
     sameSite: 'lax', // ✅ Change from 'none'
     path: '/',
-    ddomain: isProduction ? '.visiondiagnosticscentre.com' : undefined,
+    domain: isProduction ? '.visiondiagnosticscentre.com' : undefined,
     maxAge: maxAge,
 });
 

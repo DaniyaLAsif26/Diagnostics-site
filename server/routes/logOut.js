@@ -1,12 +1,14 @@
 import express from 'express';
 const router = express.Router();
 
+const isProduction = process.env.NODE_ENV === 'production';
+
 router.post("/user", (req, res) => {
-    res.clearCookie("userToken", {
+    res.clearCookie('adminToken', {
         httpOnly: true,
-        secure: process.env.NODE_ENV === "production",
+        secure: isProduction,
         // sameSite: process.env.NODE_ENV === "production" ? "none" : "lax",
-        sameSite: 'lax',
+        sameSite: 'lax', 
         path: '/',
         domain: isProduction ? '.visiondiagnosticscentre.com' : undefined
     });
