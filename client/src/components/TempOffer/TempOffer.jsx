@@ -26,7 +26,7 @@ export default function WomensDayBanner() {
         <div className="wdb-center">
           <div className="wdb-offer-label">Well Women Checkup</div>
           <div className="wdb-price">
-            <span className="wdb-currency">₹</span>1800
+            <span className="wdb-currency">₹</span>1000
           </div>
           <div className="wdb-pills">
             {tests.map((t) => (
