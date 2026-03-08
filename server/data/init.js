@@ -36,7 +36,7 @@ const initDB = async () => {
         await Package.deleteMany({});
         await AdminPassword.deleteMany({});
         await Appointment.deleteMany({});
-        await User.deleteMany({});
+        // await User.deleteMany({});
         await Report.deleteMany({});
 
         await Test.insertMany(sampleTest);
