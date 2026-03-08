@@ -47,7 +47,7 @@ export default function Home() {
       </Helmet>
       <SliderCont />
       <OfferText />
-      {/* <TempOffer /> */}
+      <TempOffer />
 
       {!hide &&
         <RelevanceCont onRelevanceClick={handleRelevanceClick} />
