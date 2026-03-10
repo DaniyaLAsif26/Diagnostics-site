@@ -1,0 +1,13 @@
+.diag-tests-cont {
+    color: black;
+    padding: 0.5rem 1rem;
+}
+
+.diag-tests-table{
+    width: 100%;
+    text-align: center;
+}
+
+.diag-tests-table td{
+        border-bottom: 1px solid #ddd;
+}

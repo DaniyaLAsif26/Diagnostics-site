@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import AllItems from './AllUsers';
+import AllItems from './AllAdminControl';
 
 const BackendURL = import.meta.env.VITE_BACKEND_URL || "http://localhost:5000";
 

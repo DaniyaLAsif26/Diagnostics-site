@@ -56,6 +56,7 @@ export default function PopularPackCont({ onPackClick }) {
                             key={pack._id}
                             name={pack.name}
                             price={pack.price}
+                            discount={pack.discountPrice}
                             tests={pack.tests}
                             onClick={onPackClick}
                         />

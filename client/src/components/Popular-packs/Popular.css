@@ -10,10 +10,10 @@
     align-items: flex-start;
     border-radius: 9px;
     cursor: pointer;
-color: black;
+    color: black;
 }
 
-.popular-info{
+.popular-info {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -34,16 +34,39 @@ color: black;
     bottom: 0;
 }
 
+.price-book-price-original {
+    text-decoration: line-through;
+    color: red;
+}
+
+.price-book-price-discount {
+    /* text-decoration: line-through; */
+    color: green;
+}
+
+.view-pack,
+.view-pack-tests {
+    padding: 1rem;
+    background-color: #3351a411;
+}
+
+.discount-price {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
 h3 {
     font-size: 1.5rem;
     color: #21356d;
 }
 
-.pop-desc{
+.pop-desc {
     font-size: 1.15rem;
 }
 
-.parameters{
+.parameters {
     font-size: 1.36rem;
     color: green;
     font-weight: 500;
@@ -51,6 +74,6 @@ h3 {
     text-decoration: underline;
 }
 
-.selectedTest{
+.selectedTest {
     background-color: beige;
 }

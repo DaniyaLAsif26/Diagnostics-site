@@ -21,8 +21,10 @@ export default function RadiologyTests() {
                     throw new Error(`HTTP error! status: ${res.status}`);
                 }
                 const data = await res.json();
-                setTests(data);
-                setFilteredTests(data);
+                if (data.success) {
+                    setTests(data.tests);
+                    setFilteredTests(data.tests);
+                }
             } catch (error) {
                 console.error("Error fetching all tests:", error);
             }
@@ -72,6 +74,7 @@ export default function RadiologyTests() {
                                     name={test.name}
                                     price={test.price}
                                     patientPreparation={test.patientPreparation}
+                                    discount={test.discountPrice}
                                 />
                             ))}
                         </div>

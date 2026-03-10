@@ -16,13 +16,15 @@ export default function AllPacksCont({ onPackClick }) {
   useEffect(() => {
     const fetchAllPacks = async () => {
       try {
-        const res = await fetch(`${BackendURL}/api/all-packages`);
+        const res = await fetch(`${BackendURL}/api/packs/all-packages`);
         if (!res.ok) {
           throw new Error(`HTTP error! status: ${res.status}`);
         }
         const data = await res.json();
-        setPacks(data);
-        setFilteredPacks(data);
+        if(data.success === true){
+          setPacks(data.packs);
+          setFilteredPacks(data.packs);
+        }
       } catch (error) {
         console.error("Error fetching all packs:", error);
       }
@@ -75,6 +77,7 @@ export default function AllPacksCont({ onPackClick }) {
                   key={pack._id || pack.name}
                   name={pack.name}
                   price={pack.price}
+                  discount={pack.discountPrice}
                   tests={pack.tests}
                   onClick={onPackClick}
                 />

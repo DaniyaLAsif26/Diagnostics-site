@@ -1,7 +1,7 @@
 import { useEffect } from "react"
 import { useState } from "react"
 
-import AllItems from "./AllUsers"
+import AllItems from "./AllAdminControl"
 
 export default function ReportsCont() {
     const [allReports, setAllReports] = useState([])
@@ -12,7 +12,7 @@ export default function ReportsCont() {
 
     const getReports = async (searchQuery = '') => {
         try {
-            const res = await fetch(`${BackendURL}/api/report/search/admin?q=${searchQuery}`, {
+            const res = await fetch(`${BackendURL}/api/report/search/admin?q=$ {searchQuery}`, {
                 credentials: 'include'
             })
 

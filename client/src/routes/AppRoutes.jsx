@@ -29,6 +29,8 @@ import CheckoutProtectedRoute from '../components/Protected-routes/CheckoutProte
 import AddUser from '../components/AddUser/AddUser.jsx';
 import EditUser from '../components/EditUser/EditUser.jsx';
 import BookAppointment from '../components/Admin/BookAppointment.jsx';
+import EditTestPage from '../pages/EditTestPage.jsx';
+import EditPackPage from '../pages/EditPackPage.jsx';
 
 function AppRoutes() {
   return (
@@ -88,6 +90,17 @@ function AppRoutes() {
       < Route path="/admin/dashboard" element={
         <AdminProtectedRoute>
           <AdminDashBoard />
+        </AdminProtectedRoute>
+      } />
+
+      < Route path="/admin/test/edit/:id" element={
+        <AdminProtectedRoute>
+          <EditTestPage />
+        </AdminProtectedRoute>
+      } />
+      < Route path="/admin/pack/edit/:id" element={
+        <AdminProtectedRoute>
+          <EditPackPage />
         </AdminProtectedRoute>
       } />
       < Route path="*" element={< NotFoundPage />} />

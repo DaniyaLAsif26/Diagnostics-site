@@ -5,27 +5,31 @@ import { useLogin } from '../../context/LoginContext';
 import PeopleAltIcon from '@mui/icons-material/PeopleAlt';
 import SummarizeIcon from '@mui/icons-material/Summarize';
 import LocalHospitalIcon from '@mui/icons-material/LocalHospital';
+import BiotechIcon from '@mui/icons-material/Biotech';
 
 import AdminControlBox from "./Admin-control-box";
 import AllUsersCont from './Admin-users-cont';
 import AllBookedTests from './All-booked-tests';
 import ReportsCont from './ReportsCont';
+import AdminDianostics from './AdminDiagnostics'
+
 import './admin.css';
 
 const adminControl = [
     { name: 'Users', className: 'adminUser', icon: <PeopleAltIcon /> },
     { name: 'Appointments', className: 'adminAppt', icon: <LocalHospitalIcon /> },
     { name: 'Reports', className: 'adminRept', icon: <SummarizeIcon /> },
+    { name: 'Tests', className: 'adminTest', icon: <BiotechIcon /> },
 ];
 
 export default function AdminHome() {
-    const [selected, setSelected] = useState(()=> {
+    const [selected, setSelected] = useState(() => {
         return sessionStorage.getItem('selected') || 'Users';
     });
 
-useEffect(()=>{
-    sessionStorage.setItem("selected" , selected)
-},[selected])
+    useEffect(() => {
+        sessionStorage.setItem("selected", selected)
+    }, [selected])
 
     const navigate = useNavigate();
     const { logoutAdmin } = useLogin();
@@ -73,25 +77,31 @@ useEffect(()=>{
 
             <main>
                 <div className="admin-main">
-                <AdminControlBox box={adminControl} selected={selected} setSelected={setSelected} />
+                    <AdminControlBox box={adminControl} selected={selected} setSelected={setSelected} />
 
-                {selected === 'Users' && (
-                    <div className="selected-results all-users">
-                        <AllUsersCont />
-                    </div>
-                )}
+                    {selected === 'Users' && (
+                        <div className="selected-results all-users">
+                            <AllUsersCont />
+                        </div>
+                    )}
 
-                {selected === 'Appointments' && (
-                    <div className="selected-results">
-                        <AllBookedTests />
-                    </div>
-                )}
+                    {selected === 'Appointments' && (
+                        <div className="selected-results">
+                            <AllBookedTests />
+                        </div>
+                    )}
 
-                {selected === 'Reports' && (
-                    <div className="selected-results">
-                        <ReportsCont />
-                    </div>
-                )}
+                    {selected === 'Reports' && (
+                        <div className="selected-results">
+                            <ReportsCont />
+                        </div>
+                    )}
+
+                    {selected === 'Tests' && (
+                        <div className="selected-results">
+                            <AdminDianostics />
+                        </div>
+                    )}
                 </div>
             </main >
         </div>

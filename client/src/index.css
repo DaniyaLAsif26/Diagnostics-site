@@ -247,7 +247,11 @@ input:focus {
   font-family: var(--font3);
 }
 
-.popular {
+.popular  {
+  font-family: var(--font1);
+}
+
+.view-pack-price  {
   font-family: var(--font1);
 }
 

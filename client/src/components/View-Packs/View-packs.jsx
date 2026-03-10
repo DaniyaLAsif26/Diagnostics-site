@@ -38,11 +38,11 @@ export default function ViewPackage({ onPackClick }) {
     useEffect(() => {
         const fetchPackageDetails = async () => {
             try {
-                const res = await fetch(`${BackendURL}/api/all-packages`);
+                const res = await fetch(`${BackendURL}/api/packs/all-packages`);
                 const data = await res.json();
                 setPacks(data);
 
-                const filtered = data.find((item) =>
+                const filtered = data.packs.find((item) =>
                     item.name.toLowerCase().includes(pack.toLowerCase())
                 );
                 setMatchingPacks(filtered);
@@ -59,9 +59,9 @@ export default function ViewPackage({ onPackClick }) {
     useEffect(() => {
         const fetchSuggestedPacks = async () => {
             try {
-                const res = await fetch(`${BackendURL}/api/all-packages`);
+                const res = await fetch(`${BackendURL}/api/packs/all-packages`);
                 const data = await res.json();
-                const suggestedData = data.slice(2, 4);
+                const suggestedData = data.packs.slice(2, 4);
                 setSuggestedPacks(suggestedData);
             }
             catch (error) {
@@ -90,7 +90,20 @@ export default function ViewPackage({ onPackClick }) {
                                 <div className="view-pack-parameter">
                                     Parameter Count : {matchingPacks.tests.length}
                                 </div>
-                                <div className="view-pack-price">&#8377;{matchingPacks.price}</div>
+
+                                <div className="view-pack-price">{matchingPacks.discountPrice > 0 ? (
+                    <>
+                    <div className="discount-price discount-price-pack">
+                        <div className=' price-book-price-original'>&#8377;{matchingPacks.price}</div>
+                        <div className='price-book-price-discount'>&#8377;{matchingPacks.discountPrice}</div>
+                    </div>
+                    </>
+                )
+                    :
+                    (
+                        <div>&#8377;{matchingPacks.price}</div>
+
+                    )}</div>
                                 <Button
                                     variant="contained"
                                     onClick={handleClick}
@@ -120,6 +133,7 @@ export default function ViewPackage({ onPackClick }) {
                                             price={pack.price}
                                             tests={pack.tests}
                                             onClick={onPackClick}
+                                            discount={pack.discountPrice}
                                         />
                                     ))}
                                 </div>

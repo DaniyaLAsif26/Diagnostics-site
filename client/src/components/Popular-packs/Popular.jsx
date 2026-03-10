@@ -3,28 +3,28 @@ import Button from '@mui/material/Button';
 import './Popular.css';
 import { useCart } from "../../context/CartContext";
 
-export default function Popular({ name, price, tests, patientPreparation, onClick }) {
+export default function Popular({ name, price, discount, tests, patientPreparation, onClick }) {
 
     const { cartItem, addToCart, removeFromCart } = useCart();
 
     const isInCart = cartItem.some(item => item.name === name);
 
     const handleClick = (e) => {
-    e.stopPropagation();
+        e.stopPropagation();
 
-    if (!isInCart) {
-        const itemToAdd = { name, price, tests };
+        if (!isInCart) {
+            const itemToAdd = { name, price, tests };
 
-        // Only add patientPreparation if it exists
-        if (patientPreparation) {
-            itemToAdd.patientPreparation = patientPreparation;
+            // Only add patientPreparation if it exists
+            if (patientPreparation) {
+                itemToAdd.patientPreparation = patientPreparation;
+            }
+
+            addToCart(itemToAdd);
+        } else {
+            removeFromCart(name);
         }
-
-        addToCart(itemToAdd);
-    } else {
-        removeFromCart(name);
-    }
-};
+    };
 
     const handleCardClick = () => {
         if (typeof onClick === 'function') {
@@ -34,7 +34,7 @@ export default function Popular({ name, price, tests, patientPreparation, onClic
 
     return (
         // {isInCart ? "Remove" : "Add"}
-        <div className={`popular ${isInCart ? "selectedTest" : ""}`}onClick={handleCardClick}>
+        <div className={`popular ${isInCart ? "selectedTest" : ""}`} onClick={handleCardClick}>
             <div className="popular-info">
                 <h3>{name}</h3>
             </div>
@@ -42,7 +42,19 @@ export default function Popular({ name, price, tests, patientPreparation, onClic
                 <div className="parameters">{tests.length} Parameters</div>
             )}
             <div className="price-book">
-                <div>&#8377;{price}</div>
+                {discount > 0 ? (
+                    <>
+                    <div className="discount-price">
+                        <div className='price-book-price-original'>&#8377;{price}</div>
+                        <div className='price-book-price-discount'>&#8377;{discount}</div>
+                    </div>
+                    </>
+                )
+                    :
+                    (
+                        <div>&#8377;{price}</div>
+
+                    )}
                 <Button
                     variant="contained"
                     onClick={handleClick}

@@ -21,8 +21,11 @@ export default function LaboratoryTests() {
                     throw new Error(`HTTP error! status: ${res.status}`);
                 }
                 const data = await res.json();
-                setTests(data);
-                setFilteredTests(data);
+
+                if (data.success) {
+                    setTests(data.tests);
+                    setFilteredTests(data.tests);
+                }
             } catch (error) {
                 console.error("Error fetching all tests:", error);
             }
@@ -50,37 +53,41 @@ export default function LaboratoryTests() {
     };
 
     return (
-        <div className="all-tests">
-            <div className="">
-                <RelevanceCont
-                    onRelevanceClick={handleRelevanceClick}
-                    selected={selectedRelevance}
-                />
-            </div>
+        <>
 
-            <div className="search-tests-cont">
-                {filteredTests.length > 0 ? (
-                    <>
-                        <div className="search-heading">
-                            <h1>{selectedRelevance ? `'${selectedRelevance}' Tests` : "Laboratory Tests"}</h1>
+            < div className="all-tests">
+                <div className="">
+                    <RelevanceCont
+                        onRelevanceClick={handleRelevanceClick}
+                        selected={selectedRelevance}
+                    />
+                </div>
+
+                <div className="search-tests-cont">
+                    {filteredTests.length > 0 ? (
+                        <>
+                            <div className="search-heading">
+                                <h1>{selectedRelevance ? `'${selectedRelevance}' Tests` : "Laboratory Tests"}</h1>
+                            </div>
+                            <div className="search-tests">
+                                {filteredTests.map((test) => (
+                                    <Popular
+                                        key={test._id || test.name}
+                                        name={test.name}
+                                        price={test.price}
+                                        patientPreparation={test.patientPreparation}
+                                        discount={test.discountPrice}
+                                    />
+                                ))}
+                            </div>
+                        </>
+                    ) : (
+                        <div className="no-tests">
+                            <h2>No tests available for the selected relevance.</h2>
                         </div>
-                        <div className="search-tests">
-                            {filteredTests.map((test) => (
-                                <Popular
-                                    key={test._id || test.name}
-                                    name={test.name}
-                                    price={test.price}
-                                    patientPreparation={test.patientPreparation}
-                                />
-                            ))}
-                        </div>
-                    </>
-                ) : (
-                    <div className="no-tests">
-                        <h2>No tests available for the selected relevance.</h2>
-                    </div>
-                )}
-            </div>
-        </div>
+                    )}
+                </div>
+            </div >
+        </>
     );
 }

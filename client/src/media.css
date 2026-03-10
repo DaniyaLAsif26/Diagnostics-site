@@ -1451,12 +1451,6 @@
         font-size: 1.1rem;
     }
 
-    .view-pack,
-    .view-pack-tests {
-        padding: 1rem;
-        background-color: beige;
-    }
-
     .view-pack h2 {
         font-size: 1.6rem;
     }

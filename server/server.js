@@ -74,8 +74,8 @@ mongoose.connect(MONGO_URL)
   .then(() => console.log("MongoDB connected"))
   .catch((err) => console.error("❌ MongoDB connection error:", err));
 
-app.use("/api", testRoutes);
-app.use("/api", packageRoutes);
+app.use("/api/tests", testRoutes);
+app.use("/api/packs", packageRoutes);
 app.use("/api", showAppointmentRoute);
 app.use('/api/user', UserRoute);
 app.use('/api/report', ReportRoute);

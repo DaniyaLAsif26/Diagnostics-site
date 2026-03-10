@@ -1,0 +1,21 @@
+.diagFilterSelected{
+    background-color: green;
+}
+
+.all-diagnostics-cont .add-item{
+    display: flex;
+    gap: 1rem;
+}
+
+.all-diagnostics{
+    margin-top: 1.26rem;
+background-color: white;
+padding: 1rem;
+}
+
+.all-diagnostics-filter{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}

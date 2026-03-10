@@ -54,10 +54,15 @@
 }
 
 .view-pack-price {
-    font-size: 1.8rem;
+    font-size: 1.9rem;
     margin: 1.26rem 0rem 0.5rem;
     color: black;
-    font-weight: 400;
+    font-weight: 500;
+}
+
+.discount-price-pack {
+    justify-content: flex-start;
+    gap: 1.5rem;
 }
 
 .view-pack-tests {
