@@ -125,7 +125,7 @@ export default function ViewPackage({ onPackClick }) {
                             </div>
                             <div className="suggested-packs-cont">
                                 <h2>Suggested Health Packages</h2>
-                                <div className="suggested-packs">
+                                <div className="suggested-packs search-packs">
                                     {suggestedPacks && suggestedPacks.map((pack) => (
                                         <Popular
                                             key={pack._id || pack.name}

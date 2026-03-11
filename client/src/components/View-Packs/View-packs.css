@@ -6,6 +6,10 @@
     text-align: start;
 }
 
+    .search-packs .popular {
+        height: 15rem;
+    }
+
 .view-nav a,
 .current-package {
     padding: 0rem 1rem;
