@@ -46,7 +46,7 @@ export default function Home() {
         <meta name="description" content="Browse our comprehensive laboratory tests" />
       </Helmet>
       <SliderCont />
-      <OfferText />
+      {/* <OfferText /> */}
       <TempOffer />
 
       {!hide &&
