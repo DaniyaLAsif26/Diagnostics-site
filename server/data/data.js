@@ -366,6 +366,19 @@ const samplePack = [
       "ECG",
       "X-Ray Chest PA View"
     ]
+  },
+  {
+    name: "Chronic Kidney Disease (CKD)",
+    relevance: ["Blood", "Infection", "Kidney"],
+    price: 1700,
+    tests: [
+      "Complete Blood Picture",
+      "Urine Examination",
+      "Blood Urea",
+      "Creatine",
+      "eGFR",
+      "Urine for microalbumin",
+    ]
   }
 ];
 
