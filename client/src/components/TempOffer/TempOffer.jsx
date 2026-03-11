@@ -37,7 +37,7 @@ export default function KidneyDayBanner() {
 
         {/* Right: CTA */}
         <div className="wdb-right">
-          <a href="/health-packages/CKD-Screening" className="wdb-cta">Book Now</a>
+          <a href="/health-packages/Chronic%20Kidney%20Disease%20(CKD)" className="wdb-cta">Book Now</a>
         </div>
 
         {/* Decorative kidney shapes */}
