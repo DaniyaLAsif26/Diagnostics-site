@@ -1,10 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=DM+Sans:wght@400;500;600&display=swap');
 
 :root {
-    --plum: #6B1FA2;
-    --violet: #9333EA;
+    --crimson: #9B1C1C;
+    --red: #C0392B;
+    --navy: #1A3A6B;
     --gold: #F5C842;
-    --blush: #F3D0FF;
+    --blush: #FFD0D0;
     --white: #FFFFFF;
     --text-dim: rgba(255, 255, 255, 0.72);
 }
@@ -23,19 +24,19 @@
     display: flex;
     align-items: center;
     gap: 0;
-    background: linear-gradient(110deg, #4A0080 0%, #7B22D4 45%, #9B35E8 100%);
+    background: linear-gradient(110deg, #6B0000 0%, #9B1C1C 45%, #1A3A6B 100%);
     border-radius: 16px;
     padding: 18px 28px;
-    box-shadow: 0 8px 36px rgba(107, 31, 162, 0.45);
+    box-shadow: 0 8px 36px rgba(155, 28, 28, 0.45);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .wdb-banner.wdb-hovered {
     transform: translateY(-2px);
-    box-shadow: 0 14px 48px rgba(107, 31, 162, 0.60);
+    box-shadow: 0 14px 48px rgba(155, 28, 28, 0.60);
 }
 
-/* ── Decorative petals ── */
+/* ── Decorative kidney shapes ── */
 .wdb-petal {
     position: absolute;
     color: rgba(255, 255, 255, 0.08);
@@ -58,13 +59,8 @@
 }
 
 @keyframes spin {
-    from {
-        transform: rotate(0deg);
-    }
-
-    to {
-        transform: rotate(360deg);
-    }
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
 }
 
 /* ── Dividers ── */
@@ -179,7 +175,7 @@
 .wdb-cta {
     display: inline-block;
     background: var(--gold);
-    color: #3A0060;
+    color: #6B0000;
     font-family: 'DM Sans', sans-serif;
     font-weight: 700;
     font-size: 0.82rem;
@@ -199,11 +195,8 @@
 }
 
 /* ── Responsive ── */
-
 @media (max-width: 1150px) {
-    .wdb-pill {
-        font-size: 0.7rem;
-    }
+    .wdb-pill { font-size: 0.7rem; }
 }
 
 @media (max-width: 885px) {
@@ -213,7 +206,6 @@
         padding-right: 1rem;
         align-items: center;
     }
-
 }
 
 @media (max-width: 830px) {
@@ -224,9 +216,7 @@
         padding: 20px 20px;
     }
 
-    .wdb-left {
-        align-items: center;
-    }
+    .wdb-left { align-items: center; }
 
     .wdb-left,
     .wdb-center {
@@ -239,9 +229,7 @@
         width: 100%;
     }
 
-    .wdb-center {
-        padding: 0rem 0.75rem;
-    }
+    .wdb-center { padding: 0rem 0.75rem; }
 
     .wdb-right {
         align-items: flex-start;
@@ -249,18 +237,10 @@
         padding: 0rem 0.75rem;
     }
 
-    .wdb-contact {
-        text-align: left;
-
-    }
+    .wdb-contact { text-align: left; }
 }
 
 @media (max-width: 775px) {
-    .wdb-sub {
-        display: none;
-    }
-
-    .wdb-tag {
-        font-size: 1.4rem;
-    }
+    .wdb-sub { display: none; }
+    .wdb-tag { font-size: 1.4rem; }
 }

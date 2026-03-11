@@ -2,11 +2,11 @@ import { useState } from "react";
 import "./temp-offer.css";
 
 const tests = [
-  "Haemogram", "ESR & CUE", "Stool Routine & RBS",
-  "Creatinine & TSH", "X-Ray Chest", "USG Abd & Pelvic", "Papsmear"
+  "Complete Blood Picture", "Complete Urine Examination", "Blood Urea",
+  "Creatinine", "eGFR", "Urine for Microalbumin"
 ];
 
-export default function WomensDayBanner() {
+export default function KidneyDayBanner() {
   const [hovered, setHovered] = useState(false);
 
   return (
@@ -18,15 +18,15 @@ export default function WomensDayBanner() {
       >
         {/* Left: Occasion */}
         <div className="wdb-left">
-          <span className="wdb-tag">🌸 International Women's Day</span>
+          <span className="wdb-tag">🫘 World Kidney Day</span>
           <p className="wdb-sub">Dr Saleem Ahmed Memorial Vision Diagnostic Centre</p>
         </div>
 
         {/* Center: Offer */}
         <div className="wdb-center">
-          <div className="wdb-offer-label">Well Women Checkup</div>
+          <div className="wdb-offer-label">Essential CKD Screening Package</div>
           <div className="wdb-price">
-            <span className="wdb-currency">₹</span>1000
+            <span className="wdb-currency">₹</span>900
           </div>
           <div className="wdb-pills">
             {tests.map((t) => (
@@ -37,12 +37,12 @@ export default function WomensDayBanner() {
 
         {/* Right: CTA */}
         <div className="wdb-right">
-          <a href="/health-packages/Well%20Women%20Check-up" className="wdb-cta">Book Now</a>
+          <a href="/health-packages/CKD-Screening" className="wdb-cta">Book Now</a>
         </div>
 
-        {/* Decorative petals */}
-        <div className="wdb-petal wdb-petal-1">✿</div>
-        <div className="wdb-petal wdb-petal-2">✾</div>
+        {/* Decorative kidney shapes */}
+        <div className="wdb-petal wdb-petal-1">🫘</div>
+        <div className="wdb-petal wdb-petal-2">🫘</div>
       </div>
     </div>
   );
