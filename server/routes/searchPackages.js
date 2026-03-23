@@ -11,7 +11,7 @@ router.get('/all-packages', async (req, res) => {
             packs: allPackages
         });
     }
-    catch {
+    catch (err) {
         console.error("Error fetching all packages:", err);
         res.status(500).json({ message: "Failed to retrieve packages", error: err.message });
     }
@@ -35,7 +35,7 @@ router.get('/:id', async (req, res) => {
 
         })
     }
-    catch {
+    catch (err) {
         console.log(err)
         return res.status(500).json({
             success: false,

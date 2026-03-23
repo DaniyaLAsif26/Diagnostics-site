@@ -11,7 +11,7 @@ router.get("/popular-tests-packs", async (req, res) => {
             Package.find().limit(3)
         ]);
         res.json({ tests, packages });
-    } catch {
+    } catch(err) {
         console.error("Error fetching all packages:", err);
         res.status(500).json({ message: "Failed to retrieve packages", error: err.message });
     }
